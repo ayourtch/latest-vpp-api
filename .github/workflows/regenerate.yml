@@ -50,6 +50,7 @@ jobs:
          SECRET_SSH_KEY: ${{ secrets.VPP_LATEST_API_PRIVATE_SSH_KEY }}
       run: |
          echo "$SECRET_SSH_KEY" >secret_ssh_key
+         chmod 600 secret_ssh_key
          ssh-agent bash -c 'ssh-add secret_ssh_key; git clone git@github.com:ayourtch/latest-vpp-api.git'
          cd latest-vpp-api
          cp -r ../latest_vpp_api/*
