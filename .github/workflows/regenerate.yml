@@ -59,9 +59,14 @@ jobs:
         cd ..
     - name: Update code
       run: |
+         echo "Directory:"
+         ls -al
+         echo "Generated code:"
+         ls -la latest_vpp_api/
          cd latest-vpp-api
          cp -r ../latest_vpp_api/*
-         git add .
+         echo "Current dir before checkin: $(pwd)"
+         git add *
          git commit -a -m "Auto-update at $(date)"
          ssh-agent bash -c 'ssh-add ../secret_ssh_key; git push origin main'
 
