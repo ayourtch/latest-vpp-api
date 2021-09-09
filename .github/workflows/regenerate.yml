@@ -1,0 +1,65 @@
+name: Regenerate API
+
+on:
+  schedule:
+  - cron:  '42 4 * * *'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install and start VPP
+      run: |
+        curl -s https://packagecloud.io/install/repositories/fdio/master/script.deb.sh | sudo bash
+        sudo apt-get install vpp libvppinfra libvppinfra-dev vpp-plugin-core vpp-plugin-dpdk python3-vpp-api vpp-dbg vpp-dev
+        echo "#"  | sudo tee -a /etc/vpp/startup.conf
+        echo "plugins { plugin dpdk_plugin.so { disable } }" | sudo tee -a /etc/vpp/startup.conf
+        echo "#" | sudo tee -a /etc/vpp/startup.conf
+        sudo service vpp stop
+        sudo service vpp start
+        echo "Sleeping for 10 sec"
+        sleep 10
+        echo "Changing permissions and testing that VPP is alive"
+        sudo chmod o+w /run/vpp/api.sock
+        sudo chmod o+w /run/vpp/cli.sock
+        vppctl show version
+    - name: Install build prerequisites
+      run: |
+        sudo apt-get install -y build-essential clang-12
+    - name: Create a test package
+      run: |
+        git clone https://github.com/ayourtch/vpp-api-gen
+        cd vpp-api-gen
+        cargo run -- --in-file /usr/share/vpp/api/ --parse-type Tree --create-package --package-name latest_vpp_api
+        cd ..
+    - name: Run tests
+      run: |
+        cd latest_vpp_api
+        cargo test -- --test-threads 1
+        cargo clean
+        cd ..
+    - name: update code
+      env:
+         SECRET_SSH_KEY: ${{ secrets.VPP_LATEST_API_PRIVATE_SSH_KEY }}
+      run: |
+         echo "$SECRET_SSH_KEY" >secret_ssh_key
+         ssh-agent bash -c 'ssh-add secret_ssh_key; git clone git@github.com:ayourtch/latest-vpp-api.git'
+         cd latest-vpp-api
+         cp -r ../latest_vpp_api/*
+         git add .
+         git config user.email "ayourtch+ghjobs@gmail.com"
+         git config user.name  "Andrew Yourtchenko (ghjobs)"
+         git commit -a -m "Auto-update at $(date)"
+         ssh-agent bash -c 'ssh-add ../secret_ssh_key; git push origin main'
+
+
+
+
+
