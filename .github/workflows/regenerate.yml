@@ -67,7 +67,7 @@ jobs:
          cp -r ../latest_vpp_api/* .
          echo "Current dir before checkin: $(pwd)"
          git add *
-         git commit -a -m "Auto-update at $(date)"
+         git commit -a -m "Auto-update at $(date)" || echo "Nothing to commit, so this will be an empty run"
          ssh-agent bash -c 'ssh-add ../secret_ssh_key; git push origin main'
 
 
