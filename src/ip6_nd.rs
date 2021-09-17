@@ -67,6 +67,20 @@ pub struct SwInterfaceIp6ndRaPrefixReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip6nd_proxy_enable_disable_7daa1e3a)] 
+pub struct Ip6ndProxyEnableDisable { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub is_enable : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip6nd_proxy_enable_disable_reply_e8d4e804)] 
+pub struct Ip6ndProxyEnableDisableReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(ip6nd_proxy_add_del_c2e4a686)] 
 pub struct Ip6ndProxyAddDel { 
 	pub client_index : u32, 

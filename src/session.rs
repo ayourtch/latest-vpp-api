@@ -185,6 +185,20 @@ pub struct AppNamespaceAddDelV2 {
 	pub netns : FixedSizeString<typenum::U64>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(app_namespace_add_del_v3_8a7e40a1)] 
+pub struct AppNamespaceAddDelV3 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub secret : u64, 
+	pub is_add : bool, 
+	pub sw_if_index : InterfaceIndex, 
+	pub ip4_fib_id : u32, 
+	pub ip6_fib_id : u32, 
+	pub namespace_id : FixedSizeString<typenum::U64>, 
+	pub netns : FixedSizeString<typenum::U64>, 
+	pub sock_name : VariableSizeString, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(app_namespace_add_del_reply_85137120)] 
 pub struct AppNamespaceAddDelReply { 
 	pub context : u32, 
@@ -194,6 +208,13 @@ pub struct AppNamespaceAddDelReply {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(app_namespace_add_del_v2_reply_85137120)] 
 pub struct AppNamespaceAddDelV2Reply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub appns_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(app_namespace_add_del_v3_reply_85137120)] 
+pub struct AppNamespaceAddDelV3Reply { 
 	pub context : u32, 
 	pub retval : i32, 
 	pub appns_index : u32, 
