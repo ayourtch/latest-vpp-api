@@ -132,6 +132,20 @@ pub struct IpTableAddDelReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip_table_allocate_b9d2e09e)] 
+pub struct IpTableAllocate { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub table : IpTable, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip_table_allocate_reply_1728303a)] 
+pub struct IpTableAllocateReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub table : IpTable, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(ip_table_dump_51077d14)] 
 pub struct IpTableDump { 
 	pub client_index : u32, 
