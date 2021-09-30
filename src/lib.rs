@@ -71,6 +71,7 @@ pub mod flow_types;
 pub mod sr; 
 pub mod p2p_ethernet; 
 pub mod ipfix_export; 
+pub mod vlib; 
 pub mod feature; 
 pub mod crypto; 
 pub mod ip; 

@@ -7,9 +7,9 @@ use latest_vpp_api::ip_types::*;
 use latest_vpp_api::reqrecv::*;
 use latest_vpp_api::vhost_user::*;
 use latest_vpp_api::virtio_types::*;
-use latest_vpp_api::vpe::CliInband;
-use latest_vpp_api::vpe::CliInbandReply;
-use latest_vpp_api::vpe::*;
+use latest_vpp_api::vlib::CliInband;
+use latest_vpp_api::vlib::CliInbandReply;
+use latest_vpp_api::vlib::*;
 use vpp_api_transport::afunix;
 use vpp_api_transport::VppApiTransport;
 

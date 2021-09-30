@@ -27,6 +27,28 @@ pub struct AfPacketCreateReply {
 	pub sw_if_index : InterfaceIndex, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(af_packet_create_v2_4aff0436)] 
+pub struct AfPacketCreateV2 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub hw_addr : MacAddress, 
+	pub use_random_hw_addr : bool, 
+	pub host_if_name : FixedSizeString<typenum::U64>, 
+	pub rx_frame_size : u32, 
+	pub tx_frame_size : u32, 
+	pub rx_frames_per_block : u32, 
+	pub tx_frames_per_block : u32, 
+	pub flags : u32, 
+	pub num_rx_queues : u16, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(af_packet_create_v2_reply_5383d31f)] 
+pub struct AfPacketCreateV2Reply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(af_packet_delete_863fa648)] 
 pub struct AfPacketDelete { 
 	pub client_index : u32, 
