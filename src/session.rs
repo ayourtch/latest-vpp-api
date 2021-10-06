@@ -162,6 +162,19 @@ pub struct SessionEnableDisableReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(session_sapi_enable_disable_c264d7bf)] 
+pub struct SessionSapiEnableDisable { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub is_enable : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(session_sapi_enable_disable_reply_e8d4e804)] 
+pub struct SessionSapiEnableDisableReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(app_namespace_add_del_6306aecb)] 
 pub struct AppNamespaceAddDel { 
 	pub client_index : u32, 

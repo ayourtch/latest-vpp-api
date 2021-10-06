@@ -621,9 +621,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.78"
+version = "1.0.80"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4eac2e6c19f5c3abc0c229bea31ff0b9b091c7b14990e8924b92902a303a0c0"
+checksum = "d010a1623fbd906d51d650a9916aaefc05ffa0e4053ff7fe601167f3e715d194"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -668,9 +668,9 @@ dependencies = [
 
 [[package]]
 name = "trybuild"
-version = "1.0.45"
+version = "1.0.46"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5bdaf2a1d317f3d58b44b31c7f6436b9b9acafe7bddfeace50897c2b804d7792"
+checksum = "26d546652bb2140ab432f8022a8a89d661798224094756558084bac4eb34e61a"
 dependencies = [
  "dissimilar",
  "glob",
