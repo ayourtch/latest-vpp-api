@@ -273,6 +273,21 @@ pub struct InputAclSetInterfaceReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(punt_acl_add_del_a93bf3a0)] 
+pub struct PuntAclAddDel { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub ip4_table_index : u32, 
+	pub ip6_table_index : u32, 
+	pub is_add : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(punt_acl_add_del_reply_e8d4e804)] 
+pub struct PuntAclAddDelReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(output_acl_set_interface_de7ad708)] 
 pub struct OutputAclSetInterface { 
 	pub client_index : u32, 

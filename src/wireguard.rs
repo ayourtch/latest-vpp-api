@@ -36,6 +36,7 @@ pub struct WireguardPeer {
 #[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
 pub enum WireguardPeerFlags { 
 	 WIREGUARD_PEER_STATUS_DEAD=1, 
+	 WIREGUARD_PEER_ESTABLISHED=2, 
 } 
 impl Default for WireguardPeerFlags { 
 	fn default() -> Self { WireguardPeerFlags::WIREGUARD_PEER_STATUS_DEAD }
@@ -47,6 +48,7 @@ impl AsEnumFlag for WireguardPeerFlags {
 	 fn from_u32(data: u32) -> Self{
 		 match data{
 			 1 => WireguardPeerFlags::WIREGUARD_PEER_STATUS_DEAD, 
+			 2 => WireguardPeerFlags::WIREGUARD_PEER_ESTABLISHED, 
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
@@ -97,7 +99,31 @@ pub struct WireguardInterfaceDetails {
 	pub interface : WireguardInterface, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(wireguard_peer_add_ed792326)] 
+#[message_name_and_crc(want_wireguard_peer_events_3bc666c8)] 
+pub struct WantWireguardPeerEvents { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub peer_index : u32, 
+	pub enable_disable : u32, 
+	pub pid : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(want_wireguard_peer_events_reply_e8d4e804)] 
+pub struct WantWireguardPeerEventsReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(wireguard_peer_event_4e1b5d67)] 
+pub struct WireguardPeerEvent { 
+	pub client_index : u32, 
+	pub pid : u32, 
+	pub peer_index : u32, 
+	 pub flags : EnumFlag<WireguardPeerFlags>, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(wireguard_peer_add_aedf8d59)] 
 pub struct WireguardPeerAdd { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -124,13 +150,14 @@ pub struct WireguardPeerRemoveReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(wireguard_peers_dump_51077d14)] 
+#[message_name_and_crc(wireguard_peers_dump_3b74607a)] 
 pub struct WireguardPeersDump { 
 	pub client_index : u32, 
 	pub context : u32, 
+	pub peer_index : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(wireguard_peers_details_2097f740)] 
+#[message_name_and_crc(wireguard_peers_details_29269d0e)] 
 pub struct WireguardPeersDetails { 
 	pub context : u32, 
 	pub peer : WireguardPeer, 
