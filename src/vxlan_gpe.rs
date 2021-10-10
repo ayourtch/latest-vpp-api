@@ -25,8 +25,31 @@ pub struct VxlanGpeAddDelTunnel {
 	pub is_add : bool, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vxlan_gpe_add_del_tunnel_v2_d62fdb35)] 
+pub struct VxlanGpeAddDelTunnelV2 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub local : Address, 
+	pub remote : Address, 
+	pub local_port : u16, 
+	pub remote_port : u16, 
+	pub mcast_sw_if_index : InterfaceIndex, 
+	pub encap_vrf_id : u32, 
+	pub decap_vrf_id : u32, 
+	pub protocol : IpProto, 
+	pub vni : u32, 
+	pub is_add : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(vxlan_gpe_add_del_tunnel_reply_5383d31f)] 
 pub struct VxlanGpeAddDelTunnelReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vxlan_gpe_add_del_tunnel_v2_reply_5383d31f)] 
+pub struct VxlanGpeAddDelTunnelV2Reply { 
 	pub context : u32, 
 	pub retval : i32, 
 	pub sw_if_index : InterfaceIndex, 
@@ -39,12 +62,35 @@ pub struct VxlanGpeTunnelDump {
 	pub sw_if_index : InterfaceIndex, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vxlan_gpe_tunnel_v2_dump_f9e6675e)] 
+pub struct VxlanGpeTunnelV2Dump { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(vxlan_gpe_tunnel_details_0968fc8b)] 
 pub struct VxlanGpeTunnelDetails { 
 	pub context : u32, 
 	pub sw_if_index : InterfaceIndex, 
 	pub local : Address, 
 	pub remote : Address, 
+	pub vni : u32, 
+	pub protocol : IpProto, 
+	pub mcast_sw_if_index : InterfaceIndex, 
+	pub encap_vrf_id : u32, 
+	pub decap_vrf_id : u32, 
+	pub is_ipv6 : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vxlan_gpe_tunnel_v2_details_06be4870)] 
+pub struct VxlanGpeTunnelV2Details { 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub local : Address, 
+	pub remote : Address, 
+	pub local_port : u16, 
+	pub remote_port : u16, 
 	pub vni : u32, 
 	pub protocol : IpProto, 
 	pub mcast_sw_if_index : InterfaceIndex, 
