@@ -146,17 +146,3 @@ pub struct GetF64IncrementByOneReply {
 	pub retval : u32, 
 	pub f64_value : f64, 
 } 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(control_ping_51077d14)] 
-pub struct ControlPing { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(control_ping_reply_f6b0b8ca)] 
-pub struct ControlPingReply { 
-	pub context : u32, 
-	pub retval : i32, 
-	pub client_index : u32, 
-	pub vpe_pid : u32, 
-} 
