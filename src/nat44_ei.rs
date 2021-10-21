@@ -419,6 +419,40 @@ pub struct Nat44EiInterfaceOutputFeatureDetails {
 	pub sw_if_index : InterfaceIndex, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ei_add_del_output_interface_47d6e753)] 
+pub struct Nat44EiAddDelOutputInterface { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub is_add : bool, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ei_add_del_output_interface_reply_e8d4e804)] 
+pub struct Nat44EiAddDelOutputInterfaceReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ei_output_interface_get_f75ba505)] 
+pub struct Nat44EiOutputInterfaceGet { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub cursor : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ei_output_interface_get_reply_53b48f5d)] 
+pub struct Nat44EiOutputInterfaceGetReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub cursor : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ei_output_interface_details_0b45011c)] 
+pub struct Nat44EiOutputInterfaceDetails { 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat44_ei_add_del_static_mapping_b404b7fe)] 
 pub struct Nat44EiAddDelStaticMapping { 
 	pub client_index : u32, 
