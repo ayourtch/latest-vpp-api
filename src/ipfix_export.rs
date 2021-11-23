@@ -48,6 +48,53 @@ pub struct IpfixExporterDetails {
 	pub udp_checksum : bool, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ipfix_exporter_create_delete_0753a768)] 
+pub struct IpfixExporterCreateDelete { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub is_create : bool, 
+	pub collector_address : Address, 
+	pub collector_port : u16, 
+	pub src_address : Address, 
+	pub vrf_id : u32, 
+	pub path_mtu : u32, 
+	pub template_interval : u32, 
+	pub udp_checksum : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ipfix_exporter_create_delete_reply_9ffac24b)] 
+pub struct IpfixExporterCreateDeleteReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub stat_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ipfix_all_exporter_get_f75ba505)] 
+pub struct IpfixAllExporterGet { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub cursor : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ipfix_all_exporter_get_reply_53b48f5d)] 
+pub struct IpfixAllExporterGetReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub cursor : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ipfix_all_exporter_details_0dedbfe4)] 
+pub struct IpfixAllExporterDetails { 
+	pub context : u32, 
+	pub collector_address : Address, 
+	pub collector_port : u16, 
+	pub src_address : Address, 
+	pub vrf_id : u32, 
+	pub path_mtu : u32, 
+	pub template_interval : u32, 
+	pub udp_checksum : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(set_ipfix_classify_stream_c9cbe053)] 
 pub struct SetIpfixClassifyStream { 
 	pub client_index : u32, 
