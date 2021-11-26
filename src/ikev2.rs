@@ -5,7 +5,8 @@
 use vpp_api_macros::{VppMessage,VppUnionIdent}; 
 use std::convert::TryInto; 
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
-use vpp_api_encoding::typ::*;
+pub use vpp_api_encoding::typ::*;
+pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
