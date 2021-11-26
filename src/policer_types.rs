@@ -6,7 +6,7 @@ use vpp_api_macros::{VppMessage,VppUnionIdent};
 use std::convert::TryInto; 
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use vpp_api_encoding::typ::*;
-use crate::VppNamedMessage;
+use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 // Implementation for sse2_qos_action 

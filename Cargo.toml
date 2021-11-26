@@ -7,6 +7,7 @@ edition = "2018"
 [dev-dependencies] 
 trybuild = {version = "1.0", features = ["diff"]} 
 
+vpp-api-transport = { git="https://github.com/ayourtch/vpp-api-transport/", branch="main" } 
 [dependencies] 
 serde = { version = "1.0", features = ["derive"] } 
 serde_json = "1.0" 
@@ -22,7 +23,7 @@ typenum = "*"
 bincode = "1.2.1" 
 serde_yaml = "0.8" 
 vpp-api-encoding = {git="https://github.com/ayourtch/vpp-api-encoding", branch="main" } 
-vpp-api-transport = { git="https://github.com/ayourtch/vpp-api-transport/", branch="main" } 
+vpp-api-message = "*" 
 lazy_static = "1.4.0" 
 regex = "1" 
 syn ={ version= "1.0", features=["extra-traits","full"]} 

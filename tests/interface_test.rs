@@ -10,10 +10,10 @@ use bincode::Options;
 use latest_vpp_api::interface::*;
 use latest_vpp_api::interface_types::*;
 use latest_vpp_api::ip_types::*;
-use latest_vpp_api::reqrecv::*;
 
 use vpp_api_transport::afunix;
 use vpp_api_transport::VppApiTransport;
+use vpp_api_transport::reqrecv::*;
 
 fn get_encoder() -> impl bincode::config::Options {
     bincode::DefaultOptions::new()

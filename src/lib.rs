@@ -1,7 +1,3 @@
-pub mod reqrecv; 
-pub trait VppNamedMessage {
- fn get_message_name_and_crc() -> String;
-}
 pub mod dhcp6_ia_na_client_cp; 
 pub mod flowprobe; 
 pub mod urpf; 
