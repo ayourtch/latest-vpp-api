@@ -54,7 +54,7 @@ pub enum FibPathNhProto {
 impl Default for FibPathNhProto { 
 	fn default() -> Self { FibPathNhProto::FIB_API_PATH_NH_PROTO_IP4 }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum FibPathFlags { 
 	 FIB_API_PATH_FLAG_NONE=0, 
 	 FIB_API_PATH_FLAG_RESOLVE_VIA_ATTACHED=1, 

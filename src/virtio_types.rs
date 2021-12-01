@@ -10,7 +10,7 @@ pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum VirtioNetFeaturesFirst32 { 
 	 VIRTIO_NET_F_API_CSUM=1, 
 	 VIRTIO_NET_F_API_GUEST_CSUM=2, 

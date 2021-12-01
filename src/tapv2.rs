@@ -13,7 +13,7 @@ use typenum;
 use crate::ip_types::*; 
 use crate::interface_types::*; 
 use crate::ethernet_types::*; 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum TapFlags { 
 	 TAP_API_FLAG_GSO=1, 
 	 TAP_API_FLAG_CSUM_OFFLOAD=2, 

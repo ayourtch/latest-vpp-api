@@ -10,7 +10,7 @@ pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum NodeFlag { 
 	 NODE_FLAG_FRAME_NO_FREE_AFTER_DISPATCH=1, 
 	 NODE_FLAG_IS_OUTPUT=2, 

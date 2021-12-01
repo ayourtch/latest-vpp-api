@@ -26,7 +26,7 @@ pub struct Tunnel {
 	pub dscp : IpDscp, 
 	pub hop_limit : u8, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum TunnelEncapDecapFlags { 
 	 TUNNEL_API_ENCAP_DECAP_FLAG_NONE=0, 
 	 TUNNEL_API_ENCAP_DECAP_FLAG_ENCAP_COPY_DF=1, 
@@ -72,7 +72,7 @@ pub enum TunnelMode {
 impl Default for TunnelMode { 
 	fn default() -> Self { TunnelMode::TUNNEL_API_MODE_P2P }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum TunnelFlags { 
 	 TUNNEL_API_FLAG_TRACK_MTU=1, 
 } 

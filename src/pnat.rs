@@ -34,7 +34,7 @@ pub struct PnatRewriteTuple {
 	pub to_offset : u8, 
 	pub clear_offset : u8, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum PnatMask { 
 	 PNAT_SA=1, 
 	 PNAT_DA=2, 

@@ -35,7 +35,7 @@ pub struct WireguardPeer {
 	pub n_allowed_ips : u8, 
 	pub allowed_ips : VariableSizeArray<Prefix>, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum WireguardPeerFlags { 
 	 WIREGUARD_PEER_STATUS_DEAD=1, 
 	 WIREGUARD_PEER_ESTABLISHED=2, 

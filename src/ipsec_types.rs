@@ -106,7 +106,7 @@ pub enum IpsecIntegAlg {
 impl Default for IpsecIntegAlg { 
 	fn default() -> Self { IpsecIntegAlg::IPSEC_API_INTEG_ALG_NONE }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum IpsecSadFlags { 
 	 IPSEC_API_SAD_FLAG_NONE=0, 
 	 IPSEC_API_SAD_FLAG_USE_ESN=1, 

@@ -11,7 +11,7 @@ use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::interface_types::*; 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum FlowprobeWhichFlags { 
 	 FLOWPROBE_WHICH_FLAG_IP4=1, 
 	 FLOWPROBE_WHICH_FLAG_L2=2, 
@@ -36,7 +36,7 @@ impl AsEnumFlag for FlowprobeWhichFlags {
 		 8 as u32
 	}
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum FlowprobeRecordFlags { 
 	 FLOWPROBE_RECORD_FLAG_L2=1, 
 	 FLOWPROBE_RECORD_FLAG_L3=2, 

@@ -209,7 +209,7 @@ pub enum FlowType {
 impl Default for FlowType { 
 	fn default() -> Self { FlowType::FLOW_TYPE_ETHERNET }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum FlowAction { 
 	 FLOW_ACTION_COUNT=1, 
 	 FLOW_ACTION_MARK=2, 

@@ -13,7 +13,7 @@ use typenum;
 use crate::ip_types::*; 
 use crate::nat_types::*; 
 use crate::interface_types::*; 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum Nat44EiConfigFlags { 
 	 NAT44_EI_NONE=0, 
 	 NAT44_EI_STATIC_MAPPING_ONLY=1, 

@@ -21,7 +21,7 @@ pub enum AfXdpMode {
 impl Default for AfXdpMode { 
 	fn default() -> Self { AfXdpMode::AF_XDP_API_MODE_AUTO }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum AfXdpFlag { 
 	 AF_XDP_API_FLAGS_NO_SYSCALL_LOCK=1, 
 } 

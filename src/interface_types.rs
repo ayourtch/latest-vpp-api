@@ -10,7 +10,7 @@ pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum IfStatusFlags { 
 	 IF_STATUS_API_FLAG_ADMIN_UP=1, 
 	 IF_STATUS_API_FLAG_LINK_UP=2, 
@@ -54,7 +54,7 @@ pub enum LinkDuplex {
 impl Default for LinkDuplex { 
 	fn default() -> Self { LinkDuplex::LINK_DUPLEX_API_UNKNOWN }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum SubIfFlags { 
 	 SUB_IF_API_FLAG_NO_TAGS=1, 
 	 SUB_IF_API_FLAG_ONE_TAG=2, 

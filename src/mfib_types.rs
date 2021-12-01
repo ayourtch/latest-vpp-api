@@ -18,7 +18,7 @@ pub struct MfibPath {
 	pub itf_flags : EnumFlag<MfibItfFlags>, 
 	pub path : FibPath, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum MfibEntryFlags { 
 	 MFIB_API_ENTRY_FLAG_NONE=0, 
 	 MFIB_API_ENTRY_FLAG_SIGNAL=1, 
@@ -47,7 +47,7 @@ impl AsEnumFlag for MfibEntryFlags {
 		 32 as u32
 	}
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum MfibItfFlags { 
 	 MFIB_API_ITF_FLAG_NONE=0, 
 	 MFIB_API_ITF_FLAG_NEGATE_SIGNAL=1, 

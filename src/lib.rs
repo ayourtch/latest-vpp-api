@@ -24,6 +24,7 @@ pub mod acl;
 pub mod vmxnet3; 
 pub mod ioam_export; 
 pub mod af_xdp; 
+pub mod rdma; 
 pub mod http_static; 
 pub mod abf; 
 pub mod nat64; 

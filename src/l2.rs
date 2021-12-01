@@ -45,7 +45,7 @@ pub enum MacEventAction {
 impl Default for MacEventAction { 
 	fn default() -> Self { MacEventAction::MAC_EVENT_ACTION_API_ADD }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum BdFlags { 
 	 BRIDGE_API_FLAG_NONE=0, 
 	 BRIDGE_API_FLAG_LEARN=1, 

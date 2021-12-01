@@ -10,7 +10,7 @@ pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum TraceFilterFlag { 
 	 TRACE_FF_NONE=0, 
 	 TRACE_FF_INCLUDE_NODE=1, 

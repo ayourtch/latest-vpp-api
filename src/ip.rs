@@ -84,7 +84,7 @@ pub enum IpReassType {
 impl Default for IpReassType { 
 	fn default() -> Self { IpReassType::IP_REASS_TYPE_FULL }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum IpFlowHashConfig { 
 	 IP_API_FLOW_HASH_SRC_IP=1, 
 	 IP_API_FLOW_HASH_DST_IP=2, 

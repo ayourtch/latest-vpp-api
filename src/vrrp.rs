@@ -51,7 +51,7 @@ pub struct VrrpVrTrackIf {
 	pub sw_if_index : InterfaceIndex, 
 	pub priority : u8, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum VrrpVrFlags { 
 	 VRRP_API_VR_PREEMPT=1, 
 	 VRRP_API_VR_ACCEPT=2, 

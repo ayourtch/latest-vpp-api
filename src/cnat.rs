@@ -50,7 +50,7 @@ pub struct CnatSession {
 	pub location : u8, 
 	pub timestamp : f64, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum CnatTranslationFlags { 
 	 CNAT_TRANSLATION_ALLOC_PORT=1, 
 } 
@@ -71,7 +71,7 @@ impl AsEnumFlag for CnatTranslationFlags {
 		 8 as u32
 	}
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum CnatEndpointTupleFlags { 
 	 CNAT_EPT_NO_NAT=1, 
 } 

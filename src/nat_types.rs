@@ -31,7 +31,7 @@ pub enum NatLogLevel {
 impl Default for NatLogLevel { 
 	fn default() -> Self { NatLogLevel::NAT_LOG_NONE }
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum NatConfigFlags { 
 	 NAT_IS_NONE=0, 
 	 NAT_IS_TWICE_NAT=1, 

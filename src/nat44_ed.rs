@@ -21,7 +21,7 @@ pub struct Nat44LbAddrPort {
 	pub probability : u8, 
 	pub vrf_id : u32, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum Nat44ConfigFlags { 
 	 NAT44_IS_ENDPOINT_INDEPENDENT=0, 
 	 NAT44_IS_ENDPOINT_DEPENDENT=1, 

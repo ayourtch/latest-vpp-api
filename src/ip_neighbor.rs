@@ -21,7 +21,7 @@ pub struct IpNeighbor {
 	pub mac_address : MacAddress, 
 	pub ip_address : Address, 
 } 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum IpNeighborFlags { 
 	 IP_API_NEIGHBOR_FLAG_NONE=0, 
 	 IP_API_NEIGHBOR_FLAG_STATIC=1, 
@@ -46,7 +46,7 @@ impl AsEnumFlag for IpNeighborFlags {
 		 8 as u32
 	}
 }
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum IpNeighborEventFlags { 
 	 IP_NEIGHBOR_API_EVENT_FLAG_ADDED=1, 
 	 IP_NEIGHBOR_API_EVENT_FLAG_REMOVED=2, 

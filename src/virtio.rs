@@ -13,7 +13,7 @@ use typenum;
 use crate::pci_types::*; 
 use crate::interface_types::*; 
 use crate::ethernet_types::*; 
-#[derive(Debug,Serialize, Deserialize, Clone, Copy)] 
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum VirtioFlags { 
 	 VIRTIO_API_FLAG_GSO=1, 
 	 VIRTIO_API_FLAG_CSUM_OFFLOAD=2, 
