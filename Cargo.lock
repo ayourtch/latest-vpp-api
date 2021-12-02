@@ -746,7 +746,7 @@ checksum = "5fecdca9a5291cc2b8dcf7dc02453fee791a280f3743cb0905f8822ae463b3fe"
 [[package]]
 name = "vpp-api-encoding"
 version = "0.1.0"
-source = "git+https://github.com/ayourtch/vpp-api-encoding?branch=main#fc670126c3762af18c93d45bea14015b1cce1da1"
+source = "git+https://github.com/ayourtch/vpp-api-encoding?branch=main#a47f52b9f7a6efcba50957b17846dfc7ff848c54"
 dependencies = [
  "bincode",
  "clap 3.0.0-beta.5",
