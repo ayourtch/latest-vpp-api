@@ -335,6 +335,22 @@ pub struct SwInterfaceSetRxPlacementReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(sw_interface_set_tx_placement_4e0cd5ff)] 
+pub struct SwInterfaceSetTxPlacement { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub queue_id : u32, 
+	pub array_size : u32, 
+	pub threads : VariableSizeArray<u32>, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(sw_interface_set_tx_placement_reply_e8d4e804)] 
+pub struct SwInterfaceSetTxPlacementReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(sw_interface_set_interface_name_45a1d548)] 
 pub struct SwInterfaceSetInterfaceName { 
 	pub client_index : u32, 
@@ -364,6 +380,32 @@ pub struct SwInterfaceRxPlacementDetails {
 	pub queue_id : u32, 
 	pub worker_id : u32, 
 	pub mode : RxMode, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(sw_interface_tx_placement_get_47250981)] 
+pub struct SwInterfaceTxPlacementGet { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub cursor : u32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(sw_interface_tx_placement_get_reply_53b48f5d)] 
+pub struct SwInterfaceTxPlacementGetReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub cursor : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(sw_interface_tx_placement_details_00381a2e)] 
+pub struct SwInterfaceTxPlacementDetails { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub queue_id : u32, 
+	pub shared : u8, 
+	pub array_size : u32, 
+	pub threads : VariableSizeArray<u32>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(interface_name_renumber_2b8858b8)] 
