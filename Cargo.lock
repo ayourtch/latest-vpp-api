@@ -136,9 +136,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.0.0-rc.3"
+version = "3.0.0-rc.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "098d281b47bf725a0bddd829e0070ee76560faab8af123050a86c440d7f0a1fd"
+checksum = "967965e82fc46fee1a88147a7a977a66d615ed5f83eb95b18577b342c08f90ff"
 dependencies = [
  "atty",
  "bitflags",
@@ -227,9 +227,9 @@ dependencies = [
 
 [[package]]
 name = "hermit-abi"
-version = "0.1.20"
+version = "0.1.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7a30908dbce072eca83216eab939d2290080e00ca71611b96a09e5cdce5f3fa"
+checksum = "62b467343b94ba476dcb2500d242dadbb39557df889310ac77c5d99100aaac33"
 dependencies = [
  "libc",
 ]
@@ -270,7 +270,7 @@ name = "latest_vpp_api"
 version = "0.1.0"
 dependencies = [
  "bincode",
- "clap 3.0.0-rc.3",
+ "clap 3.0.0-rc.4",
  "convert_case",
  "env_logger 0.9.0",
  "lazy_static",
@@ -308,9 +308,9 @@ checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
 
 [[package]]
 name = "libc"
-version = "0.2.110"
+version = "0.2.109"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b58a4469763e4e3a906c4ed786e1c70512d16aa88f84dded826da42640fc6a1c"
+checksum = "f98a04dce437184842841303488f70d0188c5f51437d2a834dc097eafa909a01"
 
 [[package]]
 name = "libloading"
@@ -470,9 +470,9 @@ checksum = "f2cc38e8fa666e2de3c4aba7edeb5ffc5246c1c2ed0e3d17e560aeeba736b23f"
 
 [[package]]
 name = "ryu"
-version = "1.0.6"
+version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c9613b5a66ab9ba26415184cfc41156594925a9cf3a2057e57f31ff145f6568"
+checksum = "254df5081ce98661a883445175e52efe99d1cb2a5552891d965d2f5d0cad1c16"
 
 [[package]]
 name = "sct"
@@ -697,7 +697,7 @@ version = "0.1.0"
 source = "git+https://github.com/ayourtch/vpp-api-encoding?branch=main#a47f52b9f7a6efcba50957b17846dfc7ff848c54"
 dependencies = [
  "bincode",
- "clap 3.0.0-rc.3",
+ "clap 3.0.0-rc.4",
  "generic-array",
  "minreq",
  "serde",
