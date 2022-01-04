@@ -136,9 +136,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.0.0"
+version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d17bf219fcd37199b9a29e00ba65dfb8cd5b2688b7297ec14ff829c40ac50ca9"
+checksum = "b1121e32687f7f90b905d4775273305baa4f32cd418923e9b0fa726533221857"
 dependencies = [
  "atty",
  "bitflags",
@@ -264,7 +264,7 @@ name = "latest_vpp_api"
 version = "0.1.0"
 dependencies = [
  "bincode",
- "clap 3.0.0",
+ "clap 3.0.1",
  "convert_case",
  "env_logger 0.9.0",
  "lazy_static",
@@ -630,13 +630,13 @@ dependencies = [
 
 [[package]]
 name = "trybuild"
-version = "1.0.53"
+version = "1.0.54"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d664de8ea7e531ad4c0f5a834f20b8cb2b8e6dfe88d05796ee7887518ed67b9"
+checksum = "f04343ff86b62ca40bd5dca986aadf4f10c152a9ebe9a869e456b60fa85afd3f"
 dependencies = [
  "dissimilar",
  "glob",
- "lazy_static",
+ "once_cell",
  "serde",
  "serde_json",
  "termcolor",
@@ -691,7 +691,7 @@ version = "0.1.0"
 source = "git+https://github.com/ayourtch/vpp-api-encoding?branch=main#a47f52b9f7a6efcba50957b17846dfc7ff848c54"
 dependencies = [
  "bincode",
- "clap 3.0.0",
+ "clap 3.0.1",
  "generic-array",
  "minreq",
  "serde",
