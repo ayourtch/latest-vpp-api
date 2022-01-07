@@ -49,6 +49,46 @@ impl AsEnumFlag for TapFlags {
 	}
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(tap_create_v3_3f3fd1df)] 
+pub struct TapCreateV3 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub id : u32, 
+	pub use_random_mac : bool, 
+	pub mac_address : MacAddress, 
+	pub num_rx_queues : u16, 
+	pub num_tx_queues : u16, 
+	pub tx_ring_sz : u16, 
+	pub rx_ring_sz : u16, 
+	pub host_mtu_set : bool, 
+	pub host_mtu_size : u32, 
+	pub host_mac_addr_set : bool, 
+	pub host_mac_addr : MacAddress, 
+	pub host_ip4_prefix_set : bool, 
+	pub host_ip4_prefix : Ip4AddressWithPrefix, 
+	pub host_ip6_prefix_set : bool, 
+	pub host_ip6_prefix : Ip6AddressWithPrefix, 
+	pub host_ip4_gw_set : bool, 
+	pub host_ip4_gw : Ip4Address, 
+	pub host_ip6_gw_set : bool, 
+	pub host_ip6_gw : Ip6Address, 
+	 pub tap_flags : EnumFlag<TapFlags>, 
+	pub host_namespace_set : bool, 
+	pub host_namespace : FixedSizeString<typenum::U64>, 
+	pub host_if_name_set : bool, 
+	pub host_if_name : FixedSizeString<typenum::U64>, 
+	pub host_bridge_set : bool, 
+	pub host_bridge : FixedSizeString<typenum::U64>, 
+	pub tag : VariableSizeString, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(tap_create_v3_reply_5383d31f)] 
+pub struct TapCreateV3Reply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(tap_create_v2_2d0d6570)] 
 pub struct TapCreateV2 { 
 	pub client_index : u32, 
