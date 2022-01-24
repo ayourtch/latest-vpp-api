@@ -164,3 +164,16 @@ pub struct WireguardPeersDetails {
 	pub context : u32, 
 	pub peer : WireguardPeer, 
 } 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(wg_set_async_mode_a6465f7c)] 
+pub struct WgSetAsyncMode { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub async_enable : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(wg_set_async_mode_reply_e8d4e804)] 
+pub struct WgSetAsyncModeReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
