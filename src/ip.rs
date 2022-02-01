@@ -701,6 +701,34 @@ pub struct IpReassemblyEnableDisableReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip_local_reass_enable_disable_34e2ccc4)] 
+pub struct IpLocalReassEnableDisable { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub enable_ip4 : bool, 
+	pub enable_ip6 : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip_local_reass_enable_disable_reply_e8d4e804)] 
+pub struct IpLocalReassEnableDisableReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip_local_reass_get_51077d14)] 
+pub struct IpLocalReassGet { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(ip_local_reass_get_reply_3e93a702)] 
+pub struct IpLocalReassGetReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub ip4_is_enabled : bool, 
+	pub ip6_is_enabled : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(ip_path_mtu_update_10bbe5cb)] 
 pub struct IpPathMtuUpdate { 
 	pub client_index : u32, 
