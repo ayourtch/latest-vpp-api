@@ -88,6 +88,28 @@ pub struct BfdUdpAddReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(bfd_udp_upd_939cd26a)] 
+pub struct BfdUdpUpd { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub desired_min_tx : u32, 
+	pub required_min_rx : u32, 
+	pub local_addr : Address, 
+	pub peer_addr : Address, 
+	pub detect_mult : u8, 
+	pub is_authenticated : bool, 
+	pub bfd_key_id : u8, 
+	pub conf_key_id : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(bfd_udp_upd_reply_1992deab)] 
+pub struct BfdUdpUpdReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub stats_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(bfd_udp_mod_913df085)] 
 pub struct BfdUdpMod { 
 	pub client_index : u32, 
