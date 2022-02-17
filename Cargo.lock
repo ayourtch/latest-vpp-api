@@ -83,9 +83,9 @@ checksum = "a4a45a46ab1f2412e53d3a0ade76ffad2025804294569aae387231a0cd6e0899"
 
 [[package]]
 name = "cc"
-version = "1.0.72"
+version = "1.0.73"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22a9137b95ea06864e018375b72adfb7db6e6f68cfc8df5a04d00288050485ee"
+checksum = "2fff2a6927b3bb87f9595d67196a70493f627687a71d87a0d692242c33f58c11"
 
 [[package]]
 name = "cexpr"
@@ -130,9 +130,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.0.14"
+version = "3.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b63edc3f163b3c71ec8aa23f9bd6070f77edbf3d1d198b164afa90ff00e4ec62"
+checksum = "e5f1fea81f183005ced9e59cdb01737ef2423956dac5a6d731b06b2ecfaa3467"
 dependencies = [
  "atty",
  "bitflags",
@@ -258,7 +258,7 @@ name = "latest_vpp_api"
 version = "0.1.0"
 dependencies = [
  "bincode",
- "clap 3.0.14",
+ "clap 3.1.0",
  "convert_case",
  "env_logger 0.9.0",
  "lazy_static",
@@ -684,7 +684,7 @@ version = "0.1.0"
 source = "git+https://github.com/ayourtch/vpp-api-encoding?branch=main#a47f52b9f7a6efcba50957b17846dfc7ff848c54"
 dependencies = [
  "bincode",
- "clap 3.0.14",
+ "clap 3.1.0",
  "generic-array",
  "minreq",
  "serde",
