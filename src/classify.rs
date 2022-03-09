@@ -290,6 +290,20 @@ pub struct PuntAclAddDelReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(punt_acl_get_51077d14)] 
+pub struct PuntAclGet { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(punt_acl_get_reply_8409b9dd)] 
+pub struct PuntAclGetReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub ip4_table_index : u32, 
+	pub ip6_table_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(output_acl_set_interface_de7ad708)] 
 pub struct OutputAclSetInterface { 
 	pub client_index : u32, 
