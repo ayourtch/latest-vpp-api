@@ -25,6 +25,7 @@ pub struct WireguardInterface {
 // Implementation for wireguard_peer 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)] 
 pub struct WireguardPeer { 
+	pub peer_index : u32, 
 	pub public_key : FixedSizeArray<u8, typenum::U32>, 
 	pub port : u16, 
 	pub persistent_keepalive : u16, 
@@ -125,7 +126,7 @@ pub struct WireguardPeerEvent {
 	 pub flags : EnumFlag<WireguardPeerFlags>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(wireguard_peer_add_aedf8d59)] 
+#[message_name_and_crc(wireguard_peer_add_9b8aad61)] 
 pub struct WireguardPeerAdd { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -159,7 +160,7 @@ pub struct WireguardPeersDump {
 	pub peer_index : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(wireguard_peers_details_29269d0e)] 
+#[message_name_and_crc(wireguard_peers_details_6a9f6bc3)] 
 pub struct WireguardPeersDetails { 
 	pub context : u32, 
 	pub peer : WireguardPeer, 
