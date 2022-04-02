@@ -51,27 +51,6 @@ impl AsEnumFlag for Nat44ConfigFlags {
 	}
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_plugin_enable_disable_dea0d501)] 
-pub struct Nat44PluginEnableDisable { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub inside_vrf : u32, 
-	pub outside_vrf : u32, 
-	pub users : u32, 
-	pub user_memory : u32, 
-	pub sessions : u32, 
-	pub session_memory : u32, 
-	pub user_sessions : u32, 
-	pub enable : bool, 
-	 pub flags : EnumFlag<Nat44ConfigFlags>, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_plugin_enable_disable_reply_e8d4e804)] 
-pub struct Nat44PluginEnableDisableReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat44_ed_plugin_enable_disable_be17f8dd)] 
 pub struct Nat44EdPluginEnableDisable { 
 	pub client_index : u32, 
@@ -90,168 +69,17 @@ pub struct Nat44EdPluginEnableDisableReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_control_ping_51077d14)] 
-pub struct NatControlPing { 
+#[message_name_and_crc(nat44_forwarding_enable_disable_b3e225d2)] 
+pub struct Nat44ForwardingEnableDisable { 
 	pub client_index : u32, 
 	pub context : u32, 
+	pub enable : bool, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_control_ping_reply_f6b0b8ca)] 
-pub struct NatControlPingReply { 
+#[message_name_and_crc(nat44_forwarding_enable_disable_reply_e8d4e804)] 
+pub struct Nat44ForwardingEnableDisableReply { 
 	pub context : u32, 
 	pub retval : i32, 
-	pub client_index : u32, 
-	pub vpe_pid : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_show_config_51077d14)] 
-pub struct NatShowConfig { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_show_config_reply_7903ef06)] 
-pub struct NatShowConfigReply { 
-	pub context : u32, 
-	pub retval : i32, 
-	pub static_mapping_only : bool, 
-	pub static_mapping_connection_tracking : bool, 
-	pub deterministic : bool, 
-	pub endpoint_dependent : bool, 
-	pub out2in_dpo : bool, 
-	pub dslite_ce : bool, 
-	pub translation_buckets : u32, 
-	pub translation_memory_size : u32, 
-	pub user_buckets : u32, 
-	pub user_memory_size : u64, 
-	pub max_translations_per_user : u32, 
-	pub outside_vrf_id : u32, 
-	pub inside_vrf_id : u32, 
-	pub nat64_bib_buckets : u32, 
-	pub nat64_bib_memory_size : u64, 
-	pub nat64_st_buckets : u32, 
-	pub nat64_st_memory_size : u64, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_show_config_2_51077d14)] 
-pub struct NatShowConfig2 { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_show_config_2_reply_0404a5b4)] 
-pub struct NatShowConfig2Reply { 
-	pub context : u32, 
-	pub retval : i32, 
-	pub static_mapping_only : bool, 
-	pub static_mapping_connection_tracking : bool, 
-	pub deterministic : bool, 
-	pub endpoint_dependent : bool, 
-	pub out2in_dpo : bool, 
-	pub dslite_ce : bool, 
-	pub translation_buckets : u32, 
-	pub translation_memory_size : u64, 
-	pub user_buckets : u32, 
-	pub user_memory_size : u64, 
-	pub max_translations_per_user : u32, 
-	pub outside_vrf_id : u32, 
-	pub inside_vrf_id : u32, 
-	pub nat64_bib_buckets : u32, 
-	pub nat64_bib_memory_size : u64, 
-	pub nat64_st_buckets : u32, 
-	pub nat64_st_memory_size : u64, 
-	pub max_translations_per_thread : u32, 
-	pub max_users_per_thread : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_show_running_config_51077d14)] 
-pub struct Nat44ShowRunningConfig { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_show_running_config_reply_93d8e267)] 
-pub struct Nat44ShowRunningConfigReply { 
-	pub context : u32, 
-	pub retval : i32, 
-	pub inside_vrf : u32, 
-	pub outside_vrf : u32, 
-	pub users : u32, 
-	pub sessions : u32, 
-	pub user_sessions : u32, 
-	pub user_buckets : u32, 
-	pub translation_buckets : u32, 
-	pub forwarding_enabled : bool, 
-	pub ipfix_logging_enabled : bool, 
-	pub timeouts : NatTimeouts, 
-	pub log_level : NatLogLevel, 
-	 pub flags : EnumFlag<Nat44ConfigFlags>, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_session_cleanup_51077d14)] 
-pub struct Nat44SessionCleanup { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_session_cleanup_reply_e8d4e804)] 
-pub struct Nat44SessionCleanupReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_set_session_limit_8899bbb1)] 
-pub struct Nat44SetSessionLimit { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub session_limit : u32, 
-	pub vrf_id : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_set_session_limit_reply_e8d4e804)] 
-pub struct Nat44SetSessionLimitReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_set_log_level_70076bfe)] 
-pub struct NatSetLogLevel { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub log_level : NatLogLevel, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_set_log_level_reply_e8d4e804)] 
-pub struct NatSetLogLevelReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_set_workers_da926638)] 
-pub struct NatSetWorkers { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub worker_mask : u64, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_set_workers_reply_e8d4e804)] 
-pub struct NatSetWorkersReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_worker_dump_51077d14)] 
-pub struct NatWorkerDump { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_worker_details_84bf06fc)] 
-pub struct NatWorkerDetails { 
-	pub context : u32, 
-	pub worker_index : u32, 
-	pub lcore_id : u32, 
-	pub name : FixedSizeString<typenum::U64>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat_ipfix_enable_disable_9af4a2d2)] 
@@ -285,56 +113,112 @@ pub struct NatSetTimeoutsReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_get_timeouts_51077d14)] 
-pub struct NatGetTimeouts { 
+#[message_name_and_crc(nat44_set_session_limit_8899bbb1)] 
+pub struct Nat44SetSessionLimit { 
 	pub client_index : u32, 
 	pub context : u32, 
+	pub session_limit : u32, 
+	pub vrf_id : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_get_timeouts_reply_3c4df4e1)] 
-pub struct NatGetTimeoutsReply { 
-	pub context : u32, 
-	pub retval : i32, 
-	pub udp : u32, 
-	pub tcp_established : u32, 
-	pub tcp_transitory : u32, 
-	pub icmp : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_set_addr_and_port_alloc_alg_deeb746f)] 
-pub struct NatSetAddrAndPortAllocAlg { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub alg : u8, 
-	pub psid_offset : u8, 
-	pub psid_length : u8, 
-	pub psid : u16, 
-	pub start_port : u16, 
-	pub end_port : u16, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_set_addr_and_port_alloc_alg_reply_e8d4e804)] 
-pub struct NatSetAddrAndPortAllocAlgReply { 
+#[message_name_and_crc(nat44_set_session_limit_reply_e8d4e804)] 
+pub struct Nat44SetSessionLimitReply { 
 	pub context : u32, 
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_get_addr_and_port_alloc_alg_51077d14)] 
-pub struct NatGetAddrAndPortAllocAlg { 
+#[message_name_and_crc(nat44_show_running_config_51077d14)] 
+pub struct Nat44ShowRunningConfig { 
 	pub client_index : u32, 
 	pub context : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_get_addr_and_port_alloc_alg_reply_3607a7d0)] 
-pub struct NatGetAddrAndPortAllocAlgReply { 
+#[message_name_and_crc(nat44_show_running_config_reply_93d8e267)] 
+pub struct Nat44ShowRunningConfigReply { 
 	pub context : u32, 
 	pub retval : i32, 
-	pub alg : u8, 
-	pub psid_offset : u8, 
-	pub psid_length : u8, 
-	pub psid : u16, 
-	pub start_port : u16, 
-	pub end_port : u16, 
+	pub inside_vrf : u32, 
+	pub outside_vrf : u32, 
+	pub users : u32, 
+	pub sessions : u32, 
+	pub user_sessions : u32, 
+	pub user_buckets : u32, 
+	pub translation_buckets : u32, 
+	pub forwarding_enabled : bool, 
+	pub ipfix_logging_enabled : bool, 
+	pub timeouts : NatTimeouts, 
+	pub log_level : NatLogLevel, 
+	 pub flags : EnumFlag<Nat44ConfigFlags>, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_set_workers_da926638)] 
+pub struct NatSetWorkers { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub worker_mask : u64, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_set_workers_reply_e8d4e804)] 
+pub struct NatSetWorkersReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_worker_dump_51077d14)] 
+pub struct NatWorkerDump { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_worker_details_84bf06fc)] 
+pub struct NatWorkerDetails { 
+	pub context : u32, 
+	pub worker_index : u32, 
+	pub lcore_id : u32, 
+	pub name : FixedSizeString<typenum::U64>, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ed_add_del_vrf_table_08330904)] 
+pub struct Nat44EdAddDelVrfTable { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub table_vrf_id : u32, 
+	pub is_add : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ed_add_del_vrf_table_reply_e8d4e804)] 
+pub struct Nat44EdAddDelVrfTableReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ed_add_del_vrf_route_59187407)] 
+pub struct Nat44EdAddDelVrfRoute { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub table_vrf_id : u32, 
+	pub vrf_id : u32, 
+	pub is_add : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ed_add_del_vrf_route_reply_e8d4e804)] 
+pub struct Nat44EdAddDelVrfRouteReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ed_vrf_tables_dump_51077d14)] 
+pub struct Nat44EdVrfTablesDump { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_ed_vrf_tables_details_7b264e4f)] 
+pub struct Nat44EdVrfTablesDetails { 
+	pub context : u32, 
+	pub table_vrf_id : u32, 
+	pub n_vrf_ids : u32, 
+	pub vrf_ids : VariableSizeArray<u32>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat_set_mss_clamping_25e90abb)] 
@@ -365,111 +249,58 @@ pub struct NatGetMssClampingReply {
 	pub enable : bool, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_set_listener_e4a8cb4e)] 
-pub struct NatHaSetListener { 
+#[message_name_and_crc(nat44_ed_set_fq_options_2399bd71)] 
+pub struct Nat44EdSetFqOptions { 
 	pub client_index : u32, 
 	pub context : u32, 
-	pub ip_address : Ip4Address, 
-	pub port : u16, 
-	pub path_mtu : u32, 
+	pub frame_queue_nelts : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_set_listener_reply_e8d4e804)] 
-pub struct NatHaSetListenerReply { 
+#[message_name_and_crc(nat44_ed_set_fq_options_reply_e8d4e804)] 
+pub struct Nat44EdSetFqOptionsReply { 
 	pub context : u32, 
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_set_failover_718246af)] 
-pub struct NatHaSetFailover { 
+#[message_name_and_crc(nat44_ed_show_fq_options_51077d14)] 
+pub struct Nat44EdShowFqOptions { 
 	pub client_index : u32, 
 	pub context : u32, 
-	pub ip_address : Ip4Address, 
-	pub port : u16, 
-	pub session_refresh_interval : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_set_failover_reply_e8d4e804)] 
-pub struct NatHaSetFailoverReply { 
+#[message_name_and_crc(nat44_ed_show_fq_options_reply_7213b545)] 
+pub struct Nat44EdShowFqOptionsReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub frame_queue_nelts : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_add_del_interface_addr_4aed50c0)] 
+pub struct Nat44AddDelInterfaceAddr { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub is_add : bool, 
+	pub sw_if_index : InterfaceIndex, 
+	 pub flags : EnumFlag<NatConfigFlags>, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_add_del_interface_addr_reply_e8d4e804)] 
+pub struct Nat44AddDelInterfaceAddrReply { 
 	pub context : u32, 
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_get_listener_51077d14)] 
-pub struct NatHaGetListener { 
+#[message_name_and_crc(nat44_interface_addr_dump_51077d14)] 
+pub struct Nat44InterfaceAddrDump { 
 	pub client_index : u32, 
 	pub context : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_get_listener_reply_123ea41f)] 
-pub struct NatHaGetListenerReply { 
+#[message_name_and_crc(nat44_interface_addr_details_e4aca9ca)] 
+pub struct Nat44InterfaceAddrDetails { 
 	pub context : u32, 
-	pub retval : i32, 
-	pub ip_address : Ip4Address, 
-	pub port : u16, 
-	pub path_mtu : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_get_failover_51077d14)] 
-pub struct NatHaGetFailover { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_get_failover_reply_a67d8752)] 
-pub struct NatHaGetFailoverReply { 
-	pub context : u32, 
-	pub retval : i32, 
-	pub ip_address : Ip4Address, 
-	pub port : u16, 
-	pub session_refresh_interval : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_flush_51077d14)] 
-pub struct NatHaFlush { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_flush_reply_e8d4e804)] 
-pub struct NatHaFlushReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_resync_c8ab9e03)] 
-pub struct NatHaResync { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub want_resync_event : u8, 
-	pub pid : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_resync_reply_e8d4e804)] 
-pub struct NatHaResyncReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat_ha_resync_completed_event_fdc598fb)] 
-pub struct NatHaResyncCompletedEvent { 
-	pub client_index : u32, 
-	pub pid : u32, 
-	pub missed_count : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_del_user_99a9f998)] 
-pub struct Nat44DelUser { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub ip_address : Ip4Address, 
-	pub fib_index : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_del_user_reply_e8d4e804)] 
-pub struct Nat44DelUserReply { 
-	pub context : u32, 
-	pub retval : i32, 
+	pub sw_if_index : InterfaceIndex, 
+	 pub flags : EnumFlag<NatConfigFlags>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat44_add_del_address_range_6f2b8055)] 
@@ -526,34 +357,6 @@ pub struct Nat44InterfaceDump {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat44_interface_details_5d286289)] 
 pub struct Nat44InterfaceDetails { 
-	pub context : u32, 
-	 pub flags : EnumFlag<NatConfigFlags>, 
-	pub sw_if_index : InterfaceIndex, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_interface_add_del_output_feature_f3699b83)] 
-pub struct Nat44InterfaceAddDelOutputFeature { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub is_add : bool, 
-	 pub flags : EnumFlag<NatConfigFlags>, 
-	pub sw_if_index : InterfaceIndex, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_interface_add_del_output_feature_reply_e8d4e804)] 
-pub struct Nat44InterfaceAddDelOutputFeatureReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_interface_output_feature_dump_51077d14)] 
-pub struct Nat44InterfaceOutputFeatureDump { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_interface_output_feature_details_5d286289)] 
-pub struct Nat44InterfaceOutputFeatureDetails { 
 	pub context : u32, 
 	 pub flags : EnumFlag<NatConfigFlags>, 
 	pub sw_if_index : InterfaceIndex, 
@@ -697,102 +500,6 @@ pub struct Nat44IdentityMappingDetails {
 	pub tag : FixedSizeString<typenum::U64>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_add_del_interface_addr_4aed50c0)] 
-pub struct Nat44AddDelInterfaceAddr { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub is_add : bool, 
-	pub sw_if_index : InterfaceIndex, 
-	 pub flags : EnumFlag<NatConfigFlags>, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_add_del_interface_addr_reply_e8d4e804)] 
-pub struct Nat44AddDelInterfaceAddrReply { 
-	pub context : u32, 
-	pub retval : i32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_interface_addr_dump_51077d14)] 
-pub struct Nat44InterfaceAddrDump { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_interface_addr_details_e4aca9ca)] 
-pub struct Nat44InterfaceAddrDetails { 
-	pub context : u32, 
-	pub sw_if_index : InterfaceIndex, 
-	 pub flags : EnumFlag<NatConfigFlags>, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_user_dump_51077d14)] 
-pub struct Nat44UserDump { 
-	pub client_index : u32, 
-	pub context : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_user_details_355896c2)] 
-pub struct Nat44UserDetails { 
-	pub context : u32, 
-	pub vrf_id : u32, 
-	pub ip_address : Ip4Address, 
-	pub nsessions : u32, 
-	pub nstaticsessions : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_user_session_dump_e1899c98)] 
-pub struct Nat44UserSessionDump { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub ip_address : Ip4Address, 
-	pub vrf_id : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_user_session_details_2cf6e16d)] 
-pub struct Nat44UserSessionDetails { 
-	pub context : u32, 
-	pub outside_ip_address : Ip4Address, 
-	pub outside_port : u16, 
-	pub inside_ip_address : Ip4Address, 
-	pub inside_port : u16, 
-	pub protocol : u16, 
-	 pub flags : EnumFlag<NatConfigFlags>, 
-	pub last_heard : u64, 
-	pub total_bytes : u64, 
-	pub total_pkts : u32, 
-	pub ext_host_address : Ip4Address, 
-	pub ext_host_port : u16, 
-	pub ext_host_nat_address : Ip4Address, 
-	pub ext_host_nat_port : u16, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_user_session_v2_dump_e1899c98)] 
-pub struct Nat44UserSessionV2Dump { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub ip_address : Ip4Address, 
-	pub vrf_id : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_user_session_v2_details_fd42b729)] 
-pub struct Nat44UserSessionV2Details { 
-	pub context : u32, 
-	pub outside_ip_address : Ip4Address, 
-	pub outside_port : u16, 
-	pub inside_ip_address : Ip4Address, 
-	pub inside_port : u16, 
-	pub protocol : u16, 
-	 pub flags : EnumFlag<NatConfigFlags>, 
-	pub last_heard : u64, 
-	pub total_bytes : u64, 
-	pub total_pkts : u32, 
-	pub ext_host_address : Ip4Address, 
-	pub ext_host_port : u16, 
-	pub ext_host_nat_address : Ip4Address, 
-	pub ext_host_nat_port : u16, 
-	pub is_timed_out : bool, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(nat44_add_del_lb_static_mapping_4f68ee9d)] 
 pub struct Nat44AddDelLbStaticMapping { 
 	pub client_index : u32, 
@@ -869,53 +576,213 @@ pub struct Nat44DelSessionReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_forwarding_enable_disable_b3e225d2)] 
-pub struct Nat44ForwardingEnableDisable { 
+#[message_name_and_crc(nat44_user_dump_51077d14)] 
+pub struct Nat44UserDump { 
 	pub client_index : u32, 
 	pub context : u32, 
-	pub enable : bool, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_forwarding_enable_disable_reply_e8d4e804)] 
-pub struct Nat44ForwardingEnableDisableReply { 
+#[message_name_and_crc(nat44_user_details_355896c2)] 
+pub struct Nat44UserDetails { 
+	pub context : u32, 
+	pub vrf_id : u32, 
+	pub ip_address : Ip4Address, 
+	pub nsessions : u32, 
+	pub nstaticsessions : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_user_session_dump_e1899c98)] 
+pub struct Nat44UserSessionDump { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub ip_address : Ip4Address, 
+	pub vrf_id : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_user_session_details_2cf6e16d)] 
+pub struct Nat44UserSessionDetails { 
+	pub context : u32, 
+	pub outside_ip_address : Ip4Address, 
+	pub outside_port : u16, 
+	pub inside_ip_address : Ip4Address, 
+	pub inside_port : u16, 
+	pub protocol : u16, 
+	 pub flags : EnumFlag<NatConfigFlags>, 
+	pub last_heard : u64, 
+	pub total_bytes : u64, 
+	pub total_pkts : u32, 
+	pub ext_host_address : Ip4Address, 
+	pub ext_host_port : u16, 
+	pub ext_host_nat_address : Ip4Address, 
+	pub ext_host_nat_port : u16, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_user_session_v2_dump_e1899c98)] 
+pub struct Nat44UserSessionV2Dump { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub ip_address : Ip4Address, 
+	pub vrf_id : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_user_session_v2_details_fd42b729)] 
+pub struct Nat44UserSessionV2Details { 
+	pub context : u32, 
+	pub outside_ip_address : Ip4Address, 
+	pub outside_port : u16, 
+	pub inside_ip_address : Ip4Address, 
+	pub inside_port : u16, 
+	pub protocol : u16, 
+	 pub flags : EnumFlag<NatConfigFlags>, 
+	pub last_heard : u64, 
+	pub total_bytes : u64, 
+	pub total_pkts : u32, 
+	pub ext_host_address : Ip4Address, 
+	pub ext_host_port : u16, 
+	pub ext_host_nat_address : Ip4Address, 
+	pub ext_host_nat_port : u16, 
+	pub is_timed_out : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_del_user_99a9f998)] 
+pub struct Nat44DelUser { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub ip_address : Ip4Address, 
+	pub fib_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat44_del_user_reply_e8d4e804)] 
+pub struct Nat44DelUserReply { 
 	pub context : u32, 
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_forwarding_is_enabled_51077d14)] 
-pub struct Nat44ForwardingIsEnabled { 
+#[message_name_and_crc(nat_set_addr_and_port_alloc_alg_deeb746f)] 
+pub struct NatSetAddrAndPortAllocAlg { 
 	pub client_index : u32, 
 	pub context : u32, 
+	pub alg : u8, 
+	pub psid_offset : u8, 
+	pub psid_length : u8, 
+	pub psid : u16, 
+	pub start_port : u16, 
+	pub end_port : u16, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_forwarding_is_enabled_reply_46924a06)] 
-pub struct Nat44ForwardingIsEnabledReply { 
-	pub context : u32, 
-	pub enabled : bool, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_ed_set_fq_options_2399bd71)] 
-pub struct Nat44EdSetFqOptions { 
-	pub client_index : u32, 
-	pub context : u32, 
-	pub frame_queue_nelts : u32, 
-} 
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_ed_set_fq_options_reply_e8d4e804)] 
-pub struct Nat44EdSetFqOptionsReply { 
+#[message_name_and_crc(nat_set_addr_and_port_alloc_alg_reply_e8d4e804)] 
+pub struct NatSetAddrAndPortAllocAlgReply { 
 	pub context : u32, 
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_ed_show_fq_options_51077d14)] 
-pub struct Nat44EdShowFqOptions { 
+#[message_name_and_crc(nat_get_addr_and_port_alloc_alg_51077d14)] 
+pub struct NatGetAddrAndPortAllocAlg { 
 	pub client_index : u32, 
 	pub context : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(nat44_ed_show_fq_options_reply_7213b545)] 
-pub struct Nat44EdShowFqOptionsReply { 
+#[message_name_and_crc(nat_get_addr_and_port_alloc_alg_reply_3607a7d0)] 
+pub struct NatGetAddrAndPortAllocAlgReply { 
 	pub context : u32, 
 	pub retval : i32, 
-	pub frame_queue_nelts : u32, 
+	pub alg : u8, 
+	pub psid_offset : u8, 
+	pub psid_length : u8, 
+	pub psid : u16, 
+	pub start_port : u16, 
+	pub end_port : u16, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_set_listener_e4a8cb4e)] 
+pub struct NatHaSetListener { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub ip_address : Ip4Address, 
+	pub port : u16, 
+	pub path_mtu : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_set_listener_reply_e8d4e804)] 
+pub struct NatHaSetListenerReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_set_failover_718246af)] 
+pub struct NatHaSetFailover { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub ip_address : Ip4Address, 
+	pub port : u16, 
+	pub session_refresh_interval : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_set_failover_reply_e8d4e804)] 
+pub struct NatHaSetFailoverReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_get_listener_51077d14)] 
+pub struct NatHaGetListener { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_get_listener_reply_123ea41f)] 
+pub struct NatHaGetListenerReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub ip_address : Ip4Address, 
+	pub port : u16, 
+	pub path_mtu : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_get_failover_51077d14)] 
+pub struct NatHaGetFailover { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_get_failover_reply_a67d8752)] 
+pub struct NatHaGetFailoverReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub ip_address : Ip4Address, 
+	pub port : u16, 
+	pub session_refresh_interval : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_flush_51077d14)] 
+pub struct NatHaFlush { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_flush_reply_e8d4e804)] 
+pub struct NatHaFlushReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_resync_c8ab9e03)] 
+pub struct NatHaResync { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub want_resync_event : u8, 
+	pub pid : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_resync_reply_e8d4e804)] 
+pub struct NatHaResyncReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(nat_ha_resync_completed_event_fdc598fb)] 
+pub struct NatHaResyncCompletedEvent { 
+	pub client_index : u32, 
+	pub pid : u32, 
+	pub missed_count : u32, 
 } 

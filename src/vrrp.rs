@@ -110,6 +110,40 @@ pub struct VrrpVrAddDelReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vrrp_vr_update_0b51e2f4)] 
+pub struct VrrpVrUpdate { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub vrrp_index : u32, 
+	pub sw_if_index : InterfaceIndex, 
+	pub vr_id : u8, 
+	pub priority : u8, 
+	pub interval : u16, 
+	 pub flags : EnumFlag<VrrpVrFlags>, 
+	pub n_addrs : u8, 
+	pub addrs : VariableSizeArray<Address>, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vrrp_vr_update_reply_5317d608)] 
+pub struct VrrpVrUpdateReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub vrrp_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vrrp_vr_del_6029baa1)] 
+pub struct VrrpVrDel { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub vrrp_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(vrrp_vr_del_reply_e8d4e804)] 
+pub struct VrrpVrDelReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(vrrp_vr_dump_f9e6675e)] 
 pub struct VrrpVrDump { 
 	pub client_index : u32, 
