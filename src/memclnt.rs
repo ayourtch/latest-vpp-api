@@ -195,3 +195,22 @@ pub struct ControlPingReply {
 	pub client_index : u32, 
 	pub vpe_pid : u32, 
 } 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(memclnt_create_v2_c4bd4882)] 
+pub struct MemclntCreateV2 { 
+	pub context : u32, 
+	pub ctx_quota : i32, 
+	pub input_queue : u64, 
+	pub name : FixedSizeString<typenum::U64>, 
+	pub api_versions : FixedSizeArray<u32, typenum::U8>, 
+	pub keepalive : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(memclnt_create_v2_reply_42ec4560)] 
+pub struct MemclntCreateV2Reply { 
+	pub context : u32, 
+	pub response : i32, 
+	pub handle : u64, 
+	pub index : u32, 
+	pub message_table : u64, 
+} 
