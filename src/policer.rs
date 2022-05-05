@@ -43,6 +43,21 @@ pub struct PolicerInputReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(policer_output_233f0ef5)] 
+pub struct PolicerOutput { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub name : FixedSizeString<typenum::U64>, 
+	pub sw_if_index : InterfaceIndex, 
+	pub apply : bool, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(policer_output_reply_e8d4e804)] 
+pub struct PolicerOutputReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(policer_add_del_2b31dd38)] 
 pub struct PolicerAddDel { 
 	pub client_index : u32, 
