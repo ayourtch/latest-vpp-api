@@ -42,6 +42,7 @@ pub enum PnatMask {
 	 PNAT_DPORT=8, 
 	 PNAT_COPY_BYTE=16, 
 	 PNAT_CLEAR_BYTE=32, 
+	 PNAT_PROTO=64, 
 } 
 impl Default for PnatMask { 
 	fn default() -> Self { PnatMask::PNAT_SA }
@@ -58,6 +59,7 @@ impl AsEnumFlag for PnatMask {
 			 8 => PnatMask::PNAT_DPORT, 
 			 16 => PnatMask::PNAT_COPY_BYTE, 
 			 32 => PnatMask::PNAT_CLEAR_BYTE, 
+			 64 => PnatMask::PNAT_PROTO, 
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
@@ -76,7 +78,7 @@ impl Default for PnatAttachmentPoint {
 	fn default() -> Self { PnatAttachmentPoint::PNAT_IP4_INPUT }
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(pnat_binding_add_f00f79aa)] 
+#[message_name_and_crc(pnat_binding_add_946ee0b7)] 
 pub struct PnatBindingAdd { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -86,6 +88,21 @@ pub struct PnatBindingAdd {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(pnat_binding_add_reply_4cd980a7)] 
 pub struct PnatBindingAddReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub binding_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(pnat_binding_add_v2_946ee0b7)] 
+pub struct PnatBindingAddV2 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub mach : PnatMatchTuple, 
+	pub rewrite : PnatRewriteTuple, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(pnat_binding_add_v2_reply_4cd980a7)] 
+pub struct PnatBindingAddV2Reply { 
 	pub context : u32, 
 	pub retval : i32, 
 	pub binding_index : u32, 
@@ -148,7 +165,7 @@ pub struct PnatBindingsGetReply {
 	pub cursor : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(pnat_bindings_details_78267a35)] 
+#[message_name_and_crc(pnat_bindings_details_08fb2815)] 
 pub struct PnatBindingsDetails { 
 	pub context : u32, 
 	pub mach : PnatMatchTuple, 
@@ -169,7 +186,7 @@ pub struct PnatInterfacesGetReply {
 	pub cursor : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(pnat_interfaces_details_c7b0c4c0)] 
+#[message_name_and_crc(pnat_interfaces_details_4cb09493)] 
 pub struct PnatInterfacesDetails { 
 	pub context : u32, 
 	pub sw_if_index : InterfaceIndex, 
