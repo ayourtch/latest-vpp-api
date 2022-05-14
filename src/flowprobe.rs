@@ -36,6 +36,16 @@ impl AsEnumFlag for FlowprobeWhichFlags {
 		 8 as u32
 	}
 }
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
+#[repr(u8)]
+pub enum FlowprobeWhich { 
+	 FLOWPROBE_WHICH_IP4=0, 
+	 FLOWPROBE_WHICH_IP6=1, 
+	 FLOWPROBE_WHICH_L2=2, 
+} 
+impl Default for FlowprobeWhich { 
+	fn default() -> Self { FlowprobeWhich::FLOWPROBE_WHICH_IP4 }
+}
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum FlowprobeRecordFlags { 
 	 FLOWPROBE_RECORD_FLAG_L2=1, 
@@ -61,6 +71,16 @@ impl AsEnumFlag for FlowprobeRecordFlags {
 		 8 as u32
 	}
 }
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
+#[repr(u8)]
+pub enum FlowprobeDirection { 
+	 FLOWPROBE_DIRECTION_RX=0, 
+	 FLOWPROBE_DIRECTION_TX=1, 
+	 FLOWPROBE_DIRECTION_BOTH=2, 
+} 
+impl Default for FlowprobeDirection { 
+	fn default() -> Self { FlowprobeDirection::FLOWPROBE_DIRECTION_RX }
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(flowprobe_tx_interface_add_del_b782c976)] 
 pub struct FlowprobeTxInterfaceAddDel { 
@@ -73,6 +93,22 @@ pub struct FlowprobeTxInterfaceAddDel {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(flowprobe_tx_interface_add_del_reply_e8d4e804)] 
 pub struct FlowprobeTxInterfaceAddDelReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_interface_add_del_3420739c)] 
+pub struct FlowprobeInterfaceAddDel { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub is_add : bool, 
+	pub which : FlowprobeWhich, 
+	pub direction : FlowprobeDirection, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_interface_add_del_reply_e8d4e804)] 
+pub struct FlowprobeInterfaceAddDelReply { 
 	pub context : u32, 
 	pub retval : i32, 
 } 
