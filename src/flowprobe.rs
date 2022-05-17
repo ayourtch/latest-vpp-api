@@ -113,6 +113,21 @@ pub struct FlowprobeInterfaceAddDelReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_interface_dump_f9e6675e)] 
+pub struct FlowprobeInterfaceDump { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_interface_details_427d77e0)] 
+pub struct FlowprobeInterfaceDetails { 
+	pub context : u32, 
+	pub which : FlowprobeWhich, 
+	pub direction : FlowprobeDirection, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(flowprobe_params_baa46c09)] 
 pub struct FlowprobeParams { 
 	pub client_index : u32, 
@@ -126,4 +141,34 @@ pub struct FlowprobeParams {
 pub struct FlowprobeParamsReply { 
 	pub context : u32, 
 	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_set_params_baa46c09)] 
+pub struct FlowprobeSetParams { 
+	pub client_index : u32, 
+	pub context : u32, 
+	 pub record_flags : EnumFlag<FlowprobeRecordFlags>, 
+	pub active_timer : u32, 
+	pub passive_timer : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_set_params_reply_e8d4e804)] 
+pub struct FlowprobeSetParamsReply { 
+	pub context : u32, 
+	pub retval : i32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_get_params_51077d14)] 
+pub struct FlowprobeGetParams { 
+	pub client_index : u32, 
+	pub context : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flowprobe_get_params_reply_f350d621)] 
+pub struct FlowprobeGetParamsReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	 pub record_flags : EnumFlag<FlowprobeRecordFlags>, 
+	pub active_timer : u32, 
+	pub passive_timer : u32, 
 } 
