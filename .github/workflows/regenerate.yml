@@ -52,7 +52,7 @@ jobs:
     - name: Create a test package
       run: |
         git clone https://github.com/ayourtch/vpp-api
-        cd vpp-api-gen
+        cd vpp-api
         cargo run -- --in-file /usr/share/vpp/api/ --parse-type Tree --create-package --package-name latest_vpp_api
         cd ..
     - name: Run tests
