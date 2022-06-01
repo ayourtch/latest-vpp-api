@@ -49,15 +49,15 @@ pub struct PuntUnion(FixedSizeArray<u8, typenum::U4>);
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u32)]
 pub enum PuntType { 
-	 PUNT_API_TYPE_L4=1, 
-	 PUNT_API_TYPE_IP_PROTO=2, 
-	 PUNT_API_TYPE_EXCEPTION=3, 
+	 PUNT_API_TYPE_L4=0, 
+	 PUNT_API_TYPE_IP_PROTO=1, 
+	 PUNT_API_TYPE_EXCEPTION=2, 
 } 
 impl Default for PuntType { 
 	fn default() -> Self { PuntType::PUNT_API_TYPE_L4 }
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(set_punt_aa83d523)] 
+#[message_name_and_crc(set_punt_47d0e347)] 
 pub struct SetPunt { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -71,7 +71,7 @@ pub struct SetPuntReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(punt_socket_register_95268cbf)] 
+#[message_name_and_crc(punt_socket_register_7875badb)] 
 pub struct PuntSocketRegister { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -87,21 +87,21 @@ pub struct PuntSocketRegisterReply {
 	pub pathname : FixedSizeString<typenum::U108>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(punt_socket_dump_52974935)] 
+#[message_name_and_crc(punt_socket_dump_916fb004)] 
 pub struct PuntSocketDump { 
 	pub client_index : u32, 
 	pub context : u32, 
 	pub typ : PuntType, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(punt_socket_details_de575080)] 
+#[message_name_and_crc(punt_socket_details_330466e4)] 
 pub struct PuntSocketDetails { 
 	pub context : u32, 
 	pub punt : Punt, 
 	pub pathname : FixedSizeString<typenum::U108>, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(punt_socket_deregister_98fc9102)] 
+#[message_name_and_crc(punt_socket_deregister_75afa766)] 
 pub struct PuntSocketDeregister { 
 	pub client_index : u32, 
 	pub context : u32, 

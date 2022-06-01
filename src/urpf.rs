@@ -16,15 +16,15 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u8)]
 pub enum UrpfMode { 
-	 URPF_API_MODE_OFF=1, 
-	 URPF_API_MODE_LOOSE=2, 
-	 URPF_API_MODE_STRICT=3, 
+	 URPF_API_MODE_OFF=0, 
+	 URPF_API_MODE_LOOSE=1, 
+	 URPF_API_MODE_STRICT=2, 
 } 
 impl Default for UrpfMode { 
 	fn default() -> Self { UrpfMode::URPF_API_MODE_OFF }
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(urpf_update_2bf8a77c)] 
+#[message_name_and_crc(urpf_update_cc274cd1)] 
 pub struct UrpfUpdate { 
 	pub client_index : u32, 
 	pub context : u32, 

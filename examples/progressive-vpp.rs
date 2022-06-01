@@ -10,8 +10,8 @@ use latest_vpp_api::vlib::CliInband;
 use latest_vpp_api::vlib::CliInbandReply;
 use latest_vpp_api::vlib::*;
 use vpp_api_transport::afunix;
-use vpp_api_transport::VppApiTransport;
 use vpp_api_transport::reqrecv::*;
+use vpp_api_transport::VppApiTransport;
 
 fn get_encoder() -> impl bincode::config::Options {
     bincode::DefaultOptions::new()
@@ -56,16 +56,30 @@ fn main() {
             .build()
             .unwrap(),
         &mut *t,
-    );
+    ).unwrap();
     println!("{:?}", create_host_interface);
 
     // Step 4: Set Host Interface State up
     let set_interface_link_up: SwInterfaceSetFlagsReply = send_recv_msg(
         &SwInterfaceSetFlags::get_message_name_and_crc(),
-        &SwInterfaceSetFlags::builder().client_index(t.get_client_index()).context(0).sw_if_index(1).flags(vec![IfStatusFlags::IF_STATUS_API_FLAG_ADMIN_UP, IfStatusFlags::IF_STATUS_API_FLAG_LINK_UP].try_into().unwrap()).build().unwrap(),
+        &SwInterfaceSetFlags::builder()
+            .client_index(t.get_client_index())
+            .context(0)
+            .sw_if_index(1)
+            .flags(
+                vec![
+                    IfStatusFlags::IF_STATUS_API_FLAG_ADMIN_UP,
+                    IfStatusFlags::IF_STATUS_API_FLAG_LINK_UP,
+                ]
+                .try_into()
+                .unwrap(),
+            )
+            .build()
+            .unwrap(),
         &mut *t,
-        &SwInterfaceSetFlagsReply::get_message_name_and_crc());
-    
+        &SwInterfaceSetFlagsReply::get_message_name_and_crc(),
+    );
+
     println!("{:?}", create_host_interface);
 
     // Step 5: Assign IP Address to Host Interface
@@ -79,13 +93,13 @@ fn main() {
             prefix: AddressWithPrefix {
                 address: Address {
                     af: AddressFamily::ADDRESS_IP4,
-                    un: AddressUnion::new_Ip4Address([10,10,1,2]),
+                    un: AddressUnion::new_Ip4Address([10, 10, 1, 2]),
                 },
                 len: 24,
             },
         },
         &mut *t,
-    );
+    ).unwrap();
     println!("{:?}", create_interface);
 
     /*let ipaddress:Vec<IpAddressDetails>  = send_bulk_msg(
@@ -129,7 +143,7 @@ fn main() {
             .build()
             .unwrap(),
         &mut *t,
-    );
+    ).unwrap();
     println!("{:#?}", swinterfacedetails);
     println!("Interface IDX:");
     let interfaceids = swinterfacedetails.iter().fold(String::new(), |mut acc, x| {

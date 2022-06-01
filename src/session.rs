@@ -15,11 +15,11 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u8)]
 pub enum TransportProto { 
-	 TRANSPORT_PROTO_API_TCP=1, 
-	 TRANSPORT_PROTO_API_UDP=2, 
-	 TRANSPORT_PROTO_API_NONE=3, 
-	 TRANSPORT_PROTO_API_TLS=4, 
-	 TRANSPORT_PROTO_API_QUIC=5, 
+	 TRANSPORT_PROTO_API_TCP=0, 
+	 TRANSPORT_PROTO_API_UDP=1, 
+	 TRANSPORT_PROTO_API_NONE=2, 
+	 TRANSPORT_PROTO_API_TLS=3, 
+	 TRANSPORT_PROTO_API_QUIC=4, 
 } 
 impl Default for TransportProto { 
 	fn default() -> Self { TransportProto::TRANSPORT_PROTO_API_TCP }
@@ -235,7 +235,7 @@ pub struct AppNamespaceAddDelV3Reply {
 	pub appns_index : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(session_rule_add_del_e4895422)] 
+#[message_name_and_crc(session_rule_add_del_82a90af5)] 
 pub struct SessionRuleAddDel { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -263,7 +263,7 @@ pub struct SessionRulesDump {
 	pub context : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(session_rules_details_28d71830)] 
+#[message_name_and_crc(session_rules_details_4ef746e7)] 
 pub struct SessionRulesDetails { 
 	pub context : u32, 
 	pub transport_proto : TransportProto, 

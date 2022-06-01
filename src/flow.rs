@@ -22,8 +22,22 @@ pub struct FlowAdd {
 	pub flow : FlowRule, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flow_add_v2_5b757558)] 
+pub struct FlowAddV2 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub flow : FlowRuleV2, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(flow_add_reply_8587dc85)] 
 pub struct FlowAddReply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub flow_index : u32, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(flow_add_v2_reply_8587dc85)] 
+pub struct FlowAddV2Reply { 
 	pub context : u32, 
 	pub retval : i32, 
 	pub flow_index : u32, 

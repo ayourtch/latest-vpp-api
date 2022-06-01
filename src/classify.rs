@@ -25,9 +25,9 @@ impl Default for ClassifyAction {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u8)]
 pub enum PolicerClassifyTable { 
-	 POLICER_CLASSIFY_API_TABLE_IP4=1, 
-	 POLICER_CLASSIFY_API_TABLE_IP6=2, 
-	 POLICER_CLASSIFY_API_TABLE_L2=3, 
+	 POLICER_CLASSIFY_API_TABLE_IP4=0, 
+	 POLICER_CLASSIFY_API_TABLE_IP6=1, 
+	 POLICER_CLASSIFY_API_TABLE_L2=2, 
 } 
 impl Default for PolicerClassifyTable { 
 	fn default() -> Self { PolicerClassifyTable::POLICER_CLASSIFY_API_TABLE_IP4 }
@@ -35,8 +35,8 @@ impl Default for PolicerClassifyTable {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u8)]
 pub enum FlowClassifyTable { 
-	 FLOW_CLASSIFY_API_TABLE_IP4=1, 
-	 FLOW_CLASSIFY_API_TABLE_IP6=2, 
+	 FLOW_CLASSIFY_API_TABLE_IP4=0, 
+	 FLOW_CLASSIFY_API_TABLE_IP6=1, 
 } 
 impl Default for FlowClassifyTable { 
 	fn default() -> Self { FlowClassifyTable::FLOW_CLASSIFY_API_TABLE_IP4 }
@@ -108,7 +108,7 @@ pub struct PolicerClassifySetInterfaceReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(policer_classify_dump_6bfe6603)] 
+#[message_name_and_crc(policer_classify_dump_56cbb5fb)] 
 pub struct PolicerClassifyDump { 
 	pub client_index : u32, 
 	pub context : u32, 
@@ -211,7 +211,7 @@ pub struct FlowClassifySetInterfaceReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(flow_classify_dump_8a6ad43d)] 
+#[message_name_and_crc(flow_classify_dump_25dd3e4c)] 
 pub struct FlowClassifyDump { 
 	pub client_index : u32, 
 	pub context : u32, 

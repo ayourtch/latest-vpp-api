@@ -7,11 +7,11 @@ edition = "2018"
 [dev-dependencies] 
 trybuild = {version = "1.0", features = ["diff"]} 
 
-vpp-api-transport = { git="https://github.com/ayourtch/vpp-api-transport/", branch="main" } 
+vpp-api-transport = { git="https://github.com/ayourtch/vpp-api", branch="main" }
 [dependencies] 
 serde = { version = "1.0", features = ["derive"] } 
 serde_json = "1.0" 
-clap = "3.0.0-beta.2" 
+clap = { version = "3.0.0", features = ["derive"] } 
 strum = "*" 
 strum_macros = "*" 
 log = "*" 
@@ -22,11 +22,11 @@ serde_repr = "0.1"
 typenum = "*" 
 bincode = "1.2.1" 
 serde_yaml = "0.8" 
-vpp-api-encoding = {git="https://github.com/ayourtch/vpp-api-encoding", branch="main" } 
-vpp-api-message = "*" 
+vpp-api-encoding = { git="https://github.com/ayourtch/vpp-api", branch="main" }
+vpp-api-message = { git="https://github.com/ayourtch/vpp-api", branch="main" }
 lazy_static = "1.4.0" 
 regex = "1" 
 syn ={ version= "1.0", features=["extra-traits","full"]} 
 quote = "1.0" 
 proc-macro2 = "1.0.26" 
-vpp-api-macros = {git="https://github.com/ayourtch/vpp-api-macros", branch="main"} 
+vpp-api-macros = { git="https://github.com/ayourtch/vpp-api", branch="main" }

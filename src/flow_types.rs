@@ -12,6 +12,12 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*; 
 use crate::ethernet_types::*; 
+// Implementation for generic_pattern 
+#[derive(Debug, Clone, Serialize, Deserialize, Default)] 
+pub struct GenericPattern { 
+	pub spec : FixedSizeArray<u8, typenum::U1024>, 
+	pub mask : FixedSizeArray<u8, typenum::U1024>, 
+} 
 // Implementation for ip_port_and_mask 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)] 
 pub struct IpPortAndMask { 
@@ -159,6 +165,12 @@ pub struct FlowIp4Gtpu {
 	pub dst_port : IpPortAndMask, 
 	pub teid : u32, 
 } 
+// Implementation for flow_generic 
+#[derive(Debug, Clone, Serialize, Deserialize, Default)] 
+pub struct FlowGeneric { 
+	pub foo : i32, 
+	pub pattern : GenericPattern, 
+} 
 // Implementation for flow_rule 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)] 
 pub struct FlowRule { 
@@ -171,6 +183,23 @@ pub struct FlowRule {
 	pub redirect_queue : u32, 
 	pub buffer_advance : i32, 
 	pub flow : Flow, 
+} 
+// Implementation for flow_rule_v2 
+#[derive(Debug, Clone, Serialize, Deserialize, Default)] 
+pub struct FlowRuleV2 { 
+	pub typ : FlowTypeV2, 
+	pub index : u32, 
+	pub actions : FlowActionV2, 
+	pub mark_flow_id : u32, 
+	pub redirect_node_index : u32, 
+	pub redirect_device_input_next_index : u32, 
+	pub redirect_queue : u32, 
+	pub queue_index : u32, 
+	pub queue_num : u32, 
+	pub buffer_advance : i32, 
+	pub rss_types : u64, 
+	pub rss_fun : RssFunction, 
+	pub flow : FlowV2, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, Default, VppUnionIdent)] 
 #[types(FlowEthernet:18)] 
@@ -188,6 +217,23 @@ pub struct FlowRule {
 #[types(FlowIp4Gtpc:34)] 
 #[types(FlowIp4Gtpu:34)] 
 pub struct Flow(FixedSizeArray<u8, typenum::U82>); 
+#[derive(Debug, Clone, Serialize, Deserialize, Default, VppUnionIdent)] 
+#[types(FlowEthernet:18)] 
+#[types(FlowIp4:22)] 
+#[types(FlowIp6:70)] 
+#[types(FlowIp4L2tpv3oip:26)] 
+#[types(FlowIp4IpsecEsp:26)] 
+#[types(FlowIp4IpsecAh:26)] 
+#[types(FlowIp4NTuple:30)] 
+#[types(FlowIp6NTuple:78)] 
+#[types(FlowIp4NTupleTagged:30)] 
+#[types(FlowIp6NTupleTagged:78)] 
+#[types(FlowIp4Vxlan:34)] 
+#[types(FlowIp6Vxlan:82)] 
+#[types(FlowIp4Gtpc:34)] 
+#[types(FlowIp4Gtpu:34)] 
+#[types(FlowGeneric:6)] 
+pub struct FlowV2(FixedSizeArray<u8, typenum::U82>); 
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u32)]
 pub enum FlowType { 
@@ -208,6 +254,28 @@ pub enum FlowType {
 } 
 impl Default for FlowType { 
 	fn default() -> Self { FlowType::FLOW_TYPE_ETHERNET }
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
+#[repr(u32)]
+pub enum FlowTypeV2 { 
+	 FLOW_TYPE_ETHERNET_V2=1, 
+	 FLOW_TYPE_IP4_V2=2, 
+	 FLOW_TYPE_IP6_V2=3, 
+	 FLOW_TYPE_IP4_L2TPV3OIP_V2=4, 
+	 FLOW_TYPE_IP4_IPSEC_ESP_V2=5, 
+	 FLOW_TYPE_IP4_IPSEC_AH_V2=6, 
+	 FLOW_TYPE_IP4_N_TUPLE_V2=7, 
+	 FLOW_TYPE_IP6_N_TUPLE_V2=8, 
+	 FLOW_TYPE_IP4_N_TUPLE_TAGGED_V2=9, 
+	 FLOW_TYPE_IP6_N_TUPLE_TAGGED_V2=10, 
+	 FLOW_TYPE_IP4_VXLAN_V2=11, 
+	 FLOW_TYPE_IP6_VXLAN_V2=12, 
+	 FLOW_TYPE_IP4_GTPC_V2=13, 
+	 FLOW_TYPE_IP4_GTPU_V2=14, 
+	 FLOW_TYPE_GENERIC_V2=15, 
+} 
+impl Default for FlowTypeV2 { 
+	fn default() -> Self { FlowTypeV2::FLOW_TYPE_ETHERNET_V2 }
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
 pub enum FlowAction { 
@@ -239,4 +307,48 @@ impl AsEnumFlag for FlowAction {
 	 fn size_of_enum_flag() -> u32{
 		 32 as u32
 	}
+}
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
+pub enum FlowActionV2 { 
+	 FLOW_ACTION_COUNT_V2=1, 
+	 FLOW_ACTION_MARK_V2=2, 
+	 FLOW_ACTION_BUFFER_ADVANCE_V2=4, 
+	 FLOW_ACTION_REDIRECT_TO_NODE_V2=8, 
+	 FLOW_ACTION_REDIRECT_TO_QUEUE_V2=16, 
+	 FLOW_ACTION_RSS_V2=32, 
+	 FLOW_ACTION_DROP_V2=64, 
+} 
+impl Default for FlowActionV2 { 
+	fn default() -> Self { FlowActionV2::FLOW_ACTION_COUNT_V2 }
+}
+impl AsEnumFlag for FlowActionV2 {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 1 => FlowActionV2::FLOW_ACTION_COUNT_V2, 
+			 2 => FlowActionV2::FLOW_ACTION_MARK_V2, 
+			 4 => FlowActionV2::FLOW_ACTION_BUFFER_ADVANCE_V2, 
+			 8 => FlowActionV2::FLOW_ACTION_REDIRECT_TO_NODE_V2, 
+			 16 => FlowActionV2::FLOW_ACTION_REDIRECT_TO_QUEUE_V2, 
+			 32 => FlowActionV2::FLOW_ACTION_RSS_V2, 
+			 64 => FlowActionV2::FLOW_ACTION_DROP_V2, 
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
+#[repr(u32)]
+pub enum RssFunction { 
+	 RSS_FUNC_DEFAULT=0, 
+	 RSS_FUNC_TOEPLITZ=1, 
+	 RSS_FUNC_SIMPLE_XOR=2, 
+	 RSS_FUNC_SYMMETRIC_TOEPLITZ=3, 
+} 
+impl Default for RssFunction { 
+	fn default() -> Self { RssFunction::RSS_FUNC_DEFAULT }
 }

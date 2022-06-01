@@ -77,9 +77,9 @@ impl Default for VssType {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u32)]
 pub enum DhcpClientState { 
-	 DHCP_CLIENT_STATE_API_DISCOVER=1, 
-	 DHCP_CLIENT_STATE_API_REQUEST=2, 
-	 DHCP_CLIENT_STATE_API_BOUND=3, 
+	 DHCP_CLIENT_STATE_API_DISCOVER=0, 
+	 DHCP_CLIENT_STATE_API_REQUEST=1, 
+	 DHCP_CLIENT_STATE_API_BOUND=2, 
 } 
 impl Default for DhcpClientState { 
 	fn default() -> Self { DhcpClientState::DHCP_CLIENT_STATE_API_DISCOVER }
@@ -182,7 +182,7 @@ pub struct DhcpClientConfigReply {
 	pub retval : i32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(dhcp_compl_event_554a44e5)] 
+#[message_name_and_crc(dhcp_compl_event_e18124b7)] 
 pub struct DhcpComplEvent { 
 	pub client_index : u32, 
 	pub pid : u32, 
@@ -195,7 +195,7 @@ pub struct DhcpClientDump {
 	pub context : u32, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(dhcp_client_details_3c5cd28a)] 
+#[message_name_and_crc(dhcp_client_details_8897b2d8)] 
 pub struct DhcpClientDetails { 
 	pub context : u32, 
 	pub client : DhcpClient, 

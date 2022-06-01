@@ -31,9 +31,9 @@ pub struct UdpDecap {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
 #[repr(u32)]
 pub enum UdpDecapNextProto { 
-	 UDP_API_DECAP_PROTO_IP4=1, 
-	 UDP_API_DECAP_PROTO_IP6=2, 
-	 UDP_API_DECAP_PROTO_MPLS=3, 
+	 UDP_API_DECAP_PROTO_IP4=0, 
+	 UDP_API_DECAP_PROTO_IP6=1, 
+	 UDP_API_DECAP_PROTO_MPLS=2, 
 } 
 impl Default for UdpDecapNextProto { 
 	fn default() -> Self { UdpDecapNextProto::UDP_API_DECAP_PROTO_IP4 }
@@ -78,7 +78,7 @@ pub struct UdpEncapDetails {
 	pub udp_encap : UdpEncap, 
 } 
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
-#[message_name_and_crc(udp_decap_add_del_d155c6ac)] 
+#[message_name_and_crc(udp_decap_add_del_d14a4f47)] 
 pub struct UdpDecapAddDel { 
 	pub client_index : u32, 
 	pub context : u32, 

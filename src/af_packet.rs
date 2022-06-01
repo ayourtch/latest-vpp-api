@@ -12,6 +12,38 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::interface_types::*; 
 use crate::ethernet_types::*; 
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)] 
+#[repr(u32)]
+pub enum AfPacketMode { 
+	 AF_PACKET_API_MODE_ETHERNET=1, 
+	 AF_PACKET_API_MODE_IP=2, 
+} 
+impl Default for AfPacketMode { 
+	fn default() -> Self { AfPacketMode::AF_PACKET_API_MODE_ETHERNET }
+}
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)] 
+pub enum AfPacketFlags { 
+	 AF_PACKET_API_FLAG_QDISC_BYPASS=1, 
+	 AF_PACKET_API_FLAG_CKSUM_GSO=2, 
+} 
+impl Default for AfPacketFlags { 
+	fn default() -> Self { AfPacketFlags::AF_PACKET_API_FLAG_QDISC_BYPASS }
+}
+impl AsEnumFlag for AfPacketFlags {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 1 => AfPacketFlags::AF_PACKET_API_FLAG_QDISC_BYPASS, 
+			 2 => AfPacketFlags::AF_PACKET_API_FLAG_CKSUM_GSO, 
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(af_packet_create_a190415f)] 
 pub struct AfPacketCreate { 
@@ -46,6 +78,30 @@ pub struct AfPacketCreateV2 {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
 #[message_name_and_crc(af_packet_create_v2_reply_5383d31f)] 
 pub struct AfPacketCreateV2Reply { 
+	pub context : u32, 
+	pub retval : i32, 
+	pub sw_if_index : InterfaceIndex, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(af_packet_create_v3_b3a809d4)] 
+pub struct AfPacketCreateV3 { 
+	pub client_index : u32, 
+	pub context : u32, 
+	pub mode : AfPacketMode, 
+	pub hw_addr : MacAddress, 
+	pub use_random_hw_addr : bool, 
+	pub host_if_name : FixedSizeString<typenum::U64>, 
+	pub rx_frame_size : u32, 
+	pub tx_frame_size : u32, 
+	pub rx_frames_per_block : u32, 
+	pub tx_frames_per_block : u32, 
+	 pub flags : EnumFlag<AfPacketFlags>, 
+	pub num_rx_queues : u16, 
+	pub num_tx_queues : u16, 
+} 
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)] 
+#[message_name_and_crc(af_packet_create_v3_reply_5383d31f)] 
+pub struct AfPacketCreateV3Reply { 
 	pub context : u32, 
 	pub retval : i32, 
 	pub sw_if_index : InterfaceIndex, 
