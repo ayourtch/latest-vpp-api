@@ -14,31 +14,31 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(avf_create_daab8ae2)]
 pub struct AvfCreate {
-	pub client_index : u32,
-	pub context : u32,
-	pub pci_addr : u32,
-	pub enable_elog : i32,
-	pub rxq_num : u16,
-	pub rxq_size : u16,
-	pub txq_size : u16,
+	pub client_index: u32,
+	pub context: u32,
+	pub pci_addr: u32,
+	pub enable_elog: i32,
+	pub rxq_num: u16,
+	pub rxq_size: u16,
+	pub txq_size: u16,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(avf_create_reply_5383d31f)]
 pub struct AvfCreateReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(avf_delete_f9e6675e)]
 pub struct AvfDelete {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(avf_delete_reply_e8d4e804)]
 pub struct AvfDeleteReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

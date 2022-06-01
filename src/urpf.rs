@@ -26,16 +26,16 @@ impl Default for UrpfMode {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(urpf_update_cc274cd1)]
 pub struct UrpfUpdate {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_input : bool,
-	pub mode : UrpfMode,
-	pub af : AddressFamily,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_input: bool,
+	pub mode: UrpfMode,
+	pub af: AddressFamily,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(urpf_update_reply_e8d4e804)]
 pub struct UrpfUpdateReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

@@ -15,33 +15,33 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lldp_config_c14445df)]
 pub struct LldpConfig {
-	pub client_index : u32,
-	pub context : u32,
-	pub tx_hold : u32,
-	pub tx_interval : u32,
-	pub system_name : VariableSizeString,
+	pub client_index: u32,
+	pub context: u32,
+	pub tx_hold: u32,
+	pub tx_interval: u32,
+	pub system_name: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lldp_config_reply_e8d4e804)]
 pub struct LldpConfigReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_set_lldp_57afbcd4)]
 pub struct SwInterfaceSetLldp {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub mgmt_ip4 : Ip4Address,
-	pub mgmt_ip6 : Ip6Address,
-	pub mgmt_oid : FixedSizeArray<u8, typenum::U128>,
-	pub enable : bool,
-	pub port_desc : VariableSizeString,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub mgmt_ip4: Ip4Address,
+	pub mgmt_ip6: Ip6Address,
+	pub mgmt_oid: FixedSizeArray<u8, typenum::U128>,
+	pub enable: bool,
+	pub port_desc: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_set_lldp_reply_e8d4e804)]
 pub struct SwInterfaceSetLldpReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

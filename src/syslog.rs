@@ -29,60 +29,60 @@ impl Default for SyslogSeverity {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_set_sender_b8011d0b)]
 pub struct SyslogSetSender {
-	pub client_index : u32,
-	pub context : u32,
-	pub src_address : Ip4Address,
-	pub collector_address : Ip4Address,
-	pub collector_port : u16,
-	pub vrf_id : u32,
-	pub max_msg_size : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub src_address: Ip4Address,
+	pub collector_address: Ip4Address,
+	pub collector_port: u16,
+	pub vrf_id: u32,
+	pub max_msg_size: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_set_sender_reply_e8d4e804)]
 pub struct SyslogSetSenderReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_get_sender_51077d14)]
 pub struct SyslogGetSender {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_get_sender_reply_424cfa4e)]
 pub struct SyslogGetSenderReply {
-	pub context : u32,
-	pub retval : i32,
-	pub src_address : Ip4Address,
-	pub collector_address : Ip4Address,
-	pub collector_port : u16,
-	pub vrf_id : u32,
-	pub max_msg_size : u32,
+	pub context: u32,
+	pub retval: i32,
+	pub src_address: Ip4Address,
+	pub collector_address: Ip4Address,
+	pub collector_port: u16,
+	pub vrf_id: u32,
+	pub max_msg_size: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_set_filter_571348c3)]
 pub struct SyslogSetFilter {
-	pub client_index : u32,
-	pub context : u32,
-	pub severity : SyslogSeverity,
+	pub client_index: u32,
+	pub context: u32,
+	pub severity: SyslogSeverity,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_set_filter_reply_e8d4e804)]
 pub struct SyslogSetFilterReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_get_filter_51077d14)]
 pub struct SyslogGetFilter {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(syslog_get_filter_reply_eb1833f8)]
 pub struct SyslogGetFilterReply {
-	pub context : u32,
-	pub retval : i32,
-	pub severity : SyslogSeverity,
+	pub context: u32,
+	pub retval: i32,
+	pub severity: SyslogSeverity,
 }

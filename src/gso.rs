@@ -14,14 +14,14 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(feature_gso_enable_disable_5501adee)]
 pub struct FeatureGsoEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub enable_disable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub enable_disable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(feature_gso_enable_disable_reply_e8d4e804)]
 pub struct FeatureGsoEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

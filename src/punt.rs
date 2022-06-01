@@ -14,32 +14,32 @@ use crate::ip_types::*;
 // Implementation for punt_l4
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PuntL4 {
-	pub af : AddressFamily,
-	pub protocol : IpProto,
-	pub port : u16,
+	pub af: AddressFamily,
+	pub protocol: IpProto,
+	pub port: u16,
 }
 // Implementation for punt_ip_proto
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PuntIpProto {
-	pub af : AddressFamily,
-	pub protocol : IpProto,
+	pub af: AddressFamily,
+	pub protocol: IpProto,
 }
 // Implementation for punt_exception
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PuntException {
-	pub id : u32,
+	pub id: u32,
 }
 // Implementation for punt
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Punt {
-	pub typ : PuntType,
-	pub punt : PuntUnion,
+	pub typ: PuntType,
+	pub punt: PuntUnion,
 }
 // Implementation for punt_reason
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PuntReason {
-	pub id : u32,
-	pub name : VariableSizeString,
+	pub id: u32,
+	pub name: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, Default, VppUnionIdent)]
 #[types(PuntException:4)]
@@ -59,70 +59,70 @@ impl Default for PuntType {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(set_punt_47d0e347)]
 pub struct SetPunt {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_add : bool,
-	pub punt : Punt,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub punt: Punt,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(set_punt_reply_e8d4e804)]
 pub struct SetPuntReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_socket_register_7875badb)]
 pub struct PuntSocketRegister {
-	pub client_index : u32,
-	pub context : u32,
-	pub header_version : u32,
-	pub punt : Punt,
-	pub pathname : FixedSizeString<typenum::U108>,
+	pub client_index: u32,
+	pub context: u32,
+	pub header_version: u32,
+	pub punt: Punt,
+	pub pathname: FixedSizeString<typenum::U108>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_socket_register_reply_bd30ae90)]
 pub struct PuntSocketRegisterReply {
-	pub context : u32,
-	pub retval : i32,
-	pub pathname : FixedSizeString<typenum::U108>,
+	pub context: u32,
+	pub retval: i32,
+	pub pathname: FixedSizeString<typenum::U108>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_socket_dump_916fb004)]
 pub struct PuntSocketDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub typ : PuntType,
+	pub client_index: u32,
+	pub context: u32,
+	pub typ: PuntType,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_socket_details_330466e4)]
 pub struct PuntSocketDetails {
-	pub context : u32,
-	pub punt : Punt,
-	pub pathname : FixedSizeString<typenum::U108>,
+	pub context: u32,
+	pub punt: Punt,
+	pub pathname: FixedSizeString<typenum::U108>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_socket_deregister_75afa766)]
 pub struct PuntSocketDeregister {
-	pub client_index : u32,
-	pub context : u32,
-	pub punt : Punt,
+	pub client_index: u32,
+	pub context: u32,
+	pub punt: Punt,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_socket_deregister_reply_e8d4e804)]
 pub struct PuntSocketDeregisterReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_reason_dump_5c0dd4fe)]
 pub struct PuntReasonDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub reason : PuntReason,
+	pub client_index: u32,
+	pub context: u32,
+	pub reason: PuntReason,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(punt_reason_details_2c9d4a40)]
 pub struct PuntReasonDetails {
-	pub context : u32,
-	pub reason : PuntReason,
+	pub context: u32,
+	pub reason: PuntReason,
 }

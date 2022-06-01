@@ -13,60 +13,60 @@ use typenum;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_enable_disable_8050327d)]
 pub struct DnsEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub enable : u8,
+	pub client_index: u32,
+	pub context: u32,
+	pub enable: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_enable_disable_reply_e8d4e804)]
 pub struct DnsEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_name_server_add_del_3bb05d8c)]
 pub struct DnsNameServerAddDel {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_ip6 : u8,
-	pub is_add : u8,
-	pub server_address : FixedSizeArray<u8, typenum::U16>,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_ip6: u8,
+	pub is_add: u8,
+	pub server_address: FixedSizeArray<u8, typenum::U16>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_name_server_add_del_reply_e8d4e804)]
 pub struct DnsNameServerAddDelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_resolve_name_c6566676)]
 pub struct DnsResolveName {
-	pub client_index : u32,
-	pub context : u32,
-	pub name : FixedSizeArray<u8, typenum::U256>,
+	pub client_index: u32,
+	pub context: u32,
+	pub name: FixedSizeArray<u8, typenum::U256>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_resolve_name_reply_c2d758c3)]
 pub struct DnsResolveNameReply {
-	pub context : u32,
-	pub retval : i32,
-	pub ip4_set : u8,
-	pub ip6_set : u8,
-	pub ip4_address : FixedSizeArray<u8, typenum::U4>,
-	pub ip6_address : FixedSizeArray<u8, typenum::U16>,
+	pub context: u32,
+	pub retval: i32,
+	pub ip4_set: u8,
+	pub ip6_set: u8,
+	pub ip4_address: FixedSizeArray<u8, typenum::U4>,
+	pub ip6_address: FixedSizeArray<u8, typenum::U16>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_resolve_ip_ae96a1a3)]
 pub struct DnsResolveIp {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_ip6 : u8,
-	pub address : FixedSizeArray<u8, typenum::U16>,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_ip6: u8,
+	pub address: FixedSizeArray<u8, typenum::U16>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dns_resolve_ip_reply_49ed78d6)]
 pub struct DnsResolveIpReply {
-	pub context : u32,
-	pub retval : i32,
-	pub name : FixedSizeArray<u8, typenum::U256>,
+	pub context: u32,
+	pub retval: i32,
+	pub name: FixedSizeArray<u8, typenum::U256>,
 }

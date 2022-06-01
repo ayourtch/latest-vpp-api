@@ -15,18 +15,18 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(arping_48817482)]
 pub struct Arping {
-	pub client_index : u32,
-	pub context : u32,
-	pub address : Address,
-	pub sw_if_index : InterfaceIndex,
-	pub is_garp : bool,
-	pub repeat : u32,
-	pub interval : f64,
+	pub client_index: u32,
+	pub context: u32,
+	pub address: Address,
+	pub sw_if_index: InterfaceIndex,
+	pub is_garp: bool,
+	pub repeat: u32,
+	pub interval: f64,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(arping_reply_bb9d1cbd)]
 pub struct ArpingReply {
-	pub context : u32,
-	pub retval : i32,
-	pub reply_count : u32,
+	pub context: u32,
+	pub retval: i32,
+	pub reply_count: u32,
 }

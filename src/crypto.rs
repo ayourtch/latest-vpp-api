@@ -32,29 +32,29 @@ impl Default for CryptoOpClassType {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(crypto_set_async_dispatch_5ca4adc0)]
 pub struct CryptoSetAsyncDispatch {
-	pub client_index : u32,
-	pub context : u32,
-	pub mode : CryptoDispatchMode,
+	pub client_index: u32,
+	pub context: u32,
+	pub mode: CryptoDispatchMode,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(crypto_set_async_dispatch_reply_e8d4e804)]
 pub struct CryptoSetAsyncDispatchReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(crypto_set_handler_ce9ad00d)]
 pub struct CryptoSetHandler {
-	pub client_index : u32,
-	pub context : u32,
-	pub alg_name : FixedSizeString<typenum::U32>,
-	pub engine : FixedSizeString<typenum::U16>,
-	pub oct : CryptoOpClassType,
-	pub is_async : u8,
+	pub client_index: u32,
+	pub context: u32,
+	pub alg_name: FixedSizeString<typenum::U32>,
+	pub engine: FixedSizeString<typenum::U16>,
+	pub oct: CryptoOpClassType,
+	pub is_async: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(crypto_set_handler_reply_e8d4e804)]
 pub struct CryptoSetHandlerReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

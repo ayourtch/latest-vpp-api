@@ -14,16 +14,16 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(feature_enable_disable_7531c862)]
 pub struct FeatureEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub enable : bool,
-	pub arc_name : FixedSizeString<typenum::U64>,
-	pub feature_name : FixedSizeString<typenum::U64>,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub enable: bool,
+	pub arc_name: FixedSizeString<typenum::U64>,
+	pub feature_name: FixedSizeString<typenum::U64>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(feature_enable_disable_reply_e8d4e804)]
 pub struct FeatureEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

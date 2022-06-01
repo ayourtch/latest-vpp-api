@@ -14,15 +14,15 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ct6_enable_disable_5d02ac02)]
 pub struct Ct6EnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub enable_disable : bool,
-	pub is_inside : bool,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub enable_disable: bool,
+	pub is_inside: bool,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ct6_enable_disable_reply_e8d4e804)]
 pub struct Ct6EnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

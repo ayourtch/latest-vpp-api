@@ -13,13 +13,13 @@ use typenum;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ioam_cache_ip6_enable_disable_47705c03)]
 pub struct IoamCacheIp6EnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_disable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_disable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ioam_cache_ip6_enable_disable_reply_e8d4e804)]
 pub struct IoamCacheIp6EnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

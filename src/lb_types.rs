@@ -14,9 +14,9 @@ use crate::ip_types::*;
 // Implementation for lb_vip
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct LbVip {
-	pub pfx : AddressWithPrefix,
-	pub protocol : IpProto,
-	pub port : u16,
+	pub pfx: AddressWithPrefix,
+	pub protocol: IpProto,
+	pub port: u16,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u32)]

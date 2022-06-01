@@ -15,28 +15,28 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(stn_add_del_rule_224c6edd)]
 pub struct StnAddDelRule {
-	pub client_index : u32,
-	pub context : u32,
-	pub ip_address : Address,
-	pub sw_if_index : InterfaceIndex,
-	pub is_add : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub ip_address: Address,
+	pub sw_if_index: InterfaceIndex,
+	pub is_add: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(stn_add_del_rule_reply_e8d4e804)]
 pub struct StnAddDelRuleReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(stn_rules_dump_51077d14)]
 pub struct StnRulesDump {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(stn_rules_details_a51935a6)]
 pub struct StnRulesDetails {
-	pub context : u32,
-	pub ip_address : Address,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub ip_address: Address,
+	pub sw_if_index: InterfaceIndex,
 }

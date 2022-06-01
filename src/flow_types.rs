@@ -15,191 +15,191 @@ use crate::ethernet_types::*;
 // Implementation for generic_pattern
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct GenericPattern {
-	pub spec : FixedSizeArray<u8, typenum::U1024>,
-	pub mask : FixedSizeArray<u8, typenum::U1024>,
+	pub spec: FixedSizeArray<u8, typenum::U1024>,
+	pub mask: FixedSizeArray<u8, typenum::U1024>,
 }
 // Implementation for ip_port_and_mask
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IpPortAndMask {
-	pub port : u16,
-	pub mask : u16,
+	pub port: u16,
+	pub mask: u16,
 }
 // Implementation for ip_prot_and_mask
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IpProtAndMask {
-	pub prot : IpProto,
-	pub mask : u8,
+	pub prot: IpProto,
+	pub mask: u8,
 }
 // Implementation for flow_ethernet
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowEthernet {
-	pub foo : i32,
-	pub src_addr : MacAddress,
-	pub dst_addr : MacAddress,
-	pub typ : u16,
+	pub foo: i32,
+	pub src_addr: MacAddress,
+	pub dst_addr: MacAddress,
+	pub typ: u16,
 }
 // Implementation for flow_ip4
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4 {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
 }
 // Implementation for flow_ip6
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp6 {
-	pub foo : i32,
-	pub src_addr : Ip6AddressAndMask,
-	pub dst_addr : Ip6AddressAndMask,
-	pub protocol : IpProtAndMask,
+	pub foo: i32,
+	pub src_addr: Ip6AddressAndMask,
+	pub dst_addr: Ip6AddressAndMask,
+	pub protocol: IpProtAndMask,
 }
 // Implementation for flow_ip4_n_tuple
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4NTuple {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
 }
 // Implementation for flow_ip6_n_tuple
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp6NTuple {
-	pub foo : i32,
-	pub src_addr : Ip6AddressAndMask,
-	pub dst_addr : Ip6AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
+	pub foo: i32,
+	pub src_addr: Ip6AddressAndMask,
+	pub dst_addr: Ip6AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
 }
 // Implementation for flow_ip4_n_tuple_tagged
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4NTupleTagged {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
 }
 // Implementation for flow_ip6_n_tuple_tagged
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp6NTupleTagged {
-	pub foo : i32,
-	pub src_addr : Ip6AddressAndMask,
-	pub dst_addr : Ip6AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
+	pub foo: i32,
+	pub src_addr: Ip6AddressAndMask,
+	pub dst_addr: Ip6AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
 }
 // Implementation for flow_ip4_l2tpv3oip
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4L2tpv3oip {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub session_id : u32,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub session_id: u32,
 }
 // Implementation for flow_ip4_ipsec_esp
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4IpsecEsp {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub spi : u32,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub spi: u32,
 }
 // Implementation for flow_ip4_ipsec_ah
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4IpsecAh {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub spi : u32,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub spi: u32,
 }
 // Implementation for flow_ip4_vxlan
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4Vxlan {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
-	pub vni : u32,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
+	pub vni: u32,
 }
 // Implementation for flow_ip6_vxlan
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp6Vxlan {
-	pub foo : i32,
-	pub src_addr : Ip6AddressAndMask,
-	pub dst_addr : Ip6AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
-	pub vni : u32,
+	pub foo: i32,
+	pub src_addr: Ip6AddressAndMask,
+	pub dst_addr: Ip6AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
+	pub vni: u32,
 }
 // Implementation for flow_ip4_gtpc
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4Gtpc {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
-	pub teid : u32,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
+	pub teid: u32,
 }
 // Implementation for flow_ip4_gtpu
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowIp4Gtpu {
-	pub foo : i32,
-	pub src_addr : Ip4AddressAndMask,
-	pub dst_addr : Ip4AddressAndMask,
-	pub protocol : IpProtAndMask,
-	pub src_port : IpPortAndMask,
-	pub dst_port : IpPortAndMask,
-	pub teid : u32,
+	pub foo: i32,
+	pub src_addr: Ip4AddressAndMask,
+	pub dst_addr: Ip4AddressAndMask,
+	pub protocol: IpProtAndMask,
+	pub src_port: IpPortAndMask,
+	pub dst_port: IpPortAndMask,
+	pub teid: u32,
 }
 // Implementation for flow_generic
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowGeneric {
-	pub foo : i32,
-	pub pattern : GenericPattern,
+	pub foo: i32,
+	pub pattern: GenericPattern,
 }
 // Implementation for flow_rule
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowRule {
-	pub typ : FlowType,
-	pub index : u32,
-	pub actions : FlowAction,
-	pub mark_flow_id : u32,
-	pub redirect_node_index : u32,
-	pub redirect_device_input_next_index : u32,
-	pub redirect_queue : u32,
-	pub buffer_advance : i32,
-	pub flow : Flow,
+	pub typ: FlowType,
+	pub index: u32,
+	pub actions: FlowAction,
+	pub mark_flow_id: u32,
+	pub redirect_node_index: u32,
+	pub redirect_device_input_next_index: u32,
+	pub redirect_queue: u32,
+	pub buffer_advance: i32,
+	pub flow: Flow,
 }
 // Implementation for flow_rule_v2
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FlowRuleV2 {
-	pub typ : FlowTypeV2,
-	pub index : u32,
-	pub actions : FlowActionV2,
-	pub mark_flow_id : u32,
-	pub redirect_node_index : u32,
-	pub redirect_device_input_next_index : u32,
-	pub redirect_queue : u32,
-	pub queue_index : u32,
-	pub queue_num : u32,
-	pub buffer_advance : i32,
-	pub rss_types : u64,
-	pub rss_fun : RssFunction,
-	pub flow : FlowV2,
+	pub typ: FlowTypeV2,
+	pub index: u32,
+	pub actions: FlowActionV2,
+	pub mark_flow_id: u32,
+	pub redirect_node_index: u32,
+	pub redirect_device_input_next_index: u32,
+	pub redirect_queue: u32,
+	pub queue_index: u32,
+	pub queue_num: u32,
+	pub buffer_advance: i32,
+	pub rss_types: u64,
+	pub rss_fun: RssFunction,
+	pub flow: FlowV2,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, Default, VppUnionIdent)]
 #[types(FlowEthernet:18)]

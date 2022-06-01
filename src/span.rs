@@ -25,32 +25,32 @@ impl Default for SpanState {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_span_enable_disable_23ddd96b)]
 pub struct SwInterfaceSpanEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index_from : InterfaceIndex,
-	pub sw_if_index_to : InterfaceIndex,
-	pub state : SpanState,
-	pub is_l2 : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index_from: InterfaceIndex,
+	pub sw_if_index_to: InterfaceIndex,
+	pub state: SpanState,
+	pub is_l2: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_span_enable_disable_reply_e8d4e804)]
 pub struct SwInterfaceSpanEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_span_dump_d6cf0c3d)]
 pub struct SwInterfaceSpanDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_l2 : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_l2: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_span_details_8a20e79f)]
 pub struct SwInterfaceSpanDetails {
-	pub context : u32,
-	pub sw_if_index_from : InterfaceIndex,
-	pub sw_if_index_to : InterfaceIndex,
-	pub state : SpanState,
-	pub is_l2 : bool,
+	pub context: u32,
+	pub sw_if_index_from: InterfaceIndex,
+	pub sw_if_index_to: InterfaceIndex,
+	pub state: SpanState,
+	pub is_l2: bool,
 }

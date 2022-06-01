@@ -16,34 +16,34 @@ use crate::ethernet_types::*;
 // Implementation for local_locator
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct LocalLocator {
-	pub sw_if_index : InterfaceIndex,
-	pub priority : u8,
-	pub weight : u8,
+	pub sw_if_index: InterfaceIndex,
+	pub priority: u8,
+	pub weight: u8,
 }
 // Implementation for remote_locator
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct RemoteLocator {
-	pub priority : u8,
-	pub weight : u8,
-	pub ip_address : Address,
+	pub priority: u8,
+	pub weight: u8,
+	pub ip_address: Address,
 }
 // Implementation for nsh
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Nsh {
-	pub spi : u32,
-	pub si : u8,
+	pub spi: u32,
+	pub si: u8,
 }
 // Implementation for eid
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Eid {
-	pub typ : EidType,
-	pub address : EidAddress,
+	pub typ: EidType,
+	pub address: EidAddress,
 }
 // Implementation for hmac_key
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct HmacKey {
-	pub id : HmacKeyId,
-	pub key : FixedSizeArray<u8, typenum::U64>,
+	pub id: HmacKeyId,
+	pub key: FixedSizeArray<u8, typenum::U64>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, Default, VppUnionIdent)]
 #[types(Prefix:18)]

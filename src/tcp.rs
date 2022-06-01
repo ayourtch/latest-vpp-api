@@ -14,15 +14,15 @@ use crate::ip_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(tcp_configure_src_addresses_67eede0d)]
 pub struct TcpConfigureSrcAddresses {
-	pub client_index : u32,
-	pub context : u32,
-	pub vrf_id : u32,
-	pub first_address : Address,
-	pub last_address : Address,
+	pub client_index: u32,
+	pub context: u32,
+	pub vrf_id: u32,
+	pub first_address: Address,
+	pub last_address: Address,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(tcp_configure_src_addresses_reply_e8d4e804)]
 pub struct TcpConfigureSrcAddressesReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

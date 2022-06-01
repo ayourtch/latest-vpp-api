@@ -13,52 +13,52 @@ use typenum;
 // Implementation for address
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Address {
-	pub af : AddressFamily,
-	pub un : AddressUnion,
+	pub af: AddressFamily,
+	pub un: AddressUnion,
 }
 // Implementation for prefix
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Prefix {
-	pub address : Address,
-	pub len : u8,
+	pub address: Address,
+	pub len: u8,
 }
 // Implementation for ip4_address_and_mask
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Ip4AddressAndMask {
-	pub addr : Ip4Address,
-	pub mask : Ip4Address,
+	pub addr: Ip4Address,
+	pub mask: Ip4Address,
 }
 // Implementation for ip6_address_and_mask
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Ip6AddressAndMask {
-	pub addr : Ip6Address,
-	pub mask : Ip6Address,
+	pub addr: Ip6Address,
+	pub mask: Ip6Address,
 }
 // Implementation for mprefix
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Mprefix {
-	pub af : AddressFamily,
-	pub grp_address_length : u16,
-	pub grp_address : AddressUnion,
-	pub src_address : AddressUnion,
+	pub af: AddressFamily,
+	pub grp_address_length: u16,
+	pub grp_address: AddressUnion,
+	pub src_address: AddressUnion,
 }
 // Implementation for ip6_prefix
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Ip6Prefix {
-	pub address : Ip6Address,
-	pub len : u8,
+	pub address: Ip6Address,
+	pub len: u8,
 }
 // Implementation for ip4_prefix
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Ip4Prefix {
-	pub address : Ip4Address,
-	pub len : u8,
+	pub address: Ip4Address,
+	pub len: u8,
 }
 // Implementation for prefix_matcher
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PrefixMatcher {
-	pub le : u8,
-	pub ge : u8,
+	pub le: u8,
+	pub ge: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, Default, VppUnionIdent)]
 #[types(Ip4Address:4)]

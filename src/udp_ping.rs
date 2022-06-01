@@ -14,35 +14,35 @@ use crate::ip_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(udp_ping_add_del_fa2628fc)]
 pub struct UdpPingAddDel {
-	pub client_index : u32,
-	pub context : u32,
-	pub src_ip_address : Address,
-	pub dst_ip_address : Address,
-	pub start_src_port : u16,
-	pub end_src_port : u16,
-	pub start_dst_port : u16,
-	pub end_dst_port : u16,
-	pub interval : u16,
-	pub dis : u8,
-	pub fault_det : u8,
-	pub reserve : FixedSizeArray<u8, typenum::U3>,
+	pub client_index: u32,
+	pub context: u32,
+	pub src_ip_address: Address,
+	pub dst_ip_address: Address,
+	pub start_src_port: u16,
+	pub end_src_port: u16,
+	pub start_dst_port: u16,
+	pub end_dst_port: u16,
+	pub interval: u16,
+	pub dis: u8,
+	pub fault_det: u8,
+	pub reserve: FixedSizeArray<u8, typenum::U3>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(udp_ping_add_del_reply_e8d4e804)]
 pub struct UdpPingAddDelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(udp_ping_export_b3e225d2)]
 pub struct UdpPingExport {
-	pub client_index : u32,
-	pub context : u32,
-	pub enable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub enable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(udp_ping_export_reply_e8d4e804)]
 pub struct UdpPingExportReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

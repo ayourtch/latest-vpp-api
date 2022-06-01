@@ -47,67 +47,67 @@ impl AsEnumFlag for VirtioFlags {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(virtio_pci_create_1944f8db)]
 pub struct VirtioPciCreate {
-	pub client_index : u32,
-	pub context : u32,
-	pub pci_addr : PciAddress,
-	pub use_random_mac : bool,
-	pub mac_address : MacAddress,
-	pub gso_enabled : bool,
-	pub checksum_offload_enabled : bool,
-	pub features : u64,
+	pub client_index: u32,
+	pub context: u32,
+	pub pci_addr: PciAddress,
+	pub use_random_mac: bool,
+	pub mac_address: MacAddress,
+	pub gso_enabled: bool,
+	pub checksum_offload_enabled: bool,
+	pub features: u64,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(virtio_pci_create_reply_5383d31f)]
 pub struct VirtioPciCreateReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(virtio_pci_create_v2_5d096e1a)]
 pub struct VirtioPciCreateV2 {
-	pub client_index : u32,
-	pub context : u32,
-	pub pci_addr : PciAddress,
-	pub use_random_mac : bool,
-	pub mac_address : MacAddress,
-	 pub virtio_flags : EnumFlag<VirtioFlags>,
-	pub features : u64,
+	pub client_index: u32,
+	pub context: u32,
+	pub pci_addr: PciAddress,
+	pub use_random_mac: bool,
+	pub mac_address: MacAddress,
+	 pub virtio_flags: EnumFlag<VirtioFlags>,
+	pub features: u64,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(virtio_pci_create_v2_reply_5383d31f)]
 pub struct VirtioPciCreateV2Reply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(virtio_pci_delete_f9e6675e)]
 pub struct VirtioPciDelete {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(virtio_pci_delete_reply_e8d4e804)]
 pub struct VirtioPciDeleteReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_virtio_pci_dump_51077d14)]
 pub struct SwInterfaceVirtioPciDump {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_virtio_pci_details_6ca9c167)]
 pub struct SwInterfaceVirtioPciDetails {
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub pci_addr : PciAddress,
-	pub mac_addr : MacAddress,
-	pub tx_ring_sz : u16,
-	pub rx_ring_sz : u16,
-	pub features : u64,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub pci_addr: PciAddress,
+	pub mac_addr: MacAddress,
+	pub tx_ring_sz: u16,
+	pub rx_ring_sz: u16,
+	pub features: u64,
 }

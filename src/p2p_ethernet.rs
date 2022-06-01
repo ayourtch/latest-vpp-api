@@ -15,30 +15,30 @@ use crate::ethernet_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(p2p_ethernet_add_36a1a6dc)]
 pub struct P2pEthernetAdd {
-	pub client_index : u32,
-	pub context : u32,
-	pub parent_if_index : InterfaceIndex,
-	pub subif_id : u32,
-	pub remote_mac : MacAddress,
+	pub client_index: u32,
+	pub context: u32,
+	pub parent_if_index: InterfaceIndex,
+	pub subif_id: u32,
+	pub remote_mac: MacAddress,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(p2p_ethernet_add_reply_5383d31f)]
 pub struct P2pEthernetAddReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(p2p_ethernet_del_62f81c8c)]
 pub struct P2pEthernetDel {
-	pub client_index : u32,
-	pub context : u32,
-	pub parent_if_index : InterfaceIndex,
-	pub remote_mac : MacAddress,
+	pub client_index: u32,
+	pub context: u32,
+	pub parent_if_index: InterfaceIndex,
+	pub remote_mac: MacAddress,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(p2p_ethernet_del_reply_e8d4e804)]
 pub struct P2pEthernetDelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

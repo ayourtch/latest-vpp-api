@@ -15,8 +15,8 @@ use crate::fib_types::*;
 // Implementation for mfib_path
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct MfibPath {
-	pub itf_flags : EnumFlag<MfibItfFlags>,
-	pub path : FibPath,
+	pub itf_flags: EnumFlag<MfibItfFlags>,
+	pub path: FibPath,
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum MfibEntryFlags {

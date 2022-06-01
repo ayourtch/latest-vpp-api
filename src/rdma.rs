@@ -46,76 +46,76 @@ impl Default for RdmaRss6 {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_create_076fe418)]
 pub struct RdmaCreate {
-	pub client_index : u32,
-	pub context : u32,
-	pub host_if : FixedSizeString<typenum::U64>,
-	pub name : FixedSizeString<typenum::U64>,
-	pub rxq_num : u16,
-	pub rxq_size : u16,
-	pub txq_size : u16,
-	pub mode : RdmaMode,
+	pub client_index: u32,
+	pub context: u32,
+	pub host_if: FixedSizeString<typenum::U64>,
+	pub name: FixedSizeString<typenum::U64>,
+	pub rxq_num: u16,
+	pub rxq_size: u16,
+	pub txq_size: u16,
+	pub mode: RdmaMode,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_create_v2_5826a4f3)]
 pub struct RdmaCreateV2 {
-	pub client_index : u32,
-	pub context : u32,
-	pub host_if : FixedSizeString<typenum::U64>,
-	pub name : FixedSizeString<typenum::U64>,
-	pub rxq_num : u16,
-	pub rxq_size : u16,
-	pub txq_size : u16,
-	pub mode : RdmaMode,
-	pub no_multi_seg : bool,
-	pub max_pktlen : u16,
+	pub client_index: u32,
+	pub context: u32,
+	pub host_if: FixedSizeString<typenum::U64>,
+	pub name: FixedSizeString<typenum::U64>,
+	pub rxq_num: u16,
+	pub rxq_size: u16,
+	pub txq_size: u16,
+	pub mode: RdmaMode,
+	pub no_multi_seg: bool,
+	pub max_pktlen: u16,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_create_v3_c6287ea8)]
 pub struct RdmaCreateV3 {
-	pub client_index : u32,
-	pub context : u32,
-	pub host_if : FixedSizeString<typenum::U64>,
-	pub name : FixedSizeString<typenum::U64>,
-	pub rxq_num : u16,
-	pub rxq_size : u16,
-	pub txq_size : u16,
-	pub mode : RdmaMode,
-	pub no_multi_seg : bool,
-	pub max_pktlen : u16,
-	pub rss4 : RdmaRss4,
-	pub rss6 : RdmaRss6,
+	pub client_index: u32,
+	pub context: u32,
+	pub host_if: FixedSizeString<typenum::U64>,
+	pub name: FixedSizeString<typenum::U64>,
+	pub rxq_num: u16,
+	pub rxq_size: u16,
+	pub txq_size: u16,
+	pub mode: RdmaMode,
+	pub no_multi_seg: bool,
+	pub max_pktlen: u16,
+	pub rss4: RdmaRss4,
+	pub rss6: RdmaRss6,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_create_reply_5383d31f)]
 pub struct RdmaCreateReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_create_v2_reply_5383d31f)]
 pub struct RdmaCreateV2Reply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_create_v3_reply_5383d31f)]
 pub struct RdmaCreateV3Reply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_delete_f9e6675e)]
 pub struct RdmaDelete {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(rdma_delete_reply_e8d4e804)]
 pub struct RdmaDeleteReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

@@ -14,15 +14,15 @@ use crate::ip_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(vxlan_gpe_ioam_export_enable_disable_d4c76d3a)]
 pub struct VxlanGpeIoamExportEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_disable : bool,
-	pub collector_address : Ip4Address,
-	pub src_address : Ip4Address,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_disable: bool,
+	pub collector_address: Ip4Address,
+	pub src_address: Ip4Address,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(vxlan_gpe_ioam_export_enable_disable_reply_e8d4e804)]
 pub struct VxlanGpeIoamExportEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

@@ -14,45 +14,45 @@ use crate::vpe_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(show_version_51077d14)]
 pub struct ShowVersion {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(show_version_reply_c919bde1)]
 pub struct ShowVersionReply {
-	pub context : u32,
-	pub retval : i32,
-	pub program : FixedSizeString<typenum::U32>,
-	pub version : FixedSizeString<typenum::U32>,
-	pub build_date : FixedSizeString<typenum::U32>,
-	pub build_directory : FixedSizeString<typenum::U256>,
+	pub context: u32,
+	pub retval: i32,
+	pub program: FixedSizeString<typenum::U32>,
+	pub version: FixedSizeString<typenum::U32>,
+	pub build_date: FixedSizeString<typenum::U32>,
+	pub build_directory: FixedSizeString<typenum::U256>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(show_vpe_system_time_51077d14)]
 pub struct ShowVpeSystemTime {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(show_vpe_system_time_reply_7ffd8193)]
 pub struct ShowVpeSystemTimeReply {
-	pub context : u32,
-	pub retval : i32,
-	pub vpe_system_time : Timestamp,
+	pub context: u32,
+	pub retval: i32,
+	pub vpe_system_time: Timestamp,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(log_dump_6ab31753)]
 pub struct LogDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub start_timestamp : Timestamp,
+	pub client_index: u32,
+	pub context: u32,
+	pub start_timestamp: Timestamp,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(log_details_03d61cc0)]
 pub struct LogDetails {
-	pub context : u32,
-	pub timestamp : Timestamp,
-	pub level : LogLevel,
-	pub msg_class : FixedSizeString<typenum::U32>,
-	pub message : FixedSizeString<typenum::U256>,
+	pub context: u32,
+	pub timestamp: Timestamp,
+	pub level: LogLevel,
+	pub msg_class: FixedSizeString<typenum::U32>,
+	pub message: FixedSizeString<typenum::U256>,
 }

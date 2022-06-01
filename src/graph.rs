@@ -50,28 +50,28 @@ impl AsEnumFlag for NodeFlag {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(graph_node_get_39c8792e)]
 pub struct GraphNodeGet {
-	pub client_index : u32,
-	pub context : u32,
-	pub cursor : u32,
-	pub index : u32,
-	pub name : FixedSizeString<typenum::U64>,
-	 pub flags : EnumFlag<NodeFlag>,
-	pub want_arcs : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub cursor: u32,
+	pub index: u32,
+	pub name: FixedSizeString<typenum::U64>,
+	 pub flags: EnumFlag<NodeFlag>,
+	pub want_arcs: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(graph_node_get_reply_53b48f5d)]
 pub struct GraphNodeGetReply {
-	pub context : u32,
-	pub retval : i32,
-	pub cursor : u32,
+	pub context: u32,
+	pub retval: i32,
+	pub cursor: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(graph_node_details_ac762018)]
 pub struct GraphNodeDetails {
-	pub context : u32,
-	pub index : u32,
-	pub name : FixedSizeString<typenum::U64>,
-	 pub flags : EnumFlag<NodeFlag>,
-	pub n_arcs : u32,
-	pub arcs_out : VariableSizeArray<u32>,
+	pub context: u32,
+	pub index: u32,
+	pub name: FixedSizeString<typenum::U64>,
+	 pub flags: EnumFlag<NodeFlag>,
+	pub n_arcs: u32,
+	pub arcs_out: VariableSizeArray<u32>,
 }

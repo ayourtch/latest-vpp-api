@@ -14,33 +14,33 @@ use crate::ip_types::*;
 // Implementation for fib_mpls_label
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FibMplsLabel {
-	pub is_uniform : u8,
-	pub label : u32,
-	pub ttl : u8,
-	pub exp : u8,
+	pub is_uniform: u8,
+	pub label: u32,
+	pub ttl: u8,
+	pub exp: u8,
 }
 // Implementation for fib_path_nh
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FibPathNh {
-	pub address : AddressUnion,
-	pub via_label : u32,
-	pub obj_id : u32,
-	pub classify_table_index : u32,
+	pub address: AddressUnion,
+	pub via_label: u32,
+	pub obj_id: u32,
+	pub classify_table_index: u32,
 }
 // Implementation for fib_path
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct FibPath {
-	pub sw_if_index : u32,
-	pub table_id : u32,
-	pub rpf_id : u32,
-	pub weight : u8,
-	pub preference : u8,
-	pub typ : FibPathType,
-	pub flags : EnumFlag<FibPathFlags>,
-	pub proto : FibPathNhProto,
-	pub nh : FibPathNh,
-	pub n_labels : u8,
-	pub label_stack : FixedSizeArray<FibMplsLabel, typenum::U16>,
+	pub sw_if_index: u32,
+	pub table_id: u32,
+	pub rpf_id: u32,
+	pub weight: u8,
+	pub preference: u8,
+	pub typ: FibPathType,
+	pub flags: EnumFlag<FibPathFlags>,
+	pub proto: FibPathNhProto,
+	pub nh: FibPathNh,
+	pub n_labels: u8,
+	pub label_stack: FixedSizeArray<FibMplsLabel, typenum::U16>,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u32)]

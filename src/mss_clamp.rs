@@ -24,42 +24,42 @@ impl Default for MssClampDir {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(mss_clamp_enable_disable_d31b44e3)]
 pub struct MssClampEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub ipv4_mss : u16,
-	pub ipv6_mss : u16,
-	pub ipv4_direction : MssClampDir,
-	pub ipv6_direction : MssClampDir,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub ipv4_mss: u16,
+	pub ipv6_mss: u16,
+	pub ipv4_direction: MssClampDir,
+	pub ipv6_direction: MssClampDir,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(mss_clamp_enable_disable_reply_e8d4e804)]
 pub struct MssClampEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(mss_clamp_get_47250981)]
 pub struct MssClampGet {
-	pub client_index : u32,
-	pub context : u32,
-	pub cursor : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub cursor: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(mss_clamp_get_reply_53b48f5d)]
 pub struct MssClampGetReply {
-	pub context : u32,
-	pub retval : i32,
-	pub cursor : u32,
+	pub context: u32,
+	pub retval: i32,
+	pub cursor: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(mss_clamp_details_d3a4de61)]
 pub struct MssClampDetails {
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub ipv4_mss : u16,
-	pub ipv6_mss : u16,
-	pub ipv4_direction : MssClampDir,
-	pub ipv6_direction : MssClampDir,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub ipv4_mss: u16,
+	pub ipv6_mss: u16,
+	pub ipv4_direction: MssClampDir,
+	pub ipv6_direction: MssClampDir,
 }

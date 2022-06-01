@@ -13,14 +13,14 @@ use typenum;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(crypto_sw_scheduler_set_worker_b4274502)]
 pub struct CryptoSwSchedulerSetWorker {
-	pub client_index : u32,
-	pub context : u32,
-	pub worker_index : u32,
-	pub crypto_enable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub worker_index: u32,
+	pub crypto_enable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(crypto_sw_scheduler_set_worker_reply_e8d4e804)]
 pub struct CryptoSwSchedulerSetWorkerReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

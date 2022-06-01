@@ -14,43 +14,43 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pipe_create_bb263bd3)]
 pub struct PipeCreate {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_specified : bool,
-	pub user_instance : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_specified: bool,
+	pub user_instance: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pipe_create_reply_b7ce310c)]
 pub struct PipeCreateReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
-	pub pipe_sw_if_index : FixedSizeArray<InterfaceIndex, typenum::U2>,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
+	pub pipe_sw_if_index: FixedSizeArray<InterfaceIndex, typenum::U2>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pipe_delete_f9e6675e)]
 pub struct PipeDelete {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pipe_delete_reply_e8d4e804)]
 pub struct PipeDeleteReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pipe_dump_51077d14)]
 pub struct PipeDump {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pipe_details_c52b799d)]
 pub struct PipeDetails {
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub pipe_sw_if_index : FixedSizeArray<InterfaceIndex, typenum::U2>,
-	pub instance : u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub pipe_sw_if_index: FixedSizeArray<InterfaceIndex, typenum::U2>,
+	pub instance: u32,
 }

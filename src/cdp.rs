@@ -13,13 +13,13 @@ use typenum;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(cdp_enable_disable_2e7b47df)]
 pub struct CdpEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub enable_disable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub enable_disable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(cdp_enable_disable_reply_e8d4e804)]
 pub struct CdpEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

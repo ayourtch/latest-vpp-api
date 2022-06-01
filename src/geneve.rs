@@ -16,75 +16,75 @@ use crate::ethernet_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(geneve_add_del_tunnel_99445831)]
 pub struct GeneveAddDelTunnel {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_add : bool,
-	pub local_address : Address,
-	pub remote_address : Address,
-	pub mcast_sw_if_index : InterfaceIndex,
-	pub encap_vrf_id : u32,
-	pub decap_next_index : u32,
-	pub vni : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub local_address: Address,
+	pub remote_address: Address,
+	pub mcast_sw_if_index: InterfaceIndex,
+	pub encap_vrf_id: u32,
+	pub decap_next_index: u32,
+	pub vni: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(geneve_add_del_tunnel_reply_5383d31f)]
 pub struct GeneveAddDelTunnelReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(geneve_add_del_tunnel2_8c2a9999)]
 pub struct GeneveAddDelTunnel2 {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_add : bool,
-	pub local_address : Address,
-	pub remote_address : Address,
-	pub mcast_sw_if_index : InterfaceIndex,
-	pub encap_vrf_id : u32,
-	pub decap_next_index : u32,
-	pub vni : u32,
-	pub l3_mode : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub local_address: Address,
+	pub remote_address: Address,
+	pub mcast_sw_if_index: InterfaceIndex,
+	pub encap_vrf_id: u32,
+	pub decap_next_index: u32,
+	pub vni: u32,
+	pub l3_mode: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(geneve_add_del_tunnel2_reply_5383d31f)]
 pub struct GeneveAddDelTunnel2Reply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(geneve_tunnel_dump_f9e6675e)]
 pub struct GeneveTunnelDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(geneve_tunnel_details_6b16eb24)]
 pub struct GeneveTunnelDetails {
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub src_address : Address,
-	pub dst_address : Address,
-	pub mcast_sw_if_index : InterfaceIndex,
-	pub encap_vrf_id : u32,
-	pub decap_next_index : u32,
-	pub vni : u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub src_address: Address,
+	pub dst_address: Address,
+	pub mcast_sw_if_index: InterfaceIndex,
+	pub encap_vrf_id: u32,
+	pub decap_next_index: u32,
+	pub vni: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_set_geneve_bypass_65247409)]
 pub struct SwInterfaceSetGeneveBypass {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub is_ipv6 : bool,
-	pub enable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub is_ipv6: bool,
+	pub enable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_interface_set_geneve_bypass_reply_e8d4e804)]
 pub struct SwInterfaceSetGeneveBypassReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

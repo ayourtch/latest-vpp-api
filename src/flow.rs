@@ -17,69 +17,69 @@ use crate::ethernet_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_add_f946ed84)]
 pub struct FlowAdd {
-	pub client_index : u32,
-	pub context : u32,
-	pub flow : FlowRule,
+	pub client_index: u32,
+	pub context: u32,
+	pub flow: FlowRule,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_add_v2_5b757558)]
 pub struct FlowAddV2 {
-	pub client_index : u32,
-	pub context : u32,
-	pub flow : FlowRuleV2,
+	pub client_index: u32,
+	pub context: u32,
+	pub flow: FlowRuleV2,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_add_reply_8587dc85)]
 pub struct FlowAddReply {
-	pub context : u32,
-	pub retval : i32,
-	pub flow_index : u32,
+	pub context: u32,
+	pub retval: i32,
+	pub flow_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_add_v2_reply_8587dc85)]
 pub struct FlowAddV2Reply {
-	pub context : u32,
-	pub retval : i32,
-	pub flow_index : u32,
+	pub context: u32,
+	pub retval: i32,
+	pub flow_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_del_b6b9b02c)]
 pub struct FlowDel {
-	pub client_index : u32,
-	pub context : u32,
-	pub flow_index : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub flow_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_del_reply_e8d4e804)]
 pub struct FlowDelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_enable_2024be69)]
 pub struct FlowEnable {
-	pub client_index : u32,
-	pub context : u32,
-	pub flow_index : u32,
-	pub hw_if_index : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub flow_index: u32,
+	pub hw_if_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_enable_reply_e8d4e804)]
 pub struct FlowEnableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_disable_2024be69)]
 pub struct FlowDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub flow_index : u32,
-	pub hw_if_index : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub flow_index: u32,
+	pub hw_if_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(flow_disable_reply_e8d4e804)]
 pub struct FlowDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

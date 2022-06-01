@@ -16,85 +16,85 @@ use crate::interface_types::*;
 // Implementation for ipip_tunnel
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IpipTunnel {
-	pub instance : u32,
-	pub src : Address,
-	pub dst : Address,
-	pub sw_if_index : InterfaceIndex,
-	pub table_id : u32,
-	pub flags : EnumFlag<TunnelEncapDecapFlags>,
-	pub mode : TunnelMode,
-	pub dscp : IpDscp,
+	pub instance: u32,
+	pub src: Address,
+	pub dst: Address,
+	pub sw_if_index: InterfaceIndex,
+	pub table_id: u32,
+	pub flags: EnumFlag<TunnelEncapDecapFlags>,
+	pub mode: TunnelMode,
+	pub dscp: IpDscp,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_add_tunnel_2ac399f5)]
 pub struct IpipAddTunnel {
-	pub client_index : u32,
-	pub context : u32,
-	pub tunnel : IpipTunnel,
+	pub client_index: u32,
+	pub context: u32,
+	pub tunnel: IpipTunnel,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_add_tunnel_reply_5383d31f)]
 pub struct IpipAddTunnelReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_del_tunnel_f9e6675e)]
 pub struct IpipDelTunnel {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_del_tunnel_reply_e8d4e804)]
 pub struct IpipDelTunnelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_6rd_add_tunnel_b9ec1863)]
 pub struct Ipip6rdAddTunnel {
-	pub client_index : u32,
-	pub context : u32,
-	pub ip6_table_id : u32,
-	pub ip4_table_id : u32,
-	pub ip6_prefix : Ip6Prefix,
-	pub ip4_prefix : Ip4Prefix,
-	pub ip4_src : Ip4Address,
-	pub security_check : bool,
-	pub tc_tos : u8,
+	pub client_index: u32,
+	pub context: u32,
+	pub ip6_table_id: u32,
+	pub ip4_table_id: u32,
+	pub ip6_prefix: Ip6Prefix,
+	pub ip4_prefix: Ip4Prefix,
+	pub ip4_src: Ip4Address,
+	pub security_check: bool,
+	pub tc_tos: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_6rd_add_tunnel_reply_5383d31f)]
 pub struct Ipip6rdAddTunnelReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_6rd_del_tunnel_f9e6675e)]
 pub struct Ipip6rdDelTunnel {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_6rd_del_tunnel_reply_e8d4e804)]
 pub struct Ipip6rdDelTunnelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_tunnel_dump_f9e6675e)]
 pub struct IpipTunnelDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipip_tunnel_details_d31cb34e)]
 pub struct IpipTunnelDetails {
-	pub context : u32,
-	pub tunnel : IpipTunnel,
+	pub context: u32,
+	pub tunnel: IpipTunnel,
 }

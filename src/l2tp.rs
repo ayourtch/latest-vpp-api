@@ -26,83 +26,83 @@ impl Default for L2tLookupKey {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_create_tunnel_15bed0c2)]
 pub struct L2tpv3CreateTunnel {
-	pub client_index : u32,
-	pub context : u32,
-	pub client_address : Address,
-	pub our_address : Address,
-	pub local_session_id : u32,
-	pub remote_session_id : u32,
-	pub local_cookie : u64,
-	pub remote_cookie : u64,
-	pub l2_sublayer_present : bool,
-	pub encap_vrf_id : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub client_address: Address,
+	pub our_address: Address,
+	pub local_session_id: u32,
+	pub remote_session_id: u32,
+	pub local_cookie: u64,
+	pub remote_cookie: u64,
+	pub l2_sublayer_present: bool,
+	pub encap_vrf_id: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_create_tunnel_reply_5383d31f)]
 pub struct L2tpv3CreateTunnelReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_set_tunnel_cookies_b3f4faf7)]
 pub struct L2tpv3SetTunnelCookies {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub new_local_cookie : u64,
-	pub new_remote_cookie : u64,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub new_local_cookie: u64,
+	pub new_remote_cookie: u64,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_set_tunnel_cookies_reply_e8d4e804)]
 pub struct L2tpv3SetTunnelCookiesReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_if_l2tpv3_tunnel_details_50b88993)]
 pub struct SwIfL2tpv3TunnelDetails {
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub interface_name : FixedSizeString<typenum::U64>,
-	pub client_address : Address,
-	pub our_address : Address,
-	pub local_session_id : u32,
-	pub remote_session_id : u32,
-	pub local_cookie : FixedSizeArray<u64, typenum::U2>,
-	pub remote_cookie : u64,
-	pub l2_sublayer_present : bool,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub interface_name: FixedSizeString<typenum::U64>,
+	pub client_address: Address,
+	pub our_address: Address,
+	pub local_session_id: u32,
+	pub remote_session_id: u32,
+	pub local_cookie: FixedSizeArray<u64, typenum::U2>,
+	pub remote_cookie: u64,
+	pub l2_sublayer_present: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sw_if_l2tpv3_tunnel_dump_51077d14)]
 pub struct SwIfL2tpv3TunnelDump {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_interface_enable_disable_3865946c)]
 pub struct L2tpv3InterfaceEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub enable_disable : bool,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub enable_disable: bool,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_interface_enable_disable_reply_e8d4e804)]
 pub struct L2tpv3InterfaceEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_set_lookup_key_c9892c86)]
 pub struct L2tpv3SetLookupKey {
-	pub client_index : u32,
-	pub context : u32,
-	pub key : L2tLookupKey,
+	pub client_index: u32,
+	pub context: u32,
+	pub key: L2tLookupKey,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(l2tpv3_set_lookup_key_reply_e8d4e804)]
 pub struct L2tpv3SetLookupKeyReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

@@ -13,10 +13,10 @@ use typenum;
 // Implementation for nat_timeouts
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct NatTimeouts {
-	pub udp : u32,
-	pub tcp_established : u32,
-	pub tcp_transitory : u32,
-	pub icmp : u32,
+	pub udp: u32,
+	pub tcp_established: u32,
+	pub tcp_transitory: u32,
+	pub icmp: u32,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]

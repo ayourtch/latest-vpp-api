@@ -16,15 +16,15 @@ use crate::interface_types::*;
 // Implementation for gre_tunnel
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct GreTunnel {
-	pub typ : GreTunnelType,
-	pub mode : TunnelMode,
-	pub flags : EnumFlag<TunnelEncapDecapFlags>,
-	pub session_id : u16,
-	pub instance : u32,
-	pub outer_table_id : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub src : Address,
-	pub dst : Address,
+	pub typ: GreTunnelType,
+	pub mode: TunnelMode,
+	pub flags: EnumFlag<TunnelEncapDecapFlags>,
+	pub session_id: u16,
+	pub instance: u32,
+	pub outer_table_id: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub src: Address,
+	pub dst: Address,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]
@@ -39,28 +39,28 @@ impl Default for GreTunnelType {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(gre_tunnel_add_del_a27d7f17)]
 pub struct GreTunnelAddDel {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_add : bool,
-	pub tunnel : GreTunnel,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub tunnel: GreTunnel,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(gre_tunnel_add_del_reply_5383d31f)]
 pub struct GreTunnelAddDelReply {
-	pub context : u32,
-	pub retval : i32,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(gre_tunnel_dump_f9e6675e)]
 pub struct GreTunnelDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(gre_tunnel_details_24435433)]
 pub struct GreTunnelDetails {
-	pub context : u32,
-	pub tunnel : GreTunnel,
+	pub context: u32,
+	pub tunnel: GreTunnel,
 }

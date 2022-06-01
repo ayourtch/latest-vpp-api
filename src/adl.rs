@@ -14,31 +14,31 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(adl_interface_enable_disable_5501adee)]
 pub struct AdlInterfaceEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub enable_disable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub enable_disable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(adl_interface_enable_disable_reply_e8d4e804)]
 pub struct AdlInterfaceEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(adl_allowlist_enable_disable_ea88828d)]
 pub struct AdlAllowlistEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub sw_if_index : InterfaceIndex,
-	pub fib_id : u32,
-	pub ip4 : bool,
-	pub ip6 : bool,
-	pub default_adl : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub fib_id: u32,
+	pub ip4: bool,
+	pub ip6: bool,
+	pub default_adl: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(adl_allowlist_enable_disable_reply_e8d4e804)]
 pub struct AdlAllowlistEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

@@ -16,74 +16,74 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_plugin_enable_disable_56f2f83b)]
 pub struct Nat66PluginEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub outside_vrf : u32,
-	pub enable : bool,
+	pub client_index: u32,
+	pub context: u32,
+	pub outside_vrf: u32,
+	pub enable: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_plugin_enable_disable_reply_e8d4e804)]
 pub struct Nat66PluginEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_add_del_interface_f3699b83)]
 pub struct Nat66AddDelInterface {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_add : bool,
-	 pub flags : EnumFlag<NatConfigFlags>,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	 pub flags: EnumFlag<NatConfigFlags>,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_add_del_interface_reply_e8d4e804)]
 pub struct Nat66AddDelInterfaceReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_interface_dump_51077d14)]
 pub struct Nat66InterfaceDump {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_interface_details_5d286289)]
 pub struct Nat66InterfaceDetails {
-	pub context : u32,
-	 pub flags : EnumFlag<NatConfigFlags>,
-	pub sw_if_index : InterfaceIndex,
+	pub context: u32,
+	 pub flags: EnumFlag<NatConfigFlags>,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_add_del_static_mapping_3ed88f71)]
 pub struct Nat66AddDelStaticMapping {
-	pub client_index : u32,
-	pub context : u32,
-	pub is_add : bool,
-	pub local_ip_address : Ip6Address,
-	pub external_ip_address : Ip6Address,
-	pub vrf_id : u32,
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub local_ip_address: Ip6Address,
+	pub external_ip_address: Ip6Address,
+	pub vrf_id: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_add_del_static_mapping_reply_e8d4e804)]
 pub struct Nat66AddDelStaticMappingReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_static_mapping_dump_51077d14)]
 pub struct Nat66StaticMappingDump {
-	pub client_index : u32,
-	pub context : u32,
+	pub client_index: u32,
+	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat66_static_mapping_details_df39654b)]
 pub struct Nat66StaticMappingDetails {
-	pub context : u32,
-	pub local_ip_address : Ip6Address,
-	pub external_ip_address : Ip6Address,
-	pub vrf_id : u32,
-	pub total_bytes : u64,
-	pub total_pkts : u64,
+	pub context: u32,
+	pub local_ip_address: Ip6Address,
+	pub external_ip_address: Ip6Address,
+	pub vrf_id: u32,
+	pub total_bytes: u64,
+	pub total_pkts: u64,
 }

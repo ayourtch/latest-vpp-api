@@ -15,16 +15,16 @@ use crate::interface_types::*;
 // Implementation for tunnel
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Tunnel {
-	pub instance : u32,
-	pub src : Address,
-	pub dst : Address,
-	pub sw_if_index : InterfaceIndex,
-	pub table_id : u32,
-	pub encap_decap_flags : EnumFlag<TunnelEncapDecapFlags>,
-	pub mode : TunnelMode,
-	pub flags : EnumFlag<TunnelFlags>,
-	pub dscp : IpDscp,
-	pub hop_limit : u8,
+	pub instance: u32,
+	pub src: Address,
+	pub dst: Address,
+	pub sw_if_index: InterfaceIndex,
+	pub table_id: u32,
+	pub encap_decap_flags: EnumFlag<TunnelEncapDecapFlags>,
+	pub mode: TunnelMode,
+	pub flags: EnumFlag<TunnelFlags>,
+	pub dscp: IpDscp,
+	pub hop_limit: u8,
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum TunnelEncapDecapFlags {

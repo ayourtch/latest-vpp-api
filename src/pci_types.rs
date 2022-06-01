@@ -13,8 +13,8 @@ use typenum;
 // Implementation for pci_address
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PciAddress {
-	pub domain : u16,
-	pub bus : u8,
-	pub slot : u8,
-	pub function : u8,
+	pub domain: u16,
+	pub bus: u8,
+	pub slot: u8,
+	pub function: u8,
 }

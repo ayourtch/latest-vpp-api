@@ -13,8 +13,8 @@ use typenum;
 // Implementation for sse2_qos_action
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Sse2QosAction {
-	pub typ : Sse2QosActionType,
-	pub dscp : u8,
+	pub typ: Sse2QosActionType,
+	pub dscp: u8,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]

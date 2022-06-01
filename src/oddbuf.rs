@@ -14,14 +14,14 @@ use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(oddbuf_enable_disable_3865946c)]
 pub struct OddbufEnableDisable {
-	pub client_index : u32,
-	pub context : u32,
-	pub enable_disable : bool,
-	pub sw_if_index : InterfaceIndex,
+	pub client_index: u32,
+	pub context: u32,
+	pub enable_disable: bool,
+	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(oddbuf_enable_disable_reply_e8d4e804)]
 pub struct OddbufEnableDisableReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }

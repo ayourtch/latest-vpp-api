@@ -13,11 +13,11 @@ use typenum;
 // Implementation for version
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Version {
-	pub major : u32,
-	pub minor : u32,
-	pub patch : u32,
-	pub pre_release : FixedSizeArray<u8, typenum::U17>,
-	pub build_metadata : FixedSizeArray<u8, typenum::U17>,
+	pub major: u32,
+	pub minor: u32,
+	pub patch: u32,
+	pub pre_release: FixedSizeArray<u8, typenum::U17>,
+	pub build_metadata: FixedSizeArray<u8, typenum::U17>,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u32)]

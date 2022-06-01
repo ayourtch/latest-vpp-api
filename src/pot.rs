@@ -13,69 +13,69 @@ use typenum;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_add_ad5da3a3)]
 pub struct PotProfileAdd {
-	pub client_index : u32,
-	pub context : u32,
-	pub id : u8,
-	pub validator : u8,
-	pub secret_key : u64,
-	pub secret_share : u64,
-	pub prime : u64,
-	pub max_bits : u8,
-	pub lpc : u64,
-	pub polynomial_public : u64,
-	pub list_name : VariableSizeString,
+	pub client_index: u32,
+	pub context: u32,
+	pub id: u8,
+	pub validator: u8,
+	pub secret_key: u64,
+	pub secret_share: u64,
+	pub prime: u64,
+	pub max_bits: u8,
+	pub lpc: u64,
+	pub polynomial_public: u64,
+	pub list_name: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_add_reply_e8d4e804)]
 pub struct PotProfileAddReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_activate_0770af98)]
 pub struct PotProfileActivate {
-	pub client_index : u32,
-	pub context : u32,
-	pub id : u8,
-	pub list_name : VariableSizeString,
+	pub client_index: u32,
+	pub context: u32,
+	pub id: u8,
+	pub list_name: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_activate_reply_e8d4e804)]
 pub struct PotProfileActivateReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_del_cd63f53b)]
 pub struct PotProfileDel {
-	pub client_index : u32,
-	pub context : u32,
-	pub list_name : VariableSizeString,
+	pub client_index: u32,
+	pub context: u32,
+	pub list_name: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_del_reply_e8d4e804)]
 pub struct PotProfileDelReply {
-	pub context : u32,
-	pub retval : i32,
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_show_config_dump_005b7d59)]
 pub struct PotProfileShowConfigDump {
-	pub client_index : u32,
-	pub context : u32,
-	pub id : u8,
+	pub client_index: u32,
+	pub context: u32,
+	pub id: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pot_profile_show_config_details_b7ce0618)]
 pub struct PotProfileShowConfigDetails {
-	pub context : u32,
-	pub retval : i32,
-	pub id : u8,
-	pub validator : u8,
-	pub secret_key : u64,
-	pub secret_share : u64,
-	pub prime : u64,
-	pub bit_mask : u64,
-	pub lpc : u64,
-	pub polynomial_public : u64,
+	pub context: u32,
+	pub retval: i32,
+	pub id: u8,
+	pub validator: u8,
+	pub secret_key: u64,
+	pub secret_share: u64,
+	pub prime: u64,
+	pub bit_mask: u64,
+	pub lpc: u64,
+	pub polynomial_public: u64,
 }
