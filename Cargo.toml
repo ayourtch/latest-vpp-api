@@ -1,32 +1,32 @@
-[package] 
-name = "latest_vpp_api" 
-version = "0.1.0" 
-authors = ["Andrew Yourtchenko <ayourtch@gmail.com>"] 
-edition = "2018" 
+[package]
+name = "latest_vpp_api"
+version = "0.1.0"
+authors = ["Andrew Yourtchenko <ayourtch@gmail.com>"]
+edition = "2018"
 
-[dev-dependencies] 
-trybuild = {version = "1.0", features = ["diff"]} 
+[dev-dependencies]
+trybuild = {version = "1.0", features = ["diff"]}
 
 vpp-api-transport = { git="https://github.com/ayourtch/vpp-api", branch="main" }
-[dependencies] 
-serde = { version = "1.0", features = ["derive"] } 
-serde_json = "1.0" 
-clap = { version = "3.0.0", features = ["derive"] } 
-strum = "*" 
-strum_macros = "*" 
-log = "*" 
-env_logger = "*" 
-linked-hash-map = { version = "*", features = ["serde_impl"] } 
-convert_case = "*" 
-serde_repr = "0.1" 
-typenum = "*" 
-bincode = "1.2.1" 
-serde_yaml = "0.8" 
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "3.0.0", features = ["derive"] }
+strum = "*"
+strum_macros = "*"
+log = "*"
+env_logger = "*"
+linked-hash-map = { version = "*", features = ["serde_impl"] }
+convert_case = "*"
+serde_repr = "0.1"
+typenum = "*"
+bincode = "1.2.1"
+serde_yaml = "0.8"
 vpp-api-encoding = { git="https://github.com/ayourtch/vpp-api", branch="main" }
 vpp-api-message = { git="https://github.com/ayourtch/vpp-api", branch="main" }
-lazy_static = "1.4.0" 
-regex = "1" 
-syn ={ version= "1.0", features=["extra-traits","full"]} 
-quote = "1.0" 
-proc-macro2 = "1.0.26" 
+lazy_static = "1.4.0"
+regex = "1"
+syn ={ version= "1.0", features=["extra-traits","full"]}
+quote = "1.0"
+proc-macro2 = "1.0.26"
 vpp-api-macros = { git="https://github.com/ayourtch/vpp-api", branch="main" }
