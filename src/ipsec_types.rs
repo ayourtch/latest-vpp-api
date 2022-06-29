@@ -19,6 +19,42 @@ pub struct Key {
 	pub length: u8,
 	pub data: FixedSizeArray<u8, typenum::U128>,
 }
+// Implementation for ipsec_spd_entry
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpsecSpdEntry {
+	pub spd_id: u32,
+	pub priority: i32,
+	pub is_outbound: bool,
+	pub sa_id: u32,
+	pub policy: IpsecSpdAction,
+	pub protocol: u8,
+	pub remote_address_start: Address,
+	pub remote_address_stop: Address,
+	pub local_address_start: Address,
+	pub local_address_stop: Address,
+	pub remote_port_start: u16,
+	pub remote_port_stop: u16,
+	pub local_port_start: u16,
+	pub local_port_stop: u16,
+}
+// Implementation for ipsec_spd_entry_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpsecSpdEntryV2 {
+	pub spd_id: u32,
+	pub priority: i32,
+	pub is_outbound: bool,
+	pub sa_id: u32,
+	pub policy: IpsecSpdAction,
+	pub protocol: u8,
+	pub remote_address_start: Address,
+	pub remote_address_stop: Address,
+	pub local_address_start: Address,
+	pub local_address_stop: Address,
+	pub remote_port_start: u16,
+	pub remote_port_stop: u16,
+	pub local_port_start: u16,
+	pub local_port_stop: u16,
+}
 // Implementation for ipsec_sad_entry
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IpsecSadEntry {
@@ -149,4 +185,15 @@ pub enum IpsecProto {
 }
 impl Default for IpsecProto {
 	fn default() -> Self { IpsecProto::IPSEC_API_PROTO_ESP }
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u32)]
+pub enum IpsecSpdAction {
+	 IPSEC_API_SPD_ACTION_BYPASS=0,
+	 IPSEC_API_SPD_ACTION_DISCARD=1,
+	 IPSEC_API_SPD_ACTION_RESOLVE=2,
+	 IPSEC_API_SPD_ACTION_PROTECT=3,
+}
+impl Default for IpsecSpdAction {
+	fn default() -> Self { IpsecSpdAction::IPSEC_API_SPD_ACTION_BYPASS }
 }

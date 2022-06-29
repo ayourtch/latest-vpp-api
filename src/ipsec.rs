@@ -14,24 +14,6 @@ use crate::ip_types::*;
 use crate::tunnel_types::*;
 use crate::ipsec_types::*;
 use crate::interface_types::*;
-// Implementation for ipsec_spd_entry
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
-pub struct IpsecSpdEntry {
-	pub spd_id: u32,
-	pub priority: i32,
-	pub is_outbound: bool,
-	pub sa_id: u32,
-	pub policy: IpsecSpdAction,
-	pub protocol: u8,
-	pub remote_address_start: Address,
-	pub remote_address_stop: Address,
-	pub local_address_start: Address,
-	pub local_address_stop: Address,
-	pub remote_port_start: u16,
-	pub remote_port_stop: u16,
-	pub local_port_start: u16,
-	pub local_port_stop: u16,
-}
 // Implementation for ipsec_tunnel_protect
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IpsecTunnelProtect {
@@ -47,17 +29,6 @@ pub struct IpsecItf {
 	pub user_instance: u32,
 	pub mode: TunnelMode,
 	pub sw_if_index: InterfaceIndex,
-}
-#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
-#[repr(u32)]
-pub enum IpsecSpdAction {
-	 IPSEC_API_SPD_ACTION_BYPASS=0,
-	 IPSEC_API_SPD_ACTION_DISCARD=1,
-	 IPSEC_API_SPD_ACTION_RESOLVE=2,
-	 IPSEC_API_SPD_ACTION_PROTECT=3,
-}
-impl Default for IpsecSpdAction {
-	fn default() -> Self { IpsecSpdAction::IPSEC_API_SPD_ACTION_BYPASS }
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_spd_add_del_20e89a95)]
@@ -97,8 +68,23 @@ pub struct IpsecSpdEntryAddDel {
 	pub entry: IpsecSpdEntry,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_spd_entry_add_del_v2_7bfe69fc)]
+pub struct IpsecSpdEntryAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub entry: IpsecSpdEntryV2,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_spd_entry_add_del_reply_9ffac24b)]
 pub struct IpsecSpdEntryAddDelReply {
+	pub context: u32,
+	pub retval: i32,
+	pub stat_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_spd_entry_add_del_v2_reply_9ffac24b)]
+pub struct IpsecSpdEntryAddDelV2Reply {
 	pub context: u32,
 	pub retval: i32,
 	pub stat_index: u32,
