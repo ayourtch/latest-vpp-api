@@ -124,6 +124,7 @@ pub enum IpsecCryptoAlg {
 	 IPSEC_API_CRYPTO_ALG_AES_GCM_256=9,
 	 IPSEC_API_CRYPTO_ALG_DES_CBC=10,
 	 IPSEC_API_CRYPTO_ALG_3DES_CBC=11,
+	 IPSEC_API_CRYPTO_ALG_CHACHA20_POLY1305=12,
 }
 impl Default for IpsecCryptoAlg {
 	fn default() -> Self { IpsecCryptoAlg::IPSEC_API_CRYPTO_ALG_NONE }
