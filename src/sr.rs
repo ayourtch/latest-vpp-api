@@ -163,6 +163,28 @@ pub struct SrLocalsidsDetails {
 	pub xconnect_iface_or_vrf_table: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_localsids_with_packet_stats_dump_51077d14)]
+pub struct SrLocalsidsWithPacketStatsDump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_localsids_with_packet_stats_details_ce0b1ce0)]
+pub struct SrLocalsidsWithPacketStatsDetails {
+	pub context: u32,
+	pub addr: Ip6Address,
+	pub end_psp: bool,
+	pub behavior: SrBehavior,
+	pub fib_table: u32,
+	pub vlan_index: u32,
+	pub xconnect_nh_addr: Address,
+	pub xconnect_iface_or_vrf_table: u32,
+	pub good_traffic_bytes: u64,
+	pub good_traffic_pkt_count: u64,
+	pub bad_traffic_bytes: u64,
+	pub bad_traffic_pkt_count: u64,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sr_policies_dump_51077d14)]
 pub struct SrPoliciesDump {
 	pub client_index: u32,
