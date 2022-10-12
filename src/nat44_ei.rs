@@ -601,6 +601,31 @@ pub struct Nat44EiUserSessionDetails {
 	pub ext_host_port: u16,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(nat44_ei_user_session_v2_dump_e1899c98)]
+pub struct Nat44EiUserSessionV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub ip_address: Ip4Address,
+	pub vrf_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(nat44_ei_user_session_v2_details_5bd3e9d6)]
+pub struct Nat44EiUserSessionV2Details {
+	pub context: u32,
+	pub outside_ip_address: Ip4Address,
+	pub outside_port: u16,
+	pub inside_ip_address: Ip4Address,
+	pub inside_port: u16,
+	pub protocol: u16,
+	 pub flags: EnumFlag<Nat44EiConfigFlags>,
+	pub last_heard: u64,
+	pub time_since_last_heard: u64,
+	pub total_bytes: u64,
+	pub total_pkts: u32,
+	pub ext_host_address: Ip4Address,
+	pub ext_host_port: u16,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat44_ei_del_session_74969ffe)]
 pub struct Nat44EiDelSession {
 	pub client_index: u32,

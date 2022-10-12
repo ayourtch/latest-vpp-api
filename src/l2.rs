@@ -321,6 +321,29 @@ pub struct BridgeDomainAddDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bridge_domain_add_del_v2_600b7170)]
+pub struct BridgeDomainAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub bd_id: u32,
+	pub flood: bool,
+	pub uu_flood: bool,
+	pub forward: bool,
+	pub learn: bool,
+	pub arp_term: bool,
+	pub arp_ufwd: bool,
+	pub mac_age: u8,
+	pub bd_tag: FixedSizeString<typenum::U64>,
+	pub is_add: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bridge_domain_add_del_v2_reply_fcb1e980)]
+pub struct BridgeDomainAddDelV2Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub bd_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(bridge_domain_dump_74396a43)]
 pub struct BridgeDomainDump {
 	pub client_index: u32,

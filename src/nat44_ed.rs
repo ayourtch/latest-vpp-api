@@ -644,6 +644,34 @@ pub struct Nat44UserSessionV2Details {
 	pub is_timed_out: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(nat44_user_session_v3_details_edae926e)]
+pub struct Nat44UserSessionV3Details {
+	pub context: u32,
+	pub outside_ip_address: Ip4Address,
+	pub outside_port: u16,
+	pub inside_ip_address: Ip4Address,
+	pub inside_port: u16,
+	pub protocol: u16,
+	 pub flags: EnumFlag<NatConfigFlags>,
+	pub last_heard: u64,
+	pub time_since_last_heard: u64,
+	pub total_bytes: u64,
+	pub total_pkts: u32,
+	pub ext_host_address: Ip4Address,
+	pub ext_host_port: u16,
+	pub ext_host_nat_address: Ip4Address,
+	pub ext_host_nat_port: u16,
+	pub is_timed_out: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(nat44_user_session_v3_dump_e1899c98)]
+pub struct Nat44UserSessionV3Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub ip_address: Ip4Address,
+	pub vrf_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat44_del_user_99a9f998)]
 pub struct Nat44DelUser {
 	pub client_index: u32,
