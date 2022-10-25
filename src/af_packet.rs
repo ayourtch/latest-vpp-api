@@ -25,6 +25,7 @@ impl Default for AfPacketMode {
 pub enum AfPacketFlags {
 	 AF_PACKET_API_FLAG_QDISC_BYPASS=1,
 	 AF_PACKET_API_FLAG_CKSUM_GSO=2,
+	 AF_PACKET_API_FLAG_VERSION_2=8,
 }
 impl Default for AfPacketFlags {
 	fn default() -> Self { AfPacketFlags::AF_PACKET_API_FLAG_QDISC_BYPASS }
@@ -37,6 +38,7 @@ impl AsEnumFlag for AfPacketFlags {
 		 match data{
 			 1 => AfPacketFlags::AF_PACKET_API_FLAG_QDISC_BYPASS,
 			 2 => AfPacketFlags::AF_PACKET_API_FLAG_CKSUM_GSO,
+			 8 => AfPacketFlags::AF_PACKET_API_FLAG_VERSION_2,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
