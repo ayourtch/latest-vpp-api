@@ -161,6 +161,23 @@ pub struct IpsecSadEntryDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_entry_update_1412af86)]
+pub struct IpsecSadEntryUpdate {
+	pub client_index: u32,
+	pub context: u32,
+	pub sad_id: u32,
+	pub is_tun: bool,
+	pub tunnel: Tunnel,
+	pub udp_src_port: u16,
+	pub udp_dst_port: u16,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_entry_update_reply_e8d4e804)]
+pub struct IpsecSadEntryUpdateReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_sad_entry_add_del_reply_9ffac24b)]
 pub struct IpsecSadEntryAddDelReply {
 	pub context: u32,
