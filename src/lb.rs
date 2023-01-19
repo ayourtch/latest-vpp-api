@@ -52,6 +52,29 @@ pub struct LbAddDelVipReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_add_del_vip_v2_7c520e0f)]
+pub struct LbAddDelVipV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub pfx: AddressWithPrefix,
+	pub protocol: u8,
+	pub port: u16,
+	pub encap: LbEncapType,
+	pub dscp: u8,
+	pub typ: LbSrvType,
+	pub target_port: u16,
+	pub node_port: u16,
+	pub new_flows_table_length: u32,
+	pub src_ip_sticky: bool,
+	pub is_del: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_add_del_vip_v2_reply_e8d4e804)]
+pub struct LbAddDelVipV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lb_add_del_as_35d72500)]
 pub struct LbAddDelAs {
 	pub client_index: u32,
