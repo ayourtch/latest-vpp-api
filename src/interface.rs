@@ -524,3 +524,38 @@ pub struct CollectDetailedInterfaceStatsReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pcap_trace_on_cb39e968)]
+pub struct PcapTraceOn {
+	pub client_index: u32,
+	pub context: u32,
+	pub capture_rx: bool,
+	pub capture_tx: bool,
+	pub capture_drop: bool,
+	pub filter: bool,
+	pub preallocate_data: bool,
+	pub free_data: bool,
+	pub max_packets: u32,
+	pub max_bytes_per_packet: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub error: FixedSizeString<typenum::U128>,
+	pub filename: FixedSizeString<typenum::U64>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pcap_trace_on_reply_e8d4e804)]
+pub struct PcapTraceOnReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pcap_trace_off_51077d14)]
+pub struct PcapTraceOff {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pcap_trace_off_reply_e8d4e804)]
+pub struct PcapTraceOffReply {
+	pub context: u32,
+	pub retval: i32,
+}
