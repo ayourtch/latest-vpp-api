@@ -16,6 +16,21 @@ pub struct Sse2QosAction {
 	pub typ: Sse2QosActionType,
 	pub dscp: u8,
 }
+// Implementation for policer_config
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct PolicerConfig {
+	pub cir: u32,
+	pub eir: u32,
+	pub cb: u64,
+	pub eb: u64,
+	pub rate_type: Sse2QosRateType,
+	pub round_type: Sse2QosRoundType,
+	pub typ: Sse2QosPolicerType,
+	pub color_aware: bool,
+	pub conform_action: Sse2QosAction,
+	pub exceed_action: Sse2QosAction,
+	pub violate_action: Sse2QosAction,
+}
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]
 pub enum Sse2QosRateType {

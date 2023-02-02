@@ -28,6 +28,21 @@ pub struct PolicerBindReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_bind_v2_f87bd3c0)]
+pub struct PolicerBindV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+	pub worker_index: u32,
+	pub bind_enable: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_bind_v2_reply_e8d4e804)]
+pub struct PolicerBindV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(policer_input_233f0ef5)]
 pub struct PolicerInput {
 	pub client_index: u32,
@@ -43,6 +58,21 @@ pub struct PolicerInputReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_input_v2_8388eb84)]
+pub struct PolicerInputV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub apply: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_input_v2_reply_e8d4e804)]
+pub struct PolicerInputV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(policer_output_233f0ef5)]
 pub struct PolicerOutput {
 	pub client_index: u32,
@@ -54,6 +84,21 @@ pub struct PolicerOutput {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(policer_output_reply_e8d4e804)]
 pub struct PolicerOutputReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_output_v2_8388eb84)]
+pub struct PolicerOutputV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub apply: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_output_v2_reply_e8d4e804)]
+pub struct PolicerOutputV2Reply {
 	pub context: u32,
 	pub retval: i32,
 }
@@ -77,8 +122,63 @@ pub struct PolicerAddDel {
 	pub violate_action: Sse2QosAction,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_add_4d949e35)]
+pub struct PolicerAdd {
+	pub client_index: u32,
+	pub context: u32,
+	pub name: FixedSizeString<typenum::U64>,
+	pub infos: PolicerConfig,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_del_7ff7912e)]
+pub struct PolicerDel {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_del_reply_e8d4e804)]
+pub struct PolicerDelReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_update_fd039ef0)]
+pub struct PolicerUpdate {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+	pub infos: PolicerConfig,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_update_reply_e8d4e804)]
+pub struct PolicerUpdateReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_reset_7ff7912e)]
+pub struct PolicerReset {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_reset_reply_e8d4e804)]
+pub struct PolicerResetReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(policer_add_del_reply_a177cef2)]
 pub struct PolicerAddDelReply {
+	pub context: u32,
+	pub retval: i32,
+	pub policer_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_add_reply_a177cef2)]
+pub struct PolicerAddReply {
 	pub context: u32,
 	pub retval: i32,
 	pub policer_index: u32,
@@ -90,6 +190,13 @@ pub struct PolicerDump {
 	pub context: u32,
 	pub match_name_valid: bool,
 	pub match_name: FixedSizeString<typenum::U64>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(policer_dump_v2_7ff7912e)]
+pub struct PolicerDumpV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(policer_details_72d0e248)]
