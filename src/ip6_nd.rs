@@ -12,6 +12,19 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
 use crate::interface_types::*;
+// Implementation for ip6nd_ra_prefix
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Ip6ndRaPrefix {
+	pub prefix: Prefix,
+	pub onlink_flag: bool,
+	pub autonomous_flag: bool,
+	pub val_lifetime: u32,
+	pub pref_lifetime: u32,
+	pub valid_lifetime_expires: f64,
+	pub pref_lifetime_expires: f64,
+	pub decrement_lifetime_flag: bool,
+	pub no_advertise: bool,
+}
 // Implementation for ip6_ra_prefix_info
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Ip6RaPrefixInfo {
@@ -67,6 +80,43 @@ pub struct SwInterfaceIp6ndRaPrefix {
 pub struct SwInterfaceIp6ndRaPrefixReply {
 	pub context: u32,
 	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_ip6nd_ra_dump_f9e6675e)]
+pub struct SwInterfaceIp6ndRaDump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_ip6nd_ra_details_d3198de5)]
+pub struct SwInterfaceIp6ndRaDetails {
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub cur_hop_limit: u8,
+	pub adv_managed_flag: bool,
+	pub adv_other_flag: bool,
+	pub adv_router_lifetime: u16,
+	pub adv_neighbor_reachable_time: u32,
+	pub adv_retransmit_interval: u32,
+	pub adv_link_mtu: u32,
+	pub send_radv: bool,
+	pub cease_radv: bool,
+	pub send_unicast: bool,
+	pub adv_link_layer_address: bool,
+	pub max_radv_interval: f64,
+	pub min_radv_interval: f64,
+	pub last_radv_time: f64,
+	pub last_multicast_time: f64,
+	pub next_multicast_time: f64,
+	pub initial_adverts_count: u32,
+	pub initial_adverts_interval: f64,
+	pub initial_adverts_sent: bool,
+	pub n_advertisements_sent: u32,
+	pub n_solicitations_rcvd: u32,
+	pub n_solicitations_dropped: u32,
+	pub n_prefixes: u32,
+	pub prefixes: VariableSizeArray<Ip6ndRaPrefix>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ip6nd_proxy_enable_disable_7daa1e3a)]
