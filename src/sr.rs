@@ -28,6 +28,16 @@ pub struct Srv6SidListWithSlIndex {
 	pub sl_index: u32,
 	pub sids: FixedSizeArray<Ip6Address, typenum::U16>,
 }
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u8)]
+pub enum SrPolicyType {
+	 SR_API_POLICY_TYPE_DEFAULT=0,
+	 SR_API_POLICY_TYPE_SPRAY=1,
+	 SR_API_POLICY_TYPE_TEF=2,
+}
+impl Default for SrPolicyType {
+	fn default() -> Self { SrPolicyType::SR_API_POLICY_TYPE_DEFAULT }
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sr_localsid_add_del_5a36c324)]
 pub struct SrLocalsidAddDel {
@@ -82,6 +92,45 @@ pub struct SrPolicyMod {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sr_policy_mod_reply_e8d4e804)]
 pub struct SrPolicyModReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_policy_add_v2_f6297f36)]
+pub struct SrPolicyAddV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub bsid_addr: Ip6Address,
+	pub weight: u32,
+	pub is_encap: bool,
+	pub typ: SrPolicyType,
+	pub fib_table: u32,
+	pub sids: Srv6SidList,
+	pub encap_src: Ip6Address,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_policy_add_v2_reply_e8d4e804)]
+pub struct SrPolicyAddV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_policy_mod_v2_c0544823)]
+pub struct SrPolicyModV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub bsid_addr: Ip6Address,
+	pub sr_policy_index: u32,
+	pub fib_table: u32,
+	pub operation: SrPolicyOp,
+	pub sl_index: u32,
+	pub weight: u32,
+	pub sids: Srv6SidList,
+	pub encap_src: Ip6Address,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_policy_mod_v2_reply_e8d4e804)]
+pub struct SrPolicyModV2Reply {
 	pub context: u32,
 	pub retval: i32,
 }
@@ -196,6 +245,24 @@ pub struct SrPoliciesDetails {
 	pub context: u32,
 	pub bsid: Ip6Address,
 	pub is_spray: bool,
+	pub is_encap: bool,
+	pub fib_table: u32,
+	pub num_sid_lists: u8,
+	pub sid_lists: VariableSizeArray<Srv6SidList>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_policies_v2_dump_51077d14)]
+pub struct SrPoliciesV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_policies_v2_details_96dcb699)]
+pub struct SrPoliciesV2Details {
+	pub context: u32,
+	pub bsid: Ip6Address,
+	pub encap_src: Ip6Address,
+	pub typ: SrPolicyType,
 	pub is_encap: bool,
 	pub fib_table: u32,
 	pub num_sid_lists: u8,
