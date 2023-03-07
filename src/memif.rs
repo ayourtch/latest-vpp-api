@@ -47,6 +47,22 @@ pub struct MemifSocketFilenameAddDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(memif_socket_filename_add_del_v2_34223bdf)]
+pub struct MemifSocketFilenameAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub socket_id: u32,
+	pub socket_filename: VariableSizeString,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(memif_socket_filename_add_del_v2_reply_9f29bdb9)]
+pub struct MemifSocketFilenameAddDelV2Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub socket_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(memif_create_b1b25061)]
 pub struct MemifCreate {
 	pub client_index: u32,
