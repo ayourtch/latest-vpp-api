@@ -99,36 +99,6 @@ pub struct AppDelCertKeyPairReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(application_tls_cert_add_3f5cfe45)]
-pub struct ApplicationTlsCertAdd {
-	pub client_index: u32,
-	pub context: u32,
-	pub app_index: u32,
-	pub cert_len: u16,
-	pub cert: VariableSizeArray<u8>,
-}
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(application_tls_cert_add_reply_e8d4e804)]
-pub struct ApplicationTlsCertAddReply {
-	pub context: u32,
-	pub retval: i32,
-}
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(application_tls_key_add_5eaf70cd)]
-pub struct ApplicationTlsKeyAdd {
-	pub client_index: u32,
-	pub context: u32,
-	pub app_index: u32,
-	pub key_len: u16,
-	pub key: VariableSizeArray<u8>,
-}
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(application_tls_key_add_reply_e8d4e804)]
-pub struct ApplicationTlsKeyAddReply {
-	pub context: u32,
-	pub retval: i32,
-}
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(app_worker_add_del_753253dc)]
 pub struct AppWorkerAddDel {
 	pub client_index: u32,
