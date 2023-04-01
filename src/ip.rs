@@ -119,6 +119,43 @@ impl AsEnumFlag for IpFlowHashConfig {
 		 32 as u32
 	}
 }
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
+pub enum IpFlowHashConfigV2 {
+	 IP_API_V2_FLOW_HASH_SRC_IP=1,
+	 IP_API_V2_FLOW_HASH_DST_IP=2,
+	 IP_API_V2_FLOW_HASH_SRC_PORT=4,
+	 IP_API_V2_FLOW_HASH_DST_PORT=8,
+	 IP_API_V2_FLOW_HASH_PROTO=16,
+	 IP_API_V2_FLOW_HASH_REVERSE=32,
+	 IP_API_V2_FLOW_HASH_SYMETRIC=64,
+	 IP_API_V2_FLOW_HASH_FLOW_LABEL=128,
+	 IP_API_V2_FLOW_HASH_GTPV1_TEID=256,
+}
+impl Default for IpFlowHashConfigV2 {
+	fn default() -> Self { IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SRC_IP }
+}
+impl AsEnumFlag for IpFlowHashConfigV2 {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 1 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SRC_IP,
+			 2 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_DST_IP,
+			 4 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SRC_PORT,
+			 8 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_DST_PORT,
+			 16 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_PROTO,
+			 32 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_REVERSE,
+			 64 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SYMETRIC,
+			 128 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_FLOW_LABEL,
+			 256 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_GTPV1_TEID,
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ip_table_add_del_0ffdaec0)]
 pub struct IpTableAddDel {
@@ -322,6 +359,21 @@ pub struct SetIpFlowHashV2 {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(set_ip_flow_hash_v2_reply_e8d4e804)]
 pub struct SetIpFlowHashV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(set_ip_flow_hash_v3_b7876e07)]
+pub struct SetIpFlowHashV3 {
+	pub client_index: u32,
+	pub context: u32,
+	pub table_id: u32,
+	pub af: AddressFamily,
+	pub flow_hash_config: IpFlowHashConfigV2,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(set_ip_flow_hash_v3_reply_e8d4e804)]
+pub struct SetIpFlowHashV3Reply {
 	pub context: u32,
 	pub retval: i32,
 }
