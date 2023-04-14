@@ -221,6 +221,20 @@ pub struct Nat44EdVrfTablesDetails {
 	pub vrf_ids: VariableSizeArray<u32>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(nat44_ed_vrf_tables_v2_dump_51077d14)]
+pub struct Nat44EdVrfTablesV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(nat44_ed_vrf_tables_v2_details_7b264e4f)]
+pub struct Nat44EdVrfTablesV2Details {
+	pub context: u32,
+	pub table_vrf_id: u32,
+	pub n_vrf_ids: u32,
+	pub vrf_ids: VariableSizeArray<u32>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(nat_set_mss_clamping_25e90abb)]
 pub struct NatSetMssClamping {
 	pub client_index: u32,
