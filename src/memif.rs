@@ -87,6 +87,31 @@ pub struct MemifCreateReply {
 	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(memif_create_v2_8c7de5f7)]
+pub struct MemifCreateV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub role: MemifRole,
+	pub mode: MemifMode,
+	pub rx_queues: u8,
+	pub tx_queues: u8,
+	pub id: u32,
+	pub socket_id: u32,
+	pub ring_size: u32,
+	pub buffer_size: u16,
+	pub no_zero_copy: bool,
+	pub use_dma: bool,
+	pub hw_addr: MacAddress,
+	pub secret: FixedSizeString<typenum::U24>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(memif_create_v2_reply_5383d31f)]
+pub struct MemifCreateV2Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(memif_delete_f9e6675e)]
 pub struct MemifDelete {
 	pub client_index: u32,
