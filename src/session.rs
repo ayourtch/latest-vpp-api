@@ -158,6 +158,26 @@ pub struct AppNamespaceAddDel {
 	pub namespace_id: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(app_namespace_add_del_v4_42c1d824)]
+pub struct AppNamespaceAddDelV4 {
+	pub client_index: u32,
+	pub context: u32,
+	pub secret: u64,
+	pub is_add: bool,
+	pub sw_if_index: InterfaceIndex,
+	pub ip4_fib_id: u32,
+	pub ip6_fib_id: u32,
+	pub namespace_id: FixedSizeString<typenum::U64>,
+	pub sock_name: VariableSizeString,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(app_namespace_add_del_v4_reply_85137120)]
+pub struct AppNamespaceAddDelV4Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub appns_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(app_namespace_add_del_v2_ee0755cf)]
 pub struct AppNamespaceAddDelV2 {
 	pub client_index: u32,
