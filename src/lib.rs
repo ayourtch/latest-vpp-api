@@ -47,6 +47,7 @@ pub mod ioam_vxlan_gpe;
 pub mod ip;
 pub mod ip6_nd;
 pub mod ip_neighbor;
+pub mod ip_session_redirect;
 pub mod ip_types;
 pub mod ipfix_export;
 pub mod ipip;
