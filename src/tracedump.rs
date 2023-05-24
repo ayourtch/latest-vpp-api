@@ -119,3 +119,34 @@ pub struct TraceDetails {
 	pub packet_number: u32,
 	pub trace_data: VariableSizeString,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_clear_cache_51077d14)]
+pub struct TraceClearCache {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_clear_cache_reply_e8d4e804)]
+pub struct TraceClearCacheReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_v2_dump_83f88d8e)]
+pub struct TraceV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub thread_id: u32,
+	pub position: u32,
+	pub max: u32,
+	pub clear_cache: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_v2_details_91f87d52)]
+pub struct TraceV2Details {
+	pub context: u32,
+	pub thread_id: u32,
+	pub position: u32,
+	pub more: bool,
+	pub trace_data: VariableSizeString,
+}
