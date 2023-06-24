@@ -161,6 +161,33 @@ pub struct IpsecSadEntryDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_bind_0649c0d9)]
+pub struct IpsecSadBind {
+	pub client_index: u32,
+	pub context: u32,
+	pub sa_id: u32,
+	pub worker: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_bind_reply_e8d4e804)]
+pub struct IpsecSadBindReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_unbind_2076c2f4)]
+pub struct IpsecSadUnbind {
+	pub client_index: u32,
+	pub context: u32,
+	pub sa_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_unbind_reply_e8d4e804)]
+pub struct IpsecSadUnbindReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_sad_entry_update_1412af86)]
 pub struct IpsecSadEntryUpdate {
 	pub client_index: u32,
@@ -322,6 +349,13 @@ pub struct IpsecSaV3Dump {
 	pub sa_id: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sa_v4_dump_2076c2f4)]
+pub struct IpsecSaV4Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sa_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_sa_details_345d14a7)]
 pub struct IpsecSaDetails {
 	pub context: u32,
@@ -354,6 +388,18 @@ pub struct IpsecSaV3Details {
 	pub seq_outbound: u64,
 	pub last_seq_inbound: u64,
 	pub replay_window: u64,
+	pub stat_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sa_v4_details_87a322d7)]
+pub struct IpsecSaV4Details {
+	pub context: u32,
+	pub entry: IpsecSadEntryV3,
+	pub sw_if_index: InterfaceIndex,
+	pub seq_outbound: u64,
+	pub last_seq_inbound: u64,
+	pub replay_window: u64,
+	pub thread_index: u32,
 	pub stat_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
