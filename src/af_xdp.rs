@@ -86,6 +86,28 @@ pub struct AfXdpCreateV2Reply {
 	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(af_xdp_create_v3_cf4b1827)]
+pub struct AfXdpCreateV3 {
+	pub client_index: u32,
+	pub context: u32,
+	pub host_if: FixedSizeString<typenum::U64>,
+	pub name: FixedSizeString<typenum::U64>,
+	pub rxq_num: u16,
+	pub rxq_size: u16,
+	pub txq_size: u16,
+	pub mode: AfXdpMode,
+	 pub flags: EnumFlag<AfXdpFlag>,
+	pub prog: FixedSizeString<typenum::U256>,
+	pub netns: FixedSizeString<typenum::U64>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(af_xdp_create_v3_reply_5383d31f)]
+pub struct AfXdpCreateV3Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(af_xdp_delete_f9e6675e)]
 pub struct AfXdpDelete {
 	pub client_index: u32,
