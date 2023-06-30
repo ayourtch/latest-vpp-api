@@ -116,6 +116,23 @@ pub struct IpNeighborConfigReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_neighbor_config_get_a5db7bf7)]
+pub struct IpNeighborConfigGet {
+	pub client_index: u32,
+	pub context: u32,
+	pub af: AddressFamily,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_neighbor_config_get_reply_798e6fdd)]
+pub struct IpNeighborConfigGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub af: AddressFamily,
+	pub max_number: u32,
+	pub max_age: u32,
+	pub recycle: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ip_neighbor_replace_begin_51077d14)]
 pub struct IpNeighborReplaceBegin {
 	pub client_index: u32,
