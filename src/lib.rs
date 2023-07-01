@@ -10,6 +10,7 @@ pub mod avf;
 pub mod bfd;
 pub mod bier;
 pub mod bond;
+pub mod bpf_trace_filter;
 pub mod builtinurl;
 pub mod cdp;
 pub mod classify;

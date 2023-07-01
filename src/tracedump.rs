@@ -150,3 +150,29 @@ pub struct TraceV2Details {
 	pub more: bool,
 	pub trace_data: VariableSizeString,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_set_filter_function_616abb92)]
+pub struct TraceSetFilterFunction {
+	pub client_index: u32,
+	pub context: u32,
+	pub filter_function_name: VariableSizeString,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_set_filter_function_reply_e8d4e804)]
+pub struct TraceSetFilterFunctionReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_filter_function_dump_51077d14)]
+pub struct TraceFilterFunctionDump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(trace_filter_function_details_28821359)]
+pub struct TraceFilterFunctionDetails {
+	pub context: u32,
+	pub selected: bool,
+	pub name: VariableSizeString,
+}
