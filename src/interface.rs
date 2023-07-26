@@ -525,6 +525,19 @@ pub struct CollectDetailedInterfaceStatsReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pcap_set_filter_function_616abb92)]
+pub struct PcapSetFilterFunction {
+	pub client_index: u32,
+	pub context: u32,
+	pub filter_function_name: VariableSizeString,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pcap_set_filter_function_reply_e8d4e804)]
+pub struct PcapSetFilterFunctionReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pcap_trace_on_cb39e968)]
 pub struct PcapTraceOn {
 	pub client_index: u32,
