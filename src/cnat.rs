@@ -53,6 +53,7 @@ pub struct CnatSession {
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum CnatTranslationFlags {
 	 CNAT_TRANSLATION_ALLOC_PORT=1,
+	 CNAT_TRANSLATION_NO_RETURN_SESSION=4,
 }
 impl Default for CnatTranslationFlags {
 	fn default() -> Self { CnatTranslationFlags::CNAT_TRANSLATION_ALLOC_PORT }
@@ -64,6 +65,7 @@ impl AsEnumFlag for CnatTranslationFlags {
 	 fn from_u32(data: u32) -> Self{
 		 match data{
 			 1 => CnatTranslationFlags::CNAT_TRANSLATION_ALLOC_PORT,
+			 4 => CnatTranslationFlags::CNAT_TRANSLATION_NO_RETURN_SESSION,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
