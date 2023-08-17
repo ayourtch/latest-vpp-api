@@ -37,6 +37,7 @@ pub mod gre;
 pub mod gso;
 pub mod gtpu;
 pub mod http_static;
+pub mod idpf;
 pub mod igmp;
 pub mod ikev2;
 pub mod ikev2_types;
