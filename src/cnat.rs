@@ -109,6 +109,7 @@ pub enum CnatSnatPolicyTable {
 	 CNAT_POLICY_INCLUDE_V4=0,
 	 CNAT_POLICY_INCLUDE_V6=1,
 	 CNAT_POLICY_POD=2,
+	 CNAT_POLICY_HOST=3,
 }
 impl Default for CnatSnatPolicyTable {
 	fn default() -> Self { CnatSnatPolicyTable::CNAT_POLICY_INCLUDE_V4 }
@@ -232,7 +233,7 @@ pub struct CnatSnatPolicyAddDelExcludePfxReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(cnat_snat_policy_add_del_if_6828deca)]
+#[message_name_and_crc(cnat_snat_policy_add_del_if_4ebb8d02)]
 pub struct CnatSnatPolicyAddDelIf {
 	pub client_index: u32,
 	pub context: u32,
