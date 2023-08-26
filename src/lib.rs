@@ -79,6 +79,7 @@ pub mod nat44_ei;
 pub mod nat64;
 pub mod nat66;
 pub mod nat_types;
+pub mod npt66;
 pub mod nsh;
 pub mod nsim;
 pub mod oddbuf;
