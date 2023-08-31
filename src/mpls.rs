@@ -88,6 +88,19 @@ pub struct MplsTunnelDetails {
 	pub mt_tunnel: MplsTunnel,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(mpls_interface_dump_f9e6675e)]
+pub struct MplsInterfaceDump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(mpls_interface_details_0b45011c)]
+pub struct MplsInterfaceDetails {
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(mpls_table_add_del_57817512)]
 pub struct MplsTableAddDel {
 	pub client_index: u32,
