@@ -12,6 +12,7 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
 use crate::interface_types::*;
+use crate::ethernet_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(arping_48817482)]
 pub struct Arping {
@@ -29,4 +30,23 @@ pub struct ArpingReply {
 	pub context: u32,
 	pub retval: i32,
 	pub reply_count: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(arping_acd_48817482)]
+pub struct ArpingAcd {
+	pub client_index: u32,
+	pub context: u32,
+	pub address: Address,
+	pub sw_if_index: InterfaceIndex,
+	pub is_garp: bool,
+	pub repeat: u32,
+	pub interval: f64,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(arping_acd_reply_e08c3b05)]
+pub struct ArpingAcdReply {
+	pub context: u32,
+	pub retval: i32,
+	pub reply_count: u32,
+	pub mac_address: MacAddress,
 }

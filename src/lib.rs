@@ -112,6 +112,7 @@ pub mod teib;
 pub mod tls_openssl;
 pub mod trace;
 pub mod tracedump;
+pub mod tracenode;
 pub mod tunnel_types;
 pub mod udp;
 pub mod udp_ping;
