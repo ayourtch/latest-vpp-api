@@ -87,6 +87,7 @@ pub mod one;
 pub mod p2p_ethernet;
 pub mod pci_types;
 pub mod pg;
+pub mod ping;
 pub mod pipe;
 pub mod pnat;
 pub mod policer;
