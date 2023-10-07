@@ -12,7 +12,10 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
 use crate::fib_types::*;
+use crate::mfib_types::*;
+use crate::ip::*;
 use crate::interface_types::*;
+use crate::ethernet_types::*;
 // Implementation for cnat_endpoint
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct CnatEndpoint {
@@ -38,6 +41,7 @@ pub struct CnatTranslation {
 	pub flags: u8,
 	pub lb_type: CnatLbType,
 	pub n_paths: u32,
+	pub flow_hash_config: IpFlowHashConfigV2,
 	pub paths: VariableSizeArray<CnatEndpointTuple>,
 }
 // Implementation for cnat_session
@@ -125,7 +129,7 @@ impl Default for CnatSnatPolicies {
 	fn default() -> Self { CnatSnatPolicies::CNAT_POLICY_NONE }
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(cnat_translation_update_cd5aedf5)]
+#[message_name_and_crc(cnat_translation_update_f8d40bc5)]
 pub struct CnatTranslationUpdate {
 	pub client_index: u32,
 	pub context: u32,
@@ -152,7 +156,7 @@ pub struct CnatTranslationDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(cnat_translation_details_347e1f16)]
+#[message_name_and_crc(cnat_translation_details_1a5140b7)]
 pub struct CnatTranslationDetails {
 	pub context: u32,
 	pub translation: CnatTranslation,
