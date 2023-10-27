@@ -13,9 +13,68 @@ use typenum;
 use crate::ip_types::*;
 use crate::fib_types::*;
 use crate::mfib_types::*;
-use crate::ip::*;
 use crate::interface_types::*;
 use crate::ethernet_types::*;
+// Implementation for ip_table
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpTable {
+	pub table_id: u32,
+	pub is_ip6: bool,
+	pub name: FixedSizeString<typenum::U64>,
+}
+// Implementation for ip_route
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpRoute {
+	pub table_id: u32,
+	pub stats_index: u32,
+	pub prefix: Prefix,
+	pub n_paths: u8,
+	pub paths: VariableSizeArray<FibPath>,
+}
+// Implementation for ip_route_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpRouteV2 {
+	pub table_id: u32,
+	pub stats_index: u32,
+	pub prefix: Prefix,
+	pub n_paths: u8,
+	pub src: u8,
+	pub paths: VariableSizeArray<FibPath>,
+}
+// Implementation for ip_mroute
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpMroute {
+	pub table_id: u32,
+	pub entry_flags: EnumFlag<MfibEntryFlags>,
+	pub rpf_id: u32,
+	pub prefix: Mprefix,
+	pub n_paths: u8,
+	pub paths: VariableSizeArray<MfibPath>,
+}
+// Implementation for punt_redirect
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct PuntRedirect {
+	pub rx_sw_if_index: InterfaceIndex,
+	pub tx_sw_if_index: InterfaceIndex,
+	pub nh: Address,
+}
+// Implementation for punt_redirect_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct PuntRedirectV2 {
+	pub rx_sw_if_index: InterfaceIndex,
+	pub af: AddressFamily,
+	pub n_paths: u32,
+	pub paths: VariableSizeArray<FibPath>,
+}
+// Implementation for ip_path_mtu
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpPathMtu {
+	pub client_index: u32,
+	pub context: u32,
+	pub table_id: u32,
+	pub nh: Address,
+	pub path_mtu: u16,
+}
 // Implementation for cnat_endpoint
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct CnatEndpoint {
@@ -53,6 +112,15 @@ pub struct CnatSession {
 	pub ip_proto: IpProto,
 	pub location: u8,
 	pub timestamp: f64,
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u32)]
+pub enum IpReassType {
+	 IP_REASS_TYPE_FULL=0,
+	 IP_REASS_TYPE_SHALLOW_VIRTUAL=1,
+}
+impl Default for IpReassType {
+	fn default() -> Self { IpReassType::IP_REASS_TYPE_FULL }
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum CnatTranslationFlags {
@@ -127,6 +195,78 @@ pub enum CnatSnatPolicies {
 }
 impl Default for CnatSnatPolicies {
 	fn default() -> Self { CnatSnatPolicies::CNAT_POLICY_NONE }
+}
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
+pub enum IpFlowHashConfig {
+	 IP_API_FLOW_HASH_SRC_IP=1,
+	 IP_API_FLOW_HASH_DST_IP=2,
+	 IP_API_FLOW_HASH_SRC_PORT=4,
+	 IP_API_FLOW_HASH_DST_PORT=8,
+	 IP_API_FLOW_HASH_PROTO=16,
+	 IP_API_FLOW_HASH_REVERSE=32,
+	 IP_API_FLOW_HASH_SYMETRIC=64,
+	 IP_API_FLOW_HASH_FLOW_LABEL=128,
+}
+impl Default for IpFlowHashConfig {
+	fn default() -> Self { IpFlowHashConfig::IP_API_FLOW_HASH_SRC_IP }
+}
+impl AsEnumFlag for IpFlowHashConfig {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 1 => IpFlowHashConfig::IP_API_FLOW_HASH_SRC_IP,
+			 2 => IpFlowHashConfig::IP_API_FLOW_HASH_DST_IP,
+			 4 => IpFlowHashConfig::IP_API_FLOW_HASH_SRC_PORT,
+			 8 => IpFlowHashConfig::IP_API_FLOW_HASH_DST_PORT,
+			 16 => IpFlowHashConfig::IP_API_FLOW_HASH_PROTO,
+			 32 => IpFlowHashConfig::IP_API_FLOW_HASH_REVERSE,
+			 64 => IpFlowHashConfig::IP_API_FLOW_HASH_SYMETRIC,
+			 128 => IpFlowHashConfig::IP_API_FLOW_HASH_FLOW_LABEL,
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
+}
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
+pub enum IpFlowHashConfigV2 {
+	 IP_API_V2_FLOW_HASH_SRC_IP=1,
+	 IP_API_V2_FLOW_HASH_DST_IP=2,
+	 IP_API_V2_FLOW_HASH_SRC_PORT=4,
+	 IP_API_V2_FLOW_HASH_DST_PORT=8,
+	 IP_API_V2_FLOW_HASH_PROTO=16,
+	 IP_API_V2_FLOW_HASH_REVERSE=32,
+	 IP_API_V2_FLOW_HASH_SYMETRIC=64,
+	 IP_API_V2_FLOW_HASH_FLOW_LABEL=128,
+	 IP_API_V2_FLOW_HASH_GTPV1_TEID=256,
+}
+impl Default for IpFlowHashConfigV2 {
+	fn default() -> Self { IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SRC_IP }
+}
+impl AsEnumFlag for IpFlowHashConfigV2 {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 1 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SRC_IP,
+			 2 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_DST_IP,
+			 4 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SRC_PORT,
+			 8 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_DST_PORT,
+			 16 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_PROTO,
+			 32 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_REVERSE,
+			 64 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_SYMETRIC,
+			 128 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_FLOW_LABEL,
+			 256 => IpFlowHashConfigV2::IP_API_V2_FLOW_HASH_GTPV1_TEID,
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(cnat_translation_update_f8d40bc5)]
