@@ -148,6 +148,13 @@ pub struct IpsecSadEntryAdd {
 	pub entry: IpsecSadEntryV3,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_entry_add_v2_9611297a)]
+pub struct IpsecSadEntryAddV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub entry: IpsecSadEntryV4,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_sad_entry_del_3a91bde5)]
 pub struct IpsecSadEntryDel {
 	pub client_index: u32,
@@ -228,6 +235,13 @@ pub struct IpsecSadEntryAddDelV3Reply {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_sad_entry_add_reply_9ffac24b)]
 pub struct IpsecSadEntryAddReply {
+	pub context: u32,
+	pub retval: i32,
+	pub stat_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sad_entry_add_v2_reply_9ffac24b)]
+pub struct IpsecSadEntryAddV2Reply {
 	pub context: u32,
 	pub retval: i32,
 	pub stat_index: u32,
@@ -356,6 +370,13 @@ pub struct IpsecSaV4Dump {
 	pub sa_id: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sa_v5_dump_2076c2f4)]
+pub struct IpsecSaV5Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sa_id: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ipsec_sa_details_345d14a7)]
 pub struct IpsecSaDetails {
 	pub context: u32,
@@ -395,6 +416,18 @@ pub struct IpsecSaV3Details {
 pub struct IpsecSaV4Details {
 	pub context: u32,
 	pub entry: IpsecSadEntryV3,
+	pub sw_if_index: InterfaceIndex,
+	pub seq_outbound: u64,
+	pub last_seq_inbound: u64,
+	pub replay_window: u64,
+	pub thread_index: u32,
+	pub stat_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ipsec_sa_v5_details_3cfecfbd)]
+pub struct IpsecSaV5Details {
+	pub context: u32,
+	pub entry: IpsecSadEntryV4,
 	pub sw_if_index: InterfaceIndex,
 	pub seq_outbound: u64,
 	pub last_seq_inbound: u64,

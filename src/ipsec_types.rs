@@ -109,6 +109,23 @@ pub struct IpsecSadEntryV3 {
 	pub udp_src_port: u16,
 	pub udp_dst_port: u16,
 }
+// Implementation for ipsec_sad_entry_v4
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IpsecSadEntryV4 {
+	pub sad_id: u32,
+	pub spi: u32,
+	pub protocol: IpsecProto,
+	pub crypto_algorithm: IpsecCryptoAlg,
+	pub crypto_key: Key,
+	pub integrity_algorithm: IpsecIntegAlg,
+	pub integrity_key: Key,
+	pub flags: EnumFlag<IpsecSadFlags>,
+	pub tunnel: Tunnel,
+	pub salt: u32,
+	pub udp_src_port: u16,
+	pub udp_dst_port: u16,
+	pub anti_replay_window_size: u32,
+}
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u32)]
 pub enum IpsecCryptoAlg {
