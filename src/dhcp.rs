@@ -223,6 +223,20 @@ pub struct DhcpProxyDetails {
 	pub servers: VariableSizeArray<DhcpServer>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(dhcp_client_detect_enable_disable_ae6cfcfb)]
+pub struct DhcpClientDetectEnableDisable {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub enable: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(dhcp_client_detect_enable_disable_reply_e8d4e804)]
+pub struct DhcpClientDetectEnableDisableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(dhcp6_duid_ll_set_0f6ca323)]
 pub struct Dhcp6DuidLlSet {
 	pub client_index: u32,
