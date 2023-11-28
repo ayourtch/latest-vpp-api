@@ -19,6 +19,7 @@ pub mod crypto;
 pub mod crypto_sw_scheduler;
 pub mod ct6;
 pub mod det44;
+pub mod dev;
 pub mod dhcp;
 pub mod dhcp6_ia_na_client_cp;
 pub mod dhcp6_pd_client_cp;
