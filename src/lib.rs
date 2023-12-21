@@ -102,6 +102,8 @@ pub mod rdma;
 pub mod session;
 pub mod span;
 pub mod sr;
+pub mod sr_mobile;
+pub mod sr_mobile_types;
 pub mod sr_mpls;
 pub mod sr_pt;
 pub mod sr_types;
