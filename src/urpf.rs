@@ -56,3 +56,20 @@ pub struct UrpfUpdateV2Reply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(urpf_interface_dump_f9e6675e)]
+pub struct UrpfInterfaceDump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(urpf_interface_details_f94b5374)]
+pub struct UrpfInterfaceDetails {
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub is_input: bool,
+	pub mode: UrpfMode,
+	pub af: AddressFamily,
+	pub table_id: u32,
+}
