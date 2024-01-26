@@ -12,6 +12,36 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
 use crate::interface_types::*;
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u32)]
+pub enum PortIdSubtype {
+	 PORT_ID_SUBTYPE_RESERVED=0,
+	 PORT_ID_SUBTYPE_INTF_ALIAS=1,
+	 PORT_ID_SUBTYPE_PORT_COMP=2,
+	 PORT_ID_SUBTYPE_MAC_ADDR=3,
+	 PORT_ID_SUBTYPE_NET_ADDR=4,
+	 PORT_ID_SUBTYPE_INTF_NAME=5,
+	 PORT_ID_SUBTYPE_AGENT_CIRCUIT_ID=6,
+	 PORT_ID_SUBTYPE_LOCAL=7,
+}
+impl Default for PortIdSubtype {
+	fn default() -> Self { PortIdSubtype::PORT_ID_SUBTYPE_RESERVED }
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u32)]
+pub enum ChassisIdSubtype {
+	 CHASSIS_ID_SUBTYPE_RESERVED=0,
+	 CHASSIS_ID_SUBTYPE_CHASSIS_COMP=1,
+	 CHASSIS_ID_SUBTYPE_INTF_ALIAS=2,
+	 CHASSIS_ID_SUBTYPE_PORT_COMP=3,
+	 CHASSIS_ID_SUBTYPE_MAC_ADDR=4,
+	 CHASSIS_ID_SUBTYPE_NET_ADDR=5,
+	 CHASSIS_ID_SUBTYPE_INTF_NAME=6,
+	 CHASSIS_ID_SUBTYPE_LOCAL=7,
+}
+impl Default for ChassisIdSubtype {
+	fn default() -> Self { ChassisIdSubtype::CHASSIS_ID_SUBTYPE_RESERVED }
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lldp_config_c14445df)]
 pub struct LldpConfig {
@@ -44,4 +74,33 @@ pub struct SwInterfaceSetLldp {
 pub struct SwInterfaceSetLldpReply {
 	pub context: u32,
 	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lldp_dump_f75ba505)]
+pub struct LldpDump {
+	pub client_index: u32,
+	pub context: u32,
+	pub cursor: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lldp_dump_reply_53b48f5d)]
+pub struct LldpDumpReply {
+	pub context: u32,
+	pub retval: i32,
+	pub cursor: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lldp_details_c2d226cd)]
+pub struct LldpDetails {
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub last_heard: f64,
+	pub last_sent: f64,
+	pub chassis_id: FixedSizeArray<u8, typenum::U64>,
+	pub chassis_id_len: u8,
+	pub port_id: FixedSizeArray<u8, typenum::U64>,
+	pub port_id_len: u8,
+	pub ttl: u16,
+	pub port_id_subtype: PortIdSubtype,
+	pub chassis_id_subtype: ChassisIdSubtype,
 }
