@@ -214,3 +214,16 @@ pub struct MemclntCreateV2Reply {
 	pub index: u32,
 	pub message_table: u64,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(get_api_json_51077d14)]
+pub struct GetApiJson {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(get_api_json_reply_ea715b59)]
+pub struct GetApiJsonReply {
+	pub context: u32,
+	pub retval: i32,
+	pub json: VariableSizeString,
+}
