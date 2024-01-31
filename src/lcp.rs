@@ -81,6 +81,25 @@ pub struct LcpItfPairAddDelV2Reply {
 	pub host_sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_itf_pair_add_del_v3_40482b80)]
+pub struct LcpItfPairAddDelV3 {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub sw_if_index: InterfaceIndex,
+	pub host_if_name: FixedSizeString<typenum::U16>,
+	pub host_if_type: LcpItfHostType,
+	pub netns: FixedSizeString<typenum::U32>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_itf_pair_add_del_v3_reply_c2502663)]
+pub struct LcpItfPairAddDelV3Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub vif_index: u32,
+	pub host_sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lcp_itf_pair_get_f75ba505)]
 pub struct LcpItfPairGet {
 	pub client_index: u32,
@@ -90,6 +109,21 @@ pub struct LcpItfPairGet {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lcp_itf_pair_get_reply_53b48f5d)]
 pub struct LcpItfPairGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub cursor: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_itf_pair_get_v2_47250981)]
+pub struct LcpItfPairGetV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub cursor: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_itf_pair_get_v2_reply_53b48f5d)]
+pub struct LcpItfPairGetV2Reply {
 	pub context: u32,
 	pub retval: i32,
 	pub cursor: u32,
