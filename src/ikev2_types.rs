@@ -149,3 +149,37 @@ pub struct Ikev2Sa {
 	pub dh: Ikev2SaTransform,
 	pub stats: Ikev2SaStats,
 }
+// Implementation for ikev2_sa_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Ikev2SaV2 {
+	pub sa_index: u32,
+	pub profile_name: FixedSizeString<typenum::U64>,
+	pub state: Ikev2State,
+	pub ispi: u64,
+	pub rspi: u64,
+	pub iaddr: Address,
+	pub raddr: Address,
+	pub keys: Ikev2Keys,
+	pub i_id: Ikev2Id,
+	pub r_id: Ikev2Id,
+	pub encryption: Ikev2SaTransform,
+	pub integrity: Ikev2SaTransform,
+	pub prf: Ikev2SaTransform,
+	pub dh: Ikev2SaTransform,
+	pub stats: Ikev2SaStats,
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u32)]
+pub enum Ikev2State {
+	 UNKNOWN=0,
+	 SA_INIT=1,
+	 DELETED=2,
+	 AUTH_FAILED=3,
+	 AUTHENTICATED=4,
+	 NOTIFY_AND_DELETE=5,
+	 TS_UNACCEPTABLE=6,
+	 NO_PROPOSAL_CHOSEN=7,
+}
+impl Default for Ikev2State {
+	fn default() -> Self { Ikev2State::UNKNOWN }
+}

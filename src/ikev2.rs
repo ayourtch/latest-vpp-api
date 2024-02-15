@@ -45,11 +45,24 @@ pub struct Ikev2SaDump {
 	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_sa_v2_dump_51077d14)]
+pub struct Ikev2SaV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ikev2_sa_details_937c22d5)]
 pub struct Ikev2SaDetails {
 	pub context: u32,
 	pub retval: i32,
 	pub sa: Ikev2Sa,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_sa_v2_details_a616e604)]
+pub struct Ikev2SaV2Details {
+	pub context: u32,
+	pub retval: i32,
+	pub sa: Ikev2SaV2,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ikev2_child_sa_dump_01eab609)]
