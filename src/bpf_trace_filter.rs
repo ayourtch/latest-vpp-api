@@ -24,3 +24,18 @@ pub struct BpfTraceFilterSetReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bpf_trace_filter_set_v2_5615acbf)]
+pub struct BpfTraceFilterSetV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub optimize: bool,
+	pub filter: VariableSizeString,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bpf_trace_filter_set_v2_reply_e8d4e804)]
+pub struct BpfTraceFilterSetV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
