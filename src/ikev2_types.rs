@@ -121,6 +121,19 @@ pub struct Ikev2ChildSa {
 	pub integrity: Ikev2SaTransform,
 	pub esn: Ikev2SaTransform,
 }
+// Implementation for ikev2_child_sa_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Ikev2ChildSaV2 {
+	pub sa_index: u32,
+	pub child_sa_index: u32,
+	pub i_spi: u32,
+	pub r_spi: u32,
+	pub keys: Ikev2Keys,
+	pub encryption: Ikev2SaTransform,
+	pub integrity: Ikev2SaTransform,
+	pub esn: Ikev2SaTransform,
+	pub uptime: f64,
+}
 // Implementation for ikev2_sa_stats
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Ikev2SaStats {
@@ -167,6 +180,26 @@ pub struct Ikev2SaV2 {
 	pub prf: Ikev2SaTransform,
 	pub dh: Ikev2SaTransform,
 	pub stats: Ikev2SaStats,
+}
+// Implementation for ikev2_sa_v3
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Ikev2SaV3 {
+	pub sa_index: u32,
+	pub profile_name: FixedSizeString<typenum::U64>,
+	pub state: Ikev2State,
+	pub ispi: u64,
+	pub rspi: u64,
+	pub iaddr: Address,
+	pub raddr: Address,
+	pub keys: Ikev2Keys,
+	pub i_id: Ikev2Id,
+	pub r_id: Ikev2Id,
+	pub encryption: Ikev2SaTransform,
+	pub integrity: Ikev2SaTransform,
+	pub prf: Ikev2SaTransform,
+	pub dh: Ikev2SaTransform,
+	pub stats: Ikev2SaStats,
+	pub uptime: f64,
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u32)]

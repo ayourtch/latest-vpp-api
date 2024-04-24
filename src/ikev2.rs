@@ -51,6 +51,12 @@ pub struct Ikev2SaV2Dump {
 	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_sa_v3_dump_51077d14)]
+pub struct Ikev2SaV3Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ikev2_sa_details_937c22d5)]
 pub struct Ikev2SaDetails {
 	pub context: u32,
@@ -65,6 +71,13 @@ pub struct Ikev2SaV2Details {
 	pub sa: Ikev2SaV2,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_sa_v3_details_85c9a941)]
+pub struct Ikev2SaV3Details {
+	pub context: u32,
+	pub retval: i32,
+	pub sa: Ikev2SaV3,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ikev2_child_sa_dump_01eab609)]
 pub struct Ikev2ChildSaDump {
 	pub client_index: u32,
@@ -77,6 +90,20 @@ pub struct Ikev2ChildSaDetails {
 	pub context: u32,
 	pub retval: i32,
 	pub child_sa: Ikev2ChildSa,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_child_sa_v2_dump_01eab609)]
+pub struct Ikev2ChildSaV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sa_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_child_sa_v2_details_1db62aa2)]
+pub struct Ikev2ChildSaV2Details {
+	pub context: u32,
+	pub retval: i32,
+	pub child_sa: Ikev2ChildSaV2,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ikev2_nonce_get_7fe9ad51)]
