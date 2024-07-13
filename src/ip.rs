@@ -31,6 +31,21 @@ pub struct IpTableAddDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_table_add_del_v2_14e5081f)]
+pub struct IpTableAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub table: IpTable,
+	pub create_mfib: bool,
+	pub is_add: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_table_add_del_v2_reply_e8d4e804)]
+pub struct IpTableAddDelV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ip_table_allocate_b9d2e09e)]
 pub struct IpTableAllocate {
 	pub client_index: u32,
