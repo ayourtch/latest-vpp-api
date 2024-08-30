@@ -21,6 +21,7 @@ pub enum VirtioFlags {
 	 VIRTIO_API_FLAG_PACKED=8,
 	 VIRTIO_API_FLAG_IN_ORDER=16,
 	 VIRTIO_API_FLAG_BUFFERING=32,
+	 VIRTIO_API_FLAG_RSS=64,
 }
 impl Default for VirtioFlags {
 	fn default() -> Self { VirtioFlags::VIRTIO_API_FLAG_GSO }
@@ -37,6 +38,7 @@ impl AsEnumFlag for VirtioFlags {
 			 8 => VirtioFlags::VIRTIO_API_FLAG_PACKED,
 			 16 => VirtioFlags::VIRTIO_API_FLAG_IN_ORDER,
 			 32 => VirtioFlags::VIRTIO_API_FLAG_BUFFERING,
+			 64 => VirtioFlags::VIRTIO_API_FLAG_RSS,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
