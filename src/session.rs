@@ -12,6 +12,13 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
 use crate::interface_types::*;
+// Implementation for sdl_rule
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SdlRule {
+	pub lcl: Prefix,
+	pub action_index: u32,
+	pub tag: FixedSizeString<typenum::U64>,
+}
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]
 pub enum TransportProto {
@@ -23,6 +30,17 @@ pub enum TransportProto {
 }
 impl Default for TransportProto {
 	fn default() -> Self { TransportProto::TRANSPORT_PROTO_API_TCP }
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u8)]
+pub enum RtBackendEngine {
+	 RT_BACKEND_ENGINE_API_DISABLE=0,
+	 RT_BACKEND_ENGINE_API_RULE_TABLE=1,
+	 RT_BACKEND_ENGINE_API_NONE=2,
+	 RT_BACKEND_ENGINE_API_SDL=3,
+}
+impl Default for RtBackendEngine {
+	fn default() -> Self { RtBackendEngine::RT_BACKEND_ENGINE_API_DISABLE }
 }
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u32)]
@@ -130,6 +148,19 @@ pub struct SessionEnableDisable {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(session_enable_disable_reply_e8d4e804)]
 pub struct SessionEnableDisableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_enable_disable_v2_f09fbf32)]
+pub struct SessionEnableDisableV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub rt_engine_type: RtBackendEngine,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_enable_disable_v2_reply_e8d4e804)]
+pub struct SessionEnableDisableV2Reply {
 	pub context: u32,
 	pub retval: i32,
 }
@@ -264,5 +295,36 @@ pub struct SessionRulesDetails {
 	pub action_index: u32,
 	pub appns_index: u32,
 	pub scope: SessionRuleScope,
+	pub tag: FixedSizeString<typenum::U64>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_add_del_faeb89fc)]
+pub struct SessionSdlAddDel {
+	pub client_index: u32,
+	pub context: u32,
+	pub appns_index: u32,
+	pub is_add: bool,
+	pub count: u32,
+	pub r: VariableSizeArray<SdlRule>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_add_del_reply_e8d4e804)]
+pub struct SessionSdlAddDelReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_dump_51077d14)]
+pub struct SessionSdlDump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_details_9a8ef5d0)]
+pub struct SessionSdlDetails {
+	pub context: u32,
+	pub lcl: Prefix,
+	pub action_index: u32,
+	pub appns_index: u32,
 	pub tag: FixedSizeString<typenum::U64>,
 }
