@@ -95,6 +95,7 @@ pub mod policer_types;
 pub mod pot;
 pub mod pppoe;
 pub mod punt;
+pub mod pvti;
 pub mod qos;
 pub mod rd_cp;
 pub mod rdma;
