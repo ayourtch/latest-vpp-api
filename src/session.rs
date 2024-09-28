@@ -19,6 +19,13 @@ pub struct SdlRule {
 	pub action_index: u32,
 	pub tag: FixedSizeString<typenum::U64>,
 }
+// Implementation for sdl_rule_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SdlRuleV2 {
+	pub rmt: Prefix,
+	pub action_index: u32,
+	pub tag: FixedSizeString<typenum::U64>,
+}
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]
 pub enum TransportProto {
@@ -314,6 +321,22 @@ pub struct SessionSdlAddDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_add_del_v2_7f89d3fa)]
+pub struct SessionSdlAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub appns_index: u32,
+	pub is_add: bool,
+	pub count: u32,
+	pub r: VariableSizeArray<SdlRuleV2>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_add_del_v2_reply_e8d4e804)]
+pub struct SessionSdlAddDelV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(session_sdl_dump_51077d14)]
 pub struct SessionSdlDump {
 	pub client_index: u32,
@@ -324,6 +347,21 @@ pub struct SessionSdlDump {
 pub struct SessionSdlDetails {
 	pub context: u32,
 	pub lcl: Prefix,
+	pub action_index: u32,
+	pub appns_index: u32,
+	pub tag: FixedSizeString<typenum::U64>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_v2_dump_51077d14)]
+pub struct SessionSdlV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_v2_details_0a057683)]
+pub struct SessionSdlV2Details {
+	pub context: u32,
+	pub rmt: Prefix,
 	pub action_index: u32,
 	pub appns_index: u32,
 	pub tag: FixedSizeString<typenum::U64>,
