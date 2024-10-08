@@ -55,6 +55,19 @@ pub struct PgCreateInterfaceV2Reply {
 	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pg_delete_interface_f9e6675e)]
+pub struct PgDeleteInterface {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pg_delete_interface_reply_e8d4e804)]
+pub struct PgDeleteInterfaceReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pg_interface_enable_disable_coalesce_a2ef99e7)]
 pub struct PgInterfaceEnableDisableCoalesce {
 	pub client_index: u32,
