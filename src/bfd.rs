@@ -286,3 +286,15 @@ pub struct BfdUdpAuthDeactivateReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bfd_udp_enable_multihop_51077d14)]
+pub struct BfdUdpEnableMultihop {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bfd_udp_enable_multihop_reply_e8d4e804)]
+pub struct BfdUdpEnableMultihopReply {
+	pub context: u32,
+	pub retval: i32,
+}
