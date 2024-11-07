@@ -305,6 +305,27 @@ pub struct SessionRulesDetails {
 	pub tag: FixedSizeString<typenum::U64>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_rules_v2_dump_51077d14)]
+pub struct SessionRulesV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_rules_v2_details_f91993dc)]
+pub struct SessionRulesV2Details {
+	pub context: u32,
+	pub transport_proto: TransportProto,
+	pub lcl: Prefix,
+	pub rmt: Prefix,
+	pub lcl_port: u16,
+	pub rmt_port: u16,
+	pub action_index: u32,
+	pub scope: SessionRuleScope,
+	pub tag: FixedSizeString<typenum::U64>,
+	pub count: u32,
+	pub appns_index: VariableSizeArray<u32>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(session_sdl_add_del_faeb89fc)]
 pub struct SessionSdlAddDel {
 	pub client_index: u32,
@@ -365,4 +386,20 @@ pub struct SessionSdlV2Details {
 	pub action_index: u32,
 	pub appns_index: u32,
 	pub tag: FixedSizeString<typenum::U64>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_v3_dump_51077d14)]
+pub struct SessionSdlV3Dump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(session_sdl_v3_details_829e367f)]
+pub struct SessionSdlV3Details {
+	pub context: u32,
+	pub rmt: Prefix,
+	pub action_index: u32,
+	pub tag: FixedSizeString<typenum::U64>,
+	pub count: u32,
+	pub appns_index: VariableSizeArray<u32>,
 }
