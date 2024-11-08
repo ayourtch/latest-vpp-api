@@ -34,6 +34,7 @@ impl AsEnumFlag for DevFlags {
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum DevPortFlags {
 	 VL_API_DEV_PORT_FLAG_INTERRUPT_MODE=1,
+	 VL_API_DEV_PORT_FLAG_CONSISTENT_QP=2,
 }
 impl Default for DevPortFlags {
 	fn default() -> Self { DevPortFlags::VL_API_DEV_PORT_FLAG_INTERRUPT_MODE }
@@ -45,6 +46,7 @@ impl AsEnumFlag for DevPortFlags {
 	 fn from_u32(data: u32) -> Self{
 		 match data{
 			 1 => DevPortFlags::VL_API_DEV_PORT_FLAG_INTERRUPT_MODE,
+			 2 => DevPortFlags::VL_API_DEV_PORT_FLAG_CONSISTENT_QP,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
@@ -85,7 +87,7 @@ pub struct DevDetachReply {
 	pub error_string: VariableSizeString,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(dev_create_port_if_1eb00d01)]
+#[message_name_and_crc(dev_create_port_if_dbdf06f3)]
 pub struct DevCreatePortIf {
 	pub client_index: u32,
 	pub context: u32,
