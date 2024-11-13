@@ -34,6 +34,9 @@ pub enum SrBehavior {
 	 SR_BEHAVIOR_API_DT6=8,
 	 SR_BEHAVIOR_API_DT4=9,
 	 SR_BEHAVIOR_API_LAST=10,
+	 SR_BEHAVIOR_API_END_UN_PERF=11,
+	 SR_BEHAVIOR_API_END_UN=12,
+	 SR_BEHAVIOR_API_UA=13,
 }
 impl Default for SrBehavior {
 	fn default() -> Self { SrBehavior::SR_BEHAVIOR_API_END }
