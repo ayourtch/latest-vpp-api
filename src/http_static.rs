@@ -11,24 +11,6 @@ use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(http_static_enable_075f8292)]
-pub struct HttpStaticEnable {
-	pub client_index: u32,
-	pub context: u32,
-	pub fifo_size: u32,
-	pub cache_size_limit: u32,
-	pub prealloc_fifos: u32,
-	pub private_segment_size: u32,
-	pub www_root: FixedSizeString<typenum::U256>,
-	pub uri: FixedSizeString<typenum::U256>,
-}
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(http_static_enable_reply_e8d4e804)]
-pub struct HttpStaticEnableReply {
-	pub context: u32,
-	pub retval: i32,
-}
-#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(http_static_enable_v2_3ee5f1f6)]
 pub struct HttpStaticEnableV2 {
 	pub client_index: u32,
@@ -44,6 +26,26 @@ pub struct HttpStaticEnableV2 {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(http_static_enable_v2_reply_e8d4e804)]
 pub struct HttpStaticEnableV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(http_static_enable_v3_8bf35be3)]
+pub struct HttpStaticEnableV3 {
+	pub client_index: u32,
+	pub context: u32,
+	pub fifo_size: u32,
+	pub cache_size_limit: u32,
+	pub max_age: u32,
+	pub keepalive_timeout: u32,
+	pub prealloc_fifos: u32,
+	pub private_segment_size: u32,
+	pub www_root: FixedSizeString<typenum::U256>,
+	pub uri: FixedSizeString<typenum::U256>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(http_static_enable_v3_reply_e8d4e804)]
+pub struct HttpStaticEnableV3Reply {
 	pub context: u32,
 	pub retval: i32,
 }
