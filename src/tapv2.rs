@@ -23,6 +23,7 @@ pub enum TapFlags {
 	 TAP_API_FLAG_GRO_COALESCE=32,
 	 TAP_API_FLAG_PACKED=64,
 	 TAP_API_FLAG_IN_ORDER=128,
+	 TAP_API_FLAG_CONSISTENT_QP=256,
 }
 impl Default for TapFlags {
 	fn default() -> Self { TapFlags::TAP_API_FLAG_GSO }
@@ -41,6 +42,7 @@ impl AsEnumFlag for TapFlags {
 			 32 => TapFlags::TAP_API_FLAG_GRO_COALESCE,
 			 64 => TapFlags::TAP_API_FLAG_PACKED,
 			 128 => TapFlags::TAP_API_FLAG_IN_ORDER,
+			 256 => TapFlags::TAP_API_FLAG_CONSISTENT_QP,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
