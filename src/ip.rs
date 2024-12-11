@@ -280,6 +280,20 @@ pub struct SwInterfaceIp6EnableDisableReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_ip4_enable_disable_ae6cfcfb)]
+pub struct SwInterfaceIp4EnableDisable {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub enable: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_ip4_enable_disable_reply_e8d4e804)]
+pub struct SwInterfaceIp4EnableDisableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ip_mtable_dump_51077d14)]
 pub struct IpMtableDump {
 	pub client_index: u32,
