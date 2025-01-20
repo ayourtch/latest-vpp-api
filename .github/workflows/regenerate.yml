@@ -48,7 +48,7 @@ jobs:
         vppctl show version
     - name: Install build prerequisites
       run: |
-        sudo apt-get install -y build-essential clang-12
+        sudo apt-get install -y build-essential clang
         cargo version
     - name: Create a test package
       run: |
