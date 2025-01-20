@@ -101,6 +101,7 @@ pub mod qos;
 pub mod rd_cp;
 pub mod rdma;
 pub mod session;
+pub mod sflow;
 pub mod span;
 pub mod sr;
 pub mod sr_mobile;

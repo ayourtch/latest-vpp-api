@@ -27,6 +27,32 @@ pub struct Ikev2PluginGetVersionReply {
 	pub minor: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_plugin_set_sleep_interval_b7c096ae)]
+pub struct Ikev2PluginSetSleepInterval {
+	pub client_index: u32,
+	pub context: u32,
+	pub timeout: f64,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_plugin_set_sleep_interval_reply_e8d4e804)]
+pub struct Ikev2PluginSetSleepIntervalReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_get_sleep_interval_51077d14)]
+pub struct Ikev2GetSleepInterval {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ikev2_get_sleep_interval_reply_78ab91dc)]
+pub struct Ikev2GetSleepIntervalReply {
+	pub context: u32,
+	pub retval: i32,
+	pub sleep_interval: f64,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(ikev2_profile_dump_51077d14)]
 pub struct Ikev2ProfileDump {
 	pub client_index: u32,
