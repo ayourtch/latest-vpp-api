@@ -140,6 +140,33 @@ pub struct LcpItfPairDetails {
 	pub netns: FixedSizeString<typenum::U32>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_ethertype_enable_f893dae1)]
+pub struct LcpEthertypeEnable {
+	pub client_index: u32,
+	pub context: u32,
+	pub ethertype: u16,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_ethertype_enable_reply_e8d4e804)]
+pub struct LcpEthertypeEnableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_ethertype_get_51077d14)]
+pub struct LcpEthertypeGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_ethertype_get_reply_db48c31e)]
+pub struct LcpEthertypeGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub count: u16,
+	pub ethertypes: VariableSizeArray<u16>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lcp_itf_pair_replace_begin_51077d14)]
 pub struct LcpItfPairReplaceBegin {
 	pub client_index: u32,
