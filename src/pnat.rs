@@ -193,3 +193,19 @@ pub struct PnatInterfacesDetails {
 	pub enabled: FixedSizeArray<bool, typenum::U2>,
 	pub lookup_mask: FixedSizeArray<PnatMask, typenum::U2>,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pnat_flow_lookup_1ef8747c)]
+pub struct PnatFlowLookup {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub attachment: PnatAttachmentPoint,
+	pub mach: PnatMatchTuple,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pnat_flow_lookup_reply_4cd980a7)]
+pub struct PnatFlowLookupReply {
+	pub context: u32,
+	pub retval: i32,
+	pub binding_index: u32,
+}
