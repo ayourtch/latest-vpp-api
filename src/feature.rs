@@ -27,3 +27,20 @@ pub struct FeatureEnableDisableReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(feature_is_enabled_55db09e2)]
+pub struct FeatureIsEnabled {
+	pub client_index: u32,
+	pub context: u32,
+	pub arc_name: FixedSizeString<typenum::U64>,
+	pub feature_name: FixedSizeString<typenum::U64>,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(feature_is_enabled_reply_03f284b5)]
+pub struct FeatureIsEnabledReply {
+	pub client_index: u32,
+	pub context: u32,
+	pub retval: i32,
+	pub is_enabled: bool,
+}
