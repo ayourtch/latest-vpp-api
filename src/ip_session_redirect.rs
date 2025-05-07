@@ -67,3 +67,24 @@ pub struct IpSessionRedirectDelReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_session_redirect_dump_33554253)]
+pub struct IpSessionRedirectDump {
+	pub client_index: u32,
+	pub context: u32,
+	pub table_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_session_redirect_details_4487a233)]
+pub struct IpSessionRedirectDetails {
+	pub context: u32,
+	pub retval: i32,
+	pub table_index: u32,
+	pub opaque_index: u32,
+	pub is_punt: bool,
+	pub is_ip6: bool,
+	pub match_length: u32,
+	pub mach: FixedSizeArray<u8, typenum::U80>,
+	pub n_paths: u8,
+	pub paths: VariableSizeArray<FibPath>,
+}
