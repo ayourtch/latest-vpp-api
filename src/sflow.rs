@@ -101,6 +101,56 @@ pub struct SflowHeaderBytesGetReply {
 	pub header_B: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_direction_set_fbca6f34)]
+pub struct SflowDirectionSet {
+	pub client_index: u32,
+	pub context: u32,
+	pub sampling_D: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_direction_set_reply_e8d4e804)]
+pub struct SflowDirectionSetReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_direction_get_51077d14)]
+pub struct SflowDirectionGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_direction_get_reply_f3316252)]
+pub struct SflowDirectionGetReply {
+	pub context: u32,
+	pub sampling_D: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_drop_monitoring_set_100b1e04)]
+pub struct SflowDropMonitoringSet {
+	pub client_index: u32,
+	pub context: u32,
+	pub drop_M: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_drop_monitoring_set_reply_e8d4e804)]
+pub struct SflowDropMonitoringSetReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_drop_monitoring_get_51077d14)]
+pub struct SflowDropMonitoringGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sflow_drop_monitoring_get_reply_b56ae30e)]
+pub struct SflowDropMonitoringGetReply {
+	pub context: u32,
+	pub drop_M: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sflow_interface_dump_451a727d)]
 pub struct SflowInterfaceDump {
 	pub client_index: u32,
