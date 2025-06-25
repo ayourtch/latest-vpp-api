@@ -26,6 +26,20 @@ pub struct GreTunnel {
 	pub src: Address,
 	pub dst: Address,
 }
+// Implementation for gre_tunnel_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct GreTunnelV2 {
+	pub typ: GreTunnelType,
+	pub mode: TunnelMode,
+	pub flags: EnumFlag<TunnelEncapDecapFlags>,
+	pub session_id: u16,
+	pub instance: u32,
+	pub outer_table_id: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub src: Address,
+	pub dst: Address,
+	pub key: u32,
+}
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
 #[repr(u8)]
 pub enum GreTunnelType {
@@ -52,6 +66,21 @@ pub struct GreTunnelAddDelReply {
 	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_add_del_v2_7d9576de)]
+pub struct GreTunnelAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_add: bool,
+	pub tunnel: GreTunnelV2,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_add_del_v2_reply_5383d31f)]
+pub struct GreTunnelAddDelV2Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(gre_tunnel_dump_f9e6675e)]
 pub struct GreTunnelDump {
 	pub client_index: u32,
@@ -59,8 +88,33 @@ pub struct GreTunnelDump {
 	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_dump_reply_e8d4e804)]
+pub struct GreTunnelDumpReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_dump_v2_f9e6675e)]
+pub struct GreTunnelDumpV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_dump_v2_reply_e8d4e804)]
+pub struct GreTunnelDumpV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(gre_tunnel_details_24435433)]
 pub struct GreTunnelDetails {
 	pub context: u32,
 	pub tunnel: GreTunnel,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_details_v2_65521177)]
+pub struct GreTunnelDetailsV2 {
+	pub context: u32,
+	pub tunnel: GreTunnelV2,
 }
