@@ -21,6 +21,33 @@ pub enum PgInterfaceMode {
 impl Default for PgInterfaceMode {
 	fn default() -> Self { PgInterfaceMode::PG_API_MODE_ETHERNET }
 }
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
+pub enum PgInterfaceFlags {
+	 PG_API_FLAG_NONE=0,
+	 PG_API_FLAG_CSUM_OFFLOAD=1,
+	 PG_API_FLAG_GSO=2,
+	 PG_API_FLAG_GRO_COALESCE=4,
+}
+impl Default for PgInterfaceFlags {
+	fn default() -> Self { PgInterfaceFlags::PG_API_FLAG_NONE }
+}
+impl AsEnumFlag for PgInterfaceFlags {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 0 => PgInterfaceFlags::PG_API_FLAG_NONE,
+			 1 => PgInterfaceFlags::PG_API_FLAG_CSUM_OFFLOAD,
+			 2 => PgInterfaceFlags::PG_API_FLAG_GSO,
+			 4 => PgInterfaceFlags::PG_API_FLAG_GRO_COALESCE,
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pg_create_interface_b7c893d7)]
 pub struct PgCreateInterface {
@@ -41,6 +68,16 @@ pub struct PgCreateInterfaceV2 {
 	pub mode: PgInterfaceMode,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pg_create_interface_v3_b2aac653)]
+pub struct PgCreateInterfaceV3 {
+	pub client_index: u32,
+	pub context: u32,
+	pub interface_id: InterfaceIndex,
+	 pub pg_flags: EnumFlag<PgInterfaceFlags>,
+	pub gso_size: u32,
+	pub mode: PgInterfaceMode,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pg_create_interface_reply_5383d31f)]
 pub struct PgCreateInterfaceReply {
 	pub context: u32,
@@ -50,6 +87,13 @@ pub struct PgCreateInterfaceReply {
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(pg_create_interface_v2_reply_5383d31f)]
 pub struct PgCreateInterfaceV2Reply {
+	pub context: u32,
+	pub retval: i32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(pg_create_interface_v3_reply_5383d31f)]
+pub struct PgCreateInterfaceV3Reply {
 	pub context: u32,
 	pub retval: i32,
 	pub sw_if_index: InterfaceIndex,
