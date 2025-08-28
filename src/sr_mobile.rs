@@ -11,10 +11,34 @@ use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
-use crate::sr::*;
 use crate::interface_types::*;
 use crate::sr_types::*;
 use crate::sr_mobile_types::*;
+// Implementation for srv6_sid_list
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Srv6SidList {
+	pub num_sids: u8,
+	pub weight: u32,
+	pub sids: FixedSizeArray<Ip6Address, typenum::U16>,
+}
+// Implementation for srv6_sid_list_with_sl_index
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Srv6SidListWithSlIndex {
+	pub num_sids: u8,
+	pub weight: u32,
+	pub sl_index: u32,
+	pub sids: FixedSizeArray<Ip6Address, typenum::U16>,
+}
+#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
+#[repr(u8)]
+pub enum SrPolicyType {
+	 SR_API_POLICY_TYPE_DEFAULT=0,
+	 SR_API_POLICY_TYPE_SPRAY=1,
+	 SR_API_POLICY_TYPE_TEF=2,
+}
+impl Default for SrPolicyType {
+	fn default() -> Self { SrPolicyType::SR_API_POLICY_TYPE_DEFAULT }
+}
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sr_mobile_localsid_add_del_b85a7ed7)]
 pub struct SrMobileLocalsidAddDel {
