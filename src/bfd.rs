@@ -298,3 +298,29 @@ pub struct BfdUdpEnableMultihopReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bfd_udp_set_tos_00fe25ce)]
+pub struct BfdUdpSetTos {
+	pub client_index: u32,
+	pub context: u32,
+	pub tos: u8,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bfd_udp_set_tos_reply_e8d4e804)]
+pub struct BfdUdpSetTosReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bfd_udp_get_tos_51077d14)]
+pub struct BfdUdpGetTos {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(bfd_udp_get_tos_reply_d8931abf)]
+pub struct BfdUdpGetTosReply {
+	pub context: u32,
+	pub retval: i32,
+	pub tos: u8,
+}
