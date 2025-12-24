@@ -54,6 +54,7 @@ jobs:
       run: |
         git clone https://github.com/ayourtch/vpp-api
         cd vpp-api
+        git log -n 3
         cargo run -- --in-file /usr/share/vpp/api/ --parse-type Tree --create-package --package-name latest_vpp_api
         cd ..
     - name: Run tests
