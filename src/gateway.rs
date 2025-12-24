@@ -12,34 +12,41 @@ use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
 use crate::ip_types::*;
 use crate::interface_types::*;
+use crate::sfdp_types::*;
+use crate::ethernet_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(dhcp6_pd_client_enable_disable_a75a0772)]
-pub struct Dhcp6PdClientEnableDisable {
+#[message_name_and_crc(sfdp_gateway_set_geneve_output_508e3ee7)]
+pub struct SfdpGatewaySetGeneveOutput {
 	pub client_index: u32,
 	pub context: u32,
-	pub sw_if_index: InterfaceIndex,
-	pub prefix_group: FixedSizeString<typenum::U64>,
-	pub enable: bool,
+	pub tenant_id: u32,
+	pub output_tenant_id: u32,
+	pub src: Address,
+	pub dst: Address,
+	pub src_port: u16,
+	pub dst_port: u16,
+	pub static_mac: u8,
+	pub src_mac: MacAddress,
+	pub dst_mac: MacAddress,
+	pub dir: SfdpSessionDirection,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(dhcp6_pd_client_enable_disable_reply_e8d4e804)]
-pub struct Dhcp6PdClientEnableDisableReply {
+#[message_name_and_crc(sfdp_gateway_set_geneve_output_reply_e8d4e804)]
+pub struct SfdpGatewaySetGeneveOutputReply {
 	pub context: u32,
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(ip6_add_del_address_using_prefix_3982f30a)]
-pub struct Ip6AddDelAddressUsingPrefix {
+#[message_name_and_crc(sfdp_gateway_geneve_input_enable_disable_3b2a8583)]
+pub struct SfdpGatewayGeneveInputEnableDisable {
 	pub client_index: u32,
 	pub context: u32,
 	pub sw_if_index: InterfaceIndex,
-	pub prefix_group: FixedSizeString<typenum::U64>,
-	pub address_with_prefix: Ip6AddressWithPrefix,
-	pub is_add: bool,
+	pub is_enable: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(ip6_add_del_address_using_prefix_reply_e8d4e804)]
-pub struct Ip6AddDelAddressUsingPrefixReply {
+#[message_name_and_crc(sfdp_gateway_geneve_input_enable_disable_reply_e8d4e804)]
+pub struct SfdpGatewayGeneveInputEnableDisableReply {
 	pub context: u32,
 	pub retval: i32,
 }

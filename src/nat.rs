@@ -10,49 +10,53 @@ pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
+use crate::ip_types::*;
+use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(trace_profile_add_de08aa6d)]
-pub struct TraceProfileAdd {
+#[message_name_and_crc(sfdp_nat_set_external_interface_fca1e31a)]
+pub struct SfdpNatSetExternalInterface {
 	pub client_index: u32,
 	pub context: u32,
-	pub trace_type: u8,
-	pub num_elts: u8,
-	pub trace_tsp: u8,
-	pub node_id: u32,
-	pub app_data: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub tenant_id: u32,
+	pub is_disable: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(trace_profile_add_reply_e8d4e804)]
-pub struct TraceProfileAddReply {
+#[message_name_and_crc(sfdp_nat_set_external_interface_reply_e8d4e804)]
+pub struct SfdpNatSetExternalInterfaceReply {
 	pub context: u32,
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(trace_profile_del_51077d14)]
-pub struct TraceProfileDel {
+#[message_name_and_crc(sfdp_nat_alloc_pool_add_del_6ca85aad)]
+pub struct SfdpNatAllocPoolAddDel {
 	pub client_index: u32,
 	pub context: u32,
+	pub alloc_pool_id: u32,
+	pub is_del: u8,
+	pub n_addr: u32,
+	pub addr: VariableSizeArray<Ip4Address>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(trace_profile_del_reply_e8d4e804)]
-pub struct TraceProfileDelReply {
+#[message_name_and_crc(sfdp_nat_alloc_pool_add_del_reply_e8d4e804)]
+pub struct SfdpNatAllocPoolAddDelReply {
 	pub context: u32,
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(trace_profile_show_config_51077d14)]
-pub struct TraceProfileShowConfig {
+#[message_name_and_crc(sfdp_nat_snat_set_unset_7f07225d)]
+pub struct SfdpNatSnatSetUnset {
 	pub client_index: u32,
 	pub context: u32,
+	pub tenant_id: u32,
+	pub outside_tenant_id: u32,
+	pub table_id: u32,
+	pub alloc_pool_id: u32,
+	pub is_disable: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(trace_profile_show_config_reply_0f1d374c)]
-pub struct TraceProfileShowConfigReply {
+#[message_name_and_crc(sfdp_nat_snat_set_unset_reply_e8d4e804)]
+pub struct SfdpNatSnatSetUnsetReply {
 	pub context: u32,
 	pub retval: i32,
-	pub trace_type: u8,
-	pub num_elts: u8,
-	pub trace_tsp: u8,
-	pub node_id: u32,
-	pub app_data: u32,
 }

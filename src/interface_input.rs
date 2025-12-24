@@ -10,18 +10,20 @@ pub use vpp_api_encoding;
 use vpp_api_message::VppApiMessage;
 use serde_repr::{Serialize_repr, Deserialize_repr};
 use typenum;
+use crate::ip_types::*;
 use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(dhcp6_client_enable_disable_ae6cfcfb)]
-pub struct Dhcp6ClientEnableDisable {
+#[message_name_and_crc(sfdp_interface_input_set_fca1e31a)]
+pub struct SfdpInterfaceInputSet {
 	pub client_index: u32,
 	pub context: u32,
 	pub sw_if_index: InterfaceIndex,
-	pub enable: bool,
+	pub tenant_id: u32,
+	pub is_disable: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(dhcp6_client_enable_disable_reply_e8d4e804)]
-pub struct Dhcp6ClientEnableDisableReply {
+#[message_name_and_crc(sfdp_interface_input_set_reply_e8d4e804)]
+pub struct SfdpInterfaceInputSetReply {
 	pub context: u32,
 	pub retval: i32,
 }
