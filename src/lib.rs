@@ -7,7 +7,6 @@ pub mod af_xdp;
 pub mod arp;
 pub mod arping;
 pub mod auto_sdl;
-pub mod avf;
 pub mod bfd;
 pub mod bier;
 pub mod bond;
