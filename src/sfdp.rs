@@ -67,6 +67,20 @@ pub struct SfdpSessionDetails {
 	pub keys: VariableSizeArray<SfdpSessionKey>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sfdp_kill_session_1a16d196)]
+pub struct SfdpKillSession {
+	pub client_index: u32,
+	pub context: u32,
+	pub session_index: u32,
+	pub is_all: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sfdp_kill_session_reply_e8d4e804)]
+pub struct SfdpKillSessionReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sfdp_tenant_dump_51077d14)]
 pub struct SfdpTenantDump {
 	pub client_index: u32,
