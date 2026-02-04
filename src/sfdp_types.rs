@@ -61,6 +61,8 @@ impl Default for SfdpSpNode {
 #[repr(u8)]
 pub enum SfdpSessionType {
 	 SFDP_API_SESSION_TYPE_IP4=0,
+	 SFDP_API_SESSION_TYPE_IP6=1,
+	 SFDP_API_SESSION_TYPE_USER=2,
 }
 impl Default for SfdpSessionType {
 	fn default() -> Self { SfdpSessionType::SFDP_API_SESSION_TYPE_IP4 }

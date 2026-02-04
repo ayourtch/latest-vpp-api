@@ -50,7 +50,7 @@ pub struct SfdpSessionDump {
 	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(sfdp_session_details_d2a1b857)]
+#[message_name_and_crc(sfdp_session_details_3eaab6b9)]
 pub struct SfdpSessionDetails {
 	pub context: u32,
 	pub session_id: u64,

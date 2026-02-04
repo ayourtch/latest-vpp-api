@@ -58,7 +58,7 @@ pub struct SfdpTcpSessionDump {
 	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(sfdp_tcp_session_details_b846a1c5)]
+#[message_name_and_crc(sfdp_tcp_session_details_4bd58888)]
 pub struct SfdpTcpSessionDetails {
 	pub context: u32,
 	pub session_id: u64,
