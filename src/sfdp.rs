@@ -142,3 +142,18 @@ pub struct SfdpSetIcmpErrorNodeReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sfdp_service_dump_51077d14)]
+pub struct SfdpServiceDump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sfdp_service_details_2a8d1427)]
+pub struct SfdpServiceDetails {
+	pub context: u32,
+	pub node_name: FixedSizeString<typenum::U32>,
+	pub scope: FixedSizeString<typenum::U32>,
+	pub is_terminal: bool,
+	pub index: u8,
+}
