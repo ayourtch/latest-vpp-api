@@ -13,12 +13,13 @@ use typenum;
 use crate::ip_types::*;
 use crate::interface_types::*;
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(sfdp_interface_input_set_fca1e31a)]
+#[message_name_and_crc(sfdp_interface_input_set_c80a0902)]
 pub struct SfdpInterfaceInputSet {
 	pub client_index: u32,
 	pub context: u32,
 	pub sw_if_index: InterfaceIndex,
 	pub tenant_id: u32,
+	pub is_ip6: u8,
 	pub is_disable: u8,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
