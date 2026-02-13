@@ -167,6 +167,32 @@ pub struct LcpEthertypeGetReply {
 	pub ethertypes: VariableSizeArray<u16>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_sync_unnumbered_set_c264d7bf)]
+pub struct LcpSyncUnnumberedSet {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_enable: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_sync_unnumbered_set_reply_e8d4e804)]
+pub struct LcpSyncUnnumberedSetReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_sync_unnumbered_get_51077d14)]
+pub struct LcpSyncUnnumberedGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_sync_unnumbered_get_reply_f15abb16)]
+pub struct LcpSyncUnnumberedGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub is_enable: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lcp_itf_pair_replace_begin_51077d14)]
 pub struct LcpItfPairReplaceBegin {
 	pub client_index: u32,

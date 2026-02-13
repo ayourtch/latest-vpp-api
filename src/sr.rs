@@ -59,6 +59,29 @@ pub struct SrLocalsidAddDelReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_localsid_add_del_v2_8da7805a)]
+pub struct SrLocalsidAddDelV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub is_del: bool,
+	pub localsid: Ip6Address,
+	pub end_psp: bool,
+	pub behavior: SrBehavior,
+	pub sw_if_index: InterfaceIndex,
+	pub vlan_index: u32,
+	pub fib_table: u32,
+	pub nh_addr: Address,
+	pub locator_block_len: u8,
+	pub locator_node_len: u8,
+	pub function_len: u8,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sr_localsid_add_del_v2_reply_e8d4e804)]
+pub struct SrLocalsidAddDelV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sr_policy_add_44ac92e8)]
 pub struct SrPolicyAdd {
 	pub client_index: u32,
