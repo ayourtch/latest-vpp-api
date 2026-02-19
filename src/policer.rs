@@ -224,3 +224,18 @@ pub struct PolicerDetails {
 	pub extended_bucket: u32,
 	pub last_update_time: u64,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_punt_police_db867cea)]
+pub struct IpPuntPolice {
+	pub client_index: u32,
+	pub context: u32,
+	pub policer_index: u32,
+	pub is_add: bool,
+	pub is_ip6: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(ip_punt_police_reply_e8d4e804)]
+pub struct IpPuntPoliceReply {
+	pub context: u32,
+	pub retval: i32,
+}
