@@ -31,6 +31,13 @@ pub struct CnatEndpointTuple {
 	pub src_ep: CnatEndpoint,
 	pub flags: u8,
 }
+// Implementation for cnat_5tuple
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Cnat5tuple {
+	pub addr: FixedSizeArray<Address, typenum::U2>,
+	pub port: FixedSizeArray<u16, typenum::U2>,
+	pub ip_proto: IpProto,
+}
 // Implementation for cnat_translation
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct CnatTranslation {
@@ -47,12 +54,9 @@ pub struct CnatTranslation {
 // Implementation for cnat_session
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct CnatSession {
-	pub src: CnatEndpoint,
-	pub dst: CnatEndpoint,
-	pub new: CnatEndpoint,
-	pub ip_proto: IpProto,
-	pub location: u8,
-	pub timestamp: f64,
+	pub tuple: Cnat5tuple,
+	pub ts_index: u32,
+	pub flags: u32,
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum CnatTranslationFlags {
@@ -79,7 +83,7 @@ impl AsEnumFlag for CnatTranslationFlags {
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum CnatEndpointTupleFlags {
-	 CNAT_EPT_NO_NAT=1,
+	 CNAT_EPT_NO_NAT=2,
 }
 impl Default for CnatEndpointTupleFlags {
 	fn default() -> Self { CnatEndpointTupleFlags::CNAT_EPT_NO_NAT }
@@ -90,7 +94,7 @@ impl AsEnumFlag for CnatEndpointTupleFlags {
 	 }
 	 fn from_u32(data: u32) -> Self{
 		 match data{
-			 1 => CnatEndpointTupleFlags::CNAT_EPT_NO_NAT,
+			 2 => CnatEndpointTupleFlags::CNAT_EPT_NO_NAT,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
@@ -124,6 +128,7 @@ pub enum CnatSnatPolicies {
 	 CNAT_POLICY_NONE=0,
 	 CNAT_POLICY_IF_PFX=1,
 	 CNAT_POLICY_K8S=2,
+	 CNAT_POLICY_DNAT=3,
 }
 impl Default for CnatSnatPolicies {
 	fn default() -> Self { CnatSnatPolicies::CNAT_POLICY_NONE }
@@ -180,7 +185,7 @@ pub struct CnatSessionPurgeReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(cnat_session_details_7e5017c7)]
+#[message_name_and_crc(cnat_session_details_7a78bf3f)]
 pub struct CnatSessionDetails {
 	pub context: u32,
 	pub session: CnatSession,
@@ -223,6 +228,25 @@ pub struct CnatGetSnatAddressesReply {
 	pub sw_if_index: InterfaceIndex,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(cnat_snat_addresses_dump_51077d14)]
+pub struct CnatSnatAddressesDump {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(cnat_snat_addresses_details_09ae6b38)]
+pub struct CnatSnatAddressesDetails {
+	pub context: u32,
+	pub retval: i32,
+	pub fwd_table_id4: u32,
+	pub fwd_table_id6: u32,
+	pub ret_table_id4: u32,
+	pub ret_table_id6: u32,
+	pub snat_ip4: Ip4Address,
+	pub snat_ip6: Ip6Address,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(cnat_snat_policy_add_del_exclude_pfx_e26dd79a)]
 pub struct CnatSnatPolicyAddDelExcludePfx {
 	pub client_index: u32,
@@ -252,7 +276,7 @@ pub struct CnatSnatPolicyAddDelIfReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(cnat_set_snat_policy_d3e6eaf4)]
+#[message_name_and_crc(cnat_set_snat_policy_37a3ce23)]
 pub struct CnatSetSnatPolicy {
 	pub client_index: u32,
 	pub context: u32,
