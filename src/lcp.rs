@@ -167,6 +167,33 @@ pub struct LcpEthertypeGetReply {
 	pub ethertypes: VariableSizeArray<u16>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_osi_proto_enable_bdd70c87)]
+pub struct LcpOsiProtoEnable {
+	pub client_index: u32,
+	pub context: u32,
+	pub osi_proto: u8,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_osi_proto_enable_reply_e8d4e804)]
+pub struct LcpOsiProtoEnableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_osi_proto_get_51077d14)]
+pub struct LcpOsiProtoGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lcp_osi_proto_get_reply_3b19a287)]
+pub struct LcpOsiProtoGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub count: u8,
+	pub osi_protos: VariableSizeArray<u8>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lcp_sync_unnumbered_set_c264d7bf)]
 pub struct LcpSyncUnnumberedSet {
 	pub client_index: u32,
