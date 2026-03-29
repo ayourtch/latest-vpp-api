@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Get the latest-vpp-api code
       env:
          SECRET_SSH_KEY: ${{ secrets.VPP_LATEST_API_PRIVATE_SSH_KEY }}
