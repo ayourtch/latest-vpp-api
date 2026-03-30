@@ -46,6 +46,39 @@ impl Default for MacEventAction {
 	fn default() -> Self { MacEventAction::MAC_EVENT_ACTION_API_ADD }
 }
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
+pub enum L2IntfFeatFlags {
+	 L2_INTF_FEAT_NONE=0,
+	 L2_INTF_FEAT_LEARN=1,
+	 L2_INTF_FEAT_FWD=2,
+	 L2_INTF_FEAT_FLOOD=4,
+	 L2_INTF_FEAT_UU_FLOOD=8,
+	 L2_INTF_FEAT_ARP_TERM=16,
+	 L2_INTF_FEAT_ARP_UFWD=32,
+}
+impl Default for L2IntfFeatFlags {
+	fn default() -> Self { L2IntfFeatFlags::L2_INTF_FEAT_NONE }
+}
+impl AsEnumFlag for L2IntfFeatFlags {
+	 fn as_u32(data: &Self) -> u32{
+		 *data as u32
+	 }
+	 fn from_u32(data: u32) -> Self{
+		 match data{
+			 0 => L2IntfFeatFlags::L2_INTF_FEAT_NONE,
+			 1 => L2IntfFeatFlags::L2_INTF_FEAT_LEARN,
+			 2 => L2IntfFeatFlags::L2_INTF_FEAT_FWD,
+			 4 => L2IntfFeatFlags::L2_INTF_FEAT_FLOOD,
+			 8 => L2IntfFeatFlags::L2_INTF_FEAT_UU_FLOOD,
+			 16 => L2IntfFeatFlags::L2_INTF_FEAT_ARP_TERM,
+			 32 => L2IntfFeatFlags::L2_INTF_FEAT_ARP_UFWD,
+			_ => panic!("Invalid Enum Descriminant")
+		 }
+	 }
+	 fn size_of_enum_flag() -> u32{
+		 32 as u32
+	}
+}
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum BdFlags {
 	 BRIDGE_API_FLAG_NONE=0,
 	 BRIDGE_API_FLAG_LEARN=1,
@@ -256,6 +289,66 @@ pub struct L2FlagsReply {
 	pub context: u32,
 	pub retval: i32,
 	pub resulting_feature_bitmap: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_flags_get_f9e6675e)]
+pub struct L2FlagsGet {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_flags_get_reply_35cb810f)]
+pub struct L2FlagsGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub input_feature_bitmap: u32,
+	pub output_feature_bitmap: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_flags_set_d4030647)]
+pub struct L2FlagsSet {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub is_set: bool,
+	pub input_feature_bitmap: u32,
+	pub output_feature_bitmap: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_flags_set_reply_e8d4e804)]
+pub struct L2FlagsSetReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_interface_feat_flags_get_f9e6675e)]
+pub struct L2InterfaceFeatFlagsGet {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_interface_feat_flags_get_reply_a4149215)]
+pub struct L2InterfaceFeatFlagsGetReply {
+	pub context: u32,
+	pub retval: i32,
+	 pub flags: EnumFlag<L2IntfFeatFlags>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_interface_feat_flags_set_c4e2865c)]
+pub struct L2InterfaceFeatFlagsSet {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub is_set: bool,
+	 pub flags: EnumFlag<L2IntfFeatFlags>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(l2_interface_feat_flags_set_reply_e8d4e804)]
+pub struct L2InterfaceFeatFlagsSetReply {
+	pub context: u32,
+	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(bridge_domain_set_mac_age_b537ad7b)]
