@@ -36,6 +36,22 @@ pub struct WireguardPeer {
 	pub n_allowed_ips: u8,
 	pub allowed_ips: VariableSizeArray<Prefix>,
 }
+// Implementation for wireguard_peer_v2
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct WireguardPeerV2 {
+	pub peer_index: u32,
+	pub preshared_key: FixedSizeArray<u8, typenum::U32>,
+	pub preshared_key_set: bool,
+	pub public_key: FixedSizeArray<u8, typenum::U32>,
+	pub port: u16,
+	pub persistent_keepalive: u16,
+	pub table_id: u32,
+	pub endpoint: Address,
+	pub sw_if_index: InterfaceIndex,
+	pub flags: EnumFlag<WireguardPeerFlags>,
+	pub n_allowed_ips: u8,
+	pub allowed_ips: VariableSizeArray<Prefix>,
+}
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum WireguardPeerFlags {
 	 WIREGUARD_PEER_STATUS_DEAD=1,
@@ -133,8 +149,22 @@ pub struct WireguardPeerAdd {
 	pub peer: WireguardPeer,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(wireguard_peer_add_v2_4a07ba90)]
+pub struct WireguardPeerAddV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub peer: WireguardPeerV2,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(wireguard_peer_add_reply_084a0cd3)]
 pub struct WireguardPeerAddReply {
+	pub context: u32,
+	pub retval: i32,
+	pub peer_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(wireguard_peer_add_v2_reply_084a0cd3)]
+pub struct WireguardPeerAddV2Reply {
 	pub context: u32,
 	pub retval: i32,
 	pub peer_index: u32,
@@ -160,10 +190,23 @@ pub struct WireguardPeersDump {
 	pub peer_index: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(wireguard_peers_v2_dump_3b74607a)]
+pub struct WireguardPeersV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub peer_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(wireguard_peers_details_6a9f6bc3)]
 pub struct WireguardPeersDetails {
 	pub context: u32,
 	pub peer: WireguardPeer,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(wireguard_peers_v2_details_f5b86f42)]
+pub struct WireguardPeersV2Details {
+	pub context: u32,
+	pub peer: WireguardPeerV2,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(wg_set_async_mode_a6465f7c)]
