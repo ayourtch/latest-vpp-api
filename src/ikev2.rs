@@ -59,7 +59,7 @@ pub struct Ikev2ProfileDump {
 	pub context: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(ikev2_profile_details_670d01d9)]
+#[message_name_and_crc(ikev2_profile_details_3e3e895b)]
 pub struct Ikev2ProfileDetails {
 	pub context: u32,
 	pub profile: Ikev2Profile,
@@ -295,7 +295,7 @@ pub struct Ikev2SetResponderHostnameReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(ikev2_set_ike_transforms_076d7378)]
+#[message_name_and_crc(ikev2_set_ike_transforms_aa99fec0)]
 pub struct Ikev2SetIkeTransforms {
 	pub client_index: u32,
 	pub context: u32,

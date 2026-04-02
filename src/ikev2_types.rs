@@ -51,6 +51,7 @@ pub struct Ikev2IkeTransforms {
 	pub crypto_alg: u8,
 	pub crypto_key_size: u32,
 	pub integ_alg: u8,
+	pub prf_alg: u8,
 	pub dh_group: u8,
 }
 // Implementation for ikev2_esp_transforms
