@@ -118,3 +118,22 @@ pub struct GreTunnelDetailsV2 {
 	pub context: u32,
 	pub tunnel: GreTunnelV2,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_v2_dump_f9e6675e)]
+pub struct GreTunnelV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_v2_dump_reply_e8d4e804)]
+pub struct GreTunnelV2DumpReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(gre_tunnel_v2_details_65521177)]
+pub struct GreTunnelV2Details {
+	pub context: u32,
+	pub tunnel: GreTunnelV2,
+}
