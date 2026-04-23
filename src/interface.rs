@@ -572,3 +572,29 @@ pub struct PcapTraceOffReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_set_default_rx_mode_776b4837)]
+pub struct SwInterfaceSetDefaultRxMode {
+	pub client_index: u32,
+	pub context: u32,
+	pub mode: RxMode,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_set_default_rx_mode_reply_e8d4e804)]
+pub struct SwInterfaceSetDefaultRxModeReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_get_default_rx_mode_51077d14)]
+pub struct SwInterfaceGetDefaultRxMode {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_get_default_rx_mode_reply_2339da5a)]
+pub struct SwInterfaceGetDefaultRxModeReply {
+	pub context: u32,
+	pub retval: i32,
+	pub mode: RxMode,
+}
