@@ -18,6 +18,7 @@ pub enum ClassifyAction {
 	 CLASSIFY_API_ACTION_SET_IP4_FIB_INDEX=1,
 	 CLASSIFY_API_ACTION_SET_IP6_FIB_INDEX=2,
 	 CLASSIFY_API_ACTION_SET_METADATA=3,
+	 CLASSIFY_API_ACTION_MARK_FLOW=4,
 }
 impl Default for ClassifyAction {
 	fn default() -> Self { ClassifyAction::CLASSIFY_API_ACTION_NONE }

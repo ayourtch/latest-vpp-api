@@ -123,6 +123,7 @@ pub mod tcp;
 pub mod tcp_check;
 pub mod teib;
 pub mod tls_openssl;
+pub mod tm;
 pub mod trace;
 pub mod tracedump;
 pub mod tracenode;
