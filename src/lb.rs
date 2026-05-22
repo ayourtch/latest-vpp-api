@@ -30,6 +30,22 @@ pub struct LbConfReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_conf_get_51077d14)]
+pub struct LbConfGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_conf_get_reply_923427ac)]
+pub struct LbConfGetReply {
+	pub context: u32,
+	pub retval: i32,
+	pub ip4_src_address: Ip4Address,
+	pub ip6_src_address: Ip6Address,
+	pub sticky_buckets_per_core: u32,
+	pub flow_timeout: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lb_add_del_vip_6fa569c7)]
 pub struct LbAddDelVip {
 	pub client_index: u32,
@@ -93,6 +109,43 @@ pub struct LbAddDelAsReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_add_del_as_v2_2f1d3b0e)]
+pub struct LbAddDelAsV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub pfx: AddressWithPrefix,
+	pub protocol: u8,
+	pub port: u16,
+	pub as_address: Address,
+	pub weight: u8,
+	pub is_del: bool,
+	pub is_flush: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_add_del_as_v2_reply_e8d4e804)]
+pub struct LbAddDelAsV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_as_set_weight_2d89bdbd)]
+pub struct LbAsSetWeight {
+	pub client_index: u32,
+	pub context: u32,
+	pub pfx: AddressWithPrefix,
+	pub protocol: u8,
+	pub port: u16,
+	pub as_address: Address,
+	pub weight: u8,
+	pub is_flush: bool,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_as_set_weight_reply_e8d4e804)]
+pub struct LbAsSetWeightReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lb_flush_vip_1063f819)]
 pub struct LbFlushVip {
 	pub client_index: u32,
@@ -145,6 +198,26 @@ pub struct LbAsDetails {
 	pub app_srv: Address,
 	pub flags: u8,
 	pub in_use_since: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_as_v2_dump_1063f819)]
+pub struct LbAsV2Dump {
+	pub client_index: u32,
+	pub context: u32,
+	pub pfx: AddressWithPrefix,
+	pub protocol: u8,
+	pub port: u16,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(lb_as_v2_details_90064aae)]
+pub struct LbAsV2Details {
+	pub context: u32,
+	pub vip: LbVip,
+	pub app_srv: Address,
+	pub flags: u8,
+	pub in_use_since: u32,
+	pub weight: u8,
+	pub num_buckets: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(lb_add_del_intf_nat4_47d6e753)]
