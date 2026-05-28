@@ -598,3 +598,32 @@ pub struct SwInterfaceGetDefaultRxModeReply {
 	pub retval: i32,
 	pub mode: RxMode,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_set_link_speed_2f0867fa)]
+pub struct SwInterfaceSetLinkSpeed {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+	pub link_speed: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_set_link_speed_reply_e8d4e804)]
+pub struct SwInterfaceSetLinkSpeedReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_get_speed_capa_f9e6675e)]
+pub struct SwInterfaceGetSpeedCapa {
+	pub client_index: u32,
+	pub context: u32,
+	pub sw_if_index: InterfaceIndex,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sw_interface_get_speed_capa_reply_20b21417)]
+pub struct SwInterfaceGetSpeedCapaReply {
+	pub context: u32,
+	pub retval: i32,
+	pub count: u32,
+	pub speeds: VariableSizeArray<u32>,
+}
