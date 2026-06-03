@@ -83,3 +83,16 @@ pub struct FlowDisableReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_disable_v2_b6b9b02c)]
+pub struct FlowDisableV2 {
+	pub client_index: u32,
+	pub context: u32,
+	pub flow_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_disable_v2_reply_e8d4e804)]
+pub struct FlowDisableV2Reply {
+	pub context: u32,
+	pub retval: i32,
+}
