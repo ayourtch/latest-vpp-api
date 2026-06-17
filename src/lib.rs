@@ -127,6 +127,7 @@ pub mod tm;
 pub mod trace;
 pub mod tracedump;
 pub mod tracenode;
+pub mod tracepath;
 pub mod tunnel_types;
 pub mod udp;
 pub mod udp_ping;
