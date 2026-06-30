@@ -53,3 +53,15 @@ pub struct HttpStaticEnableV5Reply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(http_static_disable_51077d14)]
+pub struct HttpStaticDisable {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(http_static_disable_reply_e8d4e804)]
+pub struct HttpStaticDisableReply {
+	pub context: u32,
+	pub retval: i32,
+}
