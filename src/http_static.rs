@@ -65,3 +65,23 @@ pub struct HttpStaticDisableReply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(http_static_get_51077d14)]
+pub struct HttpStaticGet {
+	pub client_index: u32,
+	pub context: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(http_static_get_reply_b19e16fe)]
+pub struct HttpStaticGetReply {
+	pub context: u32,
+	pub retval: u32,
+	pub fifo_size: u32,
+	pub cache_size_limit: u32,
+	pub max_age: u32,
+	pub keepalive_timeout: u32,
+	pub max_body_size: u64,
+	pub rx_buff_thresh: u32,
+	pub www_root: FixedSizeString<typenum::U256>,
+	pub uri: FixedSizeString<typenum::U256>,
+}
