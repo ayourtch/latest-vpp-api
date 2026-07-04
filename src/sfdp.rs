@@ -98,13 +98,13 @@ pub struct SfdpTenantDetails {
 	pub timeout: VariableSizeArray<u32>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(sfdp_set_timeout_36440b87)]
+#[message_name_and_crc(sfdp_set_timeout_2a363c83)]
 pub struct SfdpSetTimeout {
 	pub client_index: u32,
 	pub context: u32,
 	pub tenant_id: u32,
-	pub timeout_id: u32,
 	pub timeout_value: u32,
+	pub timeout_type: SfdpTimeoutType,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sfdp_set_timeout_reply_e8d4e804)]
