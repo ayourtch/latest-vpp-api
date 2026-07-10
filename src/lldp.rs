@@ -90,17 +90,27 @@ pub struct LldpDumpReply {
 	pub cursor: u32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
-#[message_name_and_crc(lldp_details_c2d226cd)]
+#[message_name_and_crc(lldp_details_a14ac395)]
 pub struct LldpDetails {
 	pub context: u32,
 	pub sw_if_index: InterfaceIndex,
 	pub last_heard: f64,
 	pub last_sent: f64,
-	pub chassis_id: FixedSizeArray<u8, typenum::U64>,
+	pub last_heard_age: f64,
+	pub last_sent_age: f64,
+	pub active: bool,
+	pub chassis_id: FixedSizeArray<u8, typenum::U255>,
 	pub chassis_id_len: u8,
-	pub port_id: FixedSizeArray<u8, typenum::U64>,
+	pub port_id: FixedSizeArray<u8, typenum::U255>,
 	pub port_id_len: u8,
 	pub ttl: u16,
 	pub port_id_subtype: PortIdSubtype,
 	pub chassis_id_subtype: ChassisIdSubtype,
+	pub system_name: FixedSizeArray<u8, typenum::U256>,
+	pub tx_hold: u32,
+	pub tx_interval: u32,
+	pub mgmt_ip4: Ip4Address,
+	pub mgmt_ip6: Ip6Address,
+	pub mgmt_oid: FixedSizeArray<u8, typenum::U128>,
+	pub port_desc: FixedSizeArray<u8, typenum::U256>,
 }
