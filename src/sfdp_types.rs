@@ -67,14 +67,3 @@ pub enum SfdpSessionType {
 impl Default for SfdpSessionType {
 	fn default() -> Self { SfdpSessionType::SFDP_API_SESSION_TYPE_IP4 }
 }
-#[derive(Debug, Clone, Serialize_repr, Deserialize_repr)]
-#[repr(u8)]
-pub enum SfdpTimeoutType {
-	 SFDP_API_TIMEOUT_EMBRYONIC=0,
-	 SFDP_API_TIMEOUT_ESTABLISHED=1,
-	 SFDP_API_TIMEOUT_TCP_ESTABLISHED=2,
-	 SFDP_API_TIMEOUT_SECURITY=3,
-}
-impl Default for SfdpTimeoutType {
-	fn default() -> Self { SfdpTimeoutType::SFDP_API_TIMEOUT_EMBRYONIC }
-}
