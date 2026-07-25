@@ -25,6 +25,7 @@ impl Default for AfXdpMode {
 pub enum AfXdpFlag {
 	 AF_XDP_API_FLAGS_NO_SYSCALL_LOCK=1,
 	 AF_XDP_API_FLAGS_MAC_REUSE=2,
+	 AF_XDP_API_FLAGS_MULTI_BUFFER=4,
 }
 impl Default for AfXdpFlag {
 	fn default() -> Self { AfXdpFlag::AF_XDP_API_FLAGS_NO_SYSCALL_LOCK }
@@ -37,6 +38,7 @@ impl AsEnumFlag for AfXdpFlag {
 		 match data{
 			 1 => AfXdpFlag::AF_XDP_API_FLAGS_NO_SYSCALL_LOCK,
 			 2 => AfXdpFlag::AF_XDP_API_FLAGS_MAC_REUSE,
+			 4 => AfXdpFlag::AF_XDP_API_FLAGS_MULTI_BUFFER,
 			_ => panic!("Invalid Enum Descriminant")
 		 }
 	 }
