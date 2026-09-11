@@ -96,3 +96,91 @@ pub struct FlowDisableV2Reply {
 	pub context: u32,
 	pub retval: i32,
 }
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_add_5b757558)]
+pub struct FlowTemplateAdd {
+	pub client_index: u32,
+	pub context: u32,
+	pub flow: FlowRuleV2,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_add_reply_bbc6080e)]
+pub struct FlowTemplateAddReply {
+	pub context: u32,
+	pub retval: i32,
+	pub template_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_del_347d16ae)]
+pub struct FlowTemplateDel {
+	pub client_index: u32,
+	pub context: u32,
+	pub template_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_del_reply_e8d4e804)]
+pub struct FlowTemplateDelReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_enable_31185a9b)]
+pub struct FlowTemplateEnable {
+	pub client_index: u32,
+	pub context: u32,
+	pub template_index: u32,
+	pub hw_if_index: u32,
+	pub n_flows: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_enable_reply_e8d4e804)]
+pub struct FlowTemplateEnableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_disable_347d16ae)]
+pub struct FlowTemplateDisable {
+	pub client_index: u32,
+	pub context: u32,
+	pub template_index: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_template_disable_reply_e8d4e804)]
+pub struct FlowTemplateDisableReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_async_range_enable_ec128699)]
+pub struct FlowAsyncRangeEnable {
+	pub client_index: u32,
+	pub context: u32,
+	pub template_index: u32,
+	pub hw_if_index: u32,
+	pub count: u32,
+	pub flow_indices: VariableSizeArray<u32>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_async_range_enable_reply_40316db5)]
+pub struct FlowAsyncRangeEnableReply {
+	pub context: u32,
+	pub retval: i32,
+	pub n_success: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_async_range_disable_ce2fc275)]
+pub struct FlowAsyncRangeDisable {
+	pub client_index: u32,
+	pub context: u32,
+	pub hw_if_index: u32,
+	pub count: u32,
+	pub flow_indices: VariableSizeArray<u32>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(flow_async_range_disable_reply_40316db5)]
+pub struct FlowAsyncRangeDisableReply {
+	pub context: u32,
+	pub retval: i32,
+	pub n_success: u32,
+}
