@@ -81,6 +81,19 @@ pub struct SfdpKillSessionReply {
 	pub retval: i32,
 }
 #[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sfdp_kill_session_batch_8efb7a9a)]
+pub struct SfdpKillSessionBatch {
+	pub client_index: u32,
+	pub context: u32,
+	pub max: u32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
+#[message_name_and_crc(sfdp_kill_session_batch_reply_e8d4e804)]
+pub struct SfdpKillSessionBatchReply {
+	pub context: u32,
+	pub retval: i32,
+}
+#[derive(Debug, Clone, Serialize, Deserialize, VppMessage)]
 #[message_name_and_crc(sfdp_tenant_dump_51077d14)]
 pub struct SfdpTenantDump {
 	pub client_index: u32,
